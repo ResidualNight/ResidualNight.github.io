@@ -70,12 +70,6 @@
         </li>
       
         <li>
-          <a class="nav home" href="/blog/archives/" rel="nofollow" id="blogarchives">
-            <i class="fas fa-archive fa-fw"></i>&nbsp;Archive
-          </a>
-        </li>
-      
-        <li>
           <a class="nav home" href="/about/" rel="nofollow" id="about">
             <i class="fas fa-info-circle fa-fw"></i>&nbsp;About
           </a>
@@ -166,37 +160,25 @@
           
             <li>
 							<a class="nav flat-box" href="/" id="home">
-								<i class="fas fa-clock fa-fw"></i>&nbsp;近期文章
+								<i class="fas fa-clock fa-fw"></i>&nbsp;文章
 							</a>
             </li>
           
             <li>
 							<a class="nav flat-box" href="/blog/archives/" rel="nofollow" id="blogarchives">
-								<i class="fas fa-archive fa-fw"></i>&nbsp;文章归档
-							</a>
-            </li>
-          
-            <li>
-							<a class="nav flat-box" href="/projects/" id="projects">
-								<i class="fas fa-code-branch fa-fw"></i>&nbsp;开源项目
+								<i class="fas fa-archive fa-fw"></i>&nbsp;归档
 							</a>
             </li>
           
             <li>
 							<a class="nav flat-box" href="/friends/" rel="nofollow" id="friends">
-								<i class="fas fa-link fa-fw"></i>&nbsp;我的友链
-							</a>
-            </li>
-          
-            <li>
-							<a class="nav flat-box" href="https://xaoxuu.com/wiki/material-x/" rel="nofollow" id="https:xaoxuu.comwikimaterial-x">
-								<i class="fas fa-book fa-fw"></i>&nbsp;主题文档
+								<i class="fas fa-link fa-fw"></i>&nbsp;友链
 							</a>
             </li>
           
             <li>
 							<a class="nav flat-box" href="/about/" rel="nofollow" id="about">
-								<i class="fas fa-info-circle fa-fw"></i>&nbsp;关于小站
+								<i class="fas fa-info-circle fa-fw"></i>&nbsp;关于
 							</a>
             </li>
           
@@ -653,7 +635,7 @@ ST算法：高效，以O(n log n)的预处理代价，换取O(1)的查询时性�
     <div class="content pure">
       
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.css">
-  <div class="aplayer" data-theme="#1BCDFC" data-mode="circulation" data-server="tencent" data-type="playlist" data-id="1472814532" data-volume="0.7">
+  <div class="aplayer" data-theme="#4682b4" data-mode="circulation" data-server="tencent" data-type="playlist" data-id="1472814532" data-volume="0.7">
   </div>
   <script src="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/meting@1.1.0/dist/Meting.min.js"></script>
@@ -714,11 +696,13 @@ ST算法：高效，以O(n log n)的预处理代价，换取O(1)的查询时性�
     
     。
   </div>
-  <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+</footer>
+<script>setLoadingBarProgress(80);</script>
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
 <script>
     var now = new Date(); 
     function createtime() { 
-        var grt= new Date("16/03/2019 17:38:00");//在此处修改你的建站时间
+        var grt= new Date("16/03/2019 12:00:00");//在此处修改你的建站时间
         now.setTime(now.getTime()+250); 
         days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
         hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
@@ -731,9 +715,6 @@ ST算法：高效，以O(n log n)的预处理代价，换取O(1)的查询时性�
     } 
 setInterval("createtime()",250);
 </script>
-</footer>
-<script>setLoadingBarProgress(80);</script>
-
 
       <script>setLoadingBarProgress(60);</script>
     </div>
