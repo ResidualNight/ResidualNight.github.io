@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>分类 | Residual Night</title>
+  <title>Category: 博客 | Residual Night</title>
   
   
 
@@ -46,7 +46,7 @@
   
   
   <div class="cover-wrapper">
-    <cover class="cover category half">
+    <cover class="cover  half">
       
         
   <h1 class="title">#  Residual Night  #</h1>
@@ -198,74 +198,347 @@
 <div class="l_main">
   
     
-      <section class="post-list">
-        <div class="post-wrapper">
-          <article id="archive-page" class="post article white-box">
-            <section class="archive">
-              <div class="archive-item archive-year mark">
-                <h2>分类</h2>
-                <hr>
-              </div>
-              <div class="archive-item archive-post mark">
-                
-                  
-                    <a class href="/categories/C-学习/">
-                      <time><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;C++学习</time>
-                      <span class="title">
-                        (2)
-                      </span>
-                    </a>
-                  
-                    <a class href="/categories/个人/">
-                      <time><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;个人</time>
-                      <span class="title">
-                        (0)
-                      </span>
-                    </a>
-                  
-                    <a class href="/categories/个人生活/">
-                      <time><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;个人生活</time>
-                      <span class="title">
-                        (1)
-                      </span>
-                    </a>
-                  
-                    <a class href="/categories/中学/">
-                      <time><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;中学</time>
-                      <span class="title">
-                        (1)
-                      </span>
-                    </a>
-                  
-                    <a class href="/categories/博客/">
-                      <time><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;博客</time>
-                      <span class="title">
-                        (3)
-                      </span>
-                    </a>
-                  
-                    <a class href="/categories/杂/">
-                      <time><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;杂</time>
-                      <span class="title">
-                        (0)
-                      </span>
-                    </a>
-                  
-                    <a class href="/categories/题解/">
-                      <time><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;题解</time>
-                      <span class="title">
-                        (1)
-                      </span>
-                    </a>
-                  
-                
-              </div>
-              <br>
-              
-            </section>
-          </article>
+      
+  <section class="post-list">
+    
+      
+        
+          
+        
+          
+        
+          
+        
+      
+    
+    
+      
+        
+          <div class="post-wrapper">
+            <article class="post reveal ">
+  
+
+
+  <section class="meta">
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/2019/01/22/优雅地使用Hexo搭建自己的静态博客3/">
+      优雅地使用Hexo搭建自己的静态博客3
+    </a>
+  </h2>
+
+
+      
+      <div class="new-meta-box">
+        
+          
+        
+          
+            
+  <div class="new-meta-item author">
+    <a href="http://yoursite.com" rel="nofollow">
+      
+        <img src="https://i.loli.net/2019/04/26/5cc2e79e0029e.jpg">
+      
+      <p>WPY</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2019-01-22</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  
+  <div class="new-meta-item category">
+    <a href="/categories/博客/" rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>博客</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <h1 id="关联GitHub账号！"><a href="#关联GitHub账号！" class="headerlink" title="关联GitHub账号！"></a>关联GitHub账号！</h1><p>看了之前的教程，你可能会有一个疑问：woc！输入密码真<del>jb</del>烦人！有没有什么方便的方法让我可以在提交时免密码登陆呢？</p>
+<p>为了每一次部署不必一种输入密码，我们可以生成秘钥，然后提交到GitHub，进行关联，那么你下次就不需要再输入密码了。免密提交：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 用你注册GitHub时的邮箱号，进行秘钥生成</span></span><br><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line">ssh-keygen -t rsa -C <span class="string">"xxxxxxx@qq.com"</span></span><br><span class="line"><span class="comment"># 系统就会生成一个隐藏文件夹.ssh</span></span><br><span class="line"><span class="built_in">cd</span> .ssh</span><br><span class="line">ls</span><br><span class="line"><span class="comment"># 复制公钥</span></span><br><span class="line">vim id_rsa.pub</span><br></pre></td></tr></table></figure>
+      
+        <div class="readmore">
+          <a href="/2019/01/22/优雅地使用Hexo搭建自己的静态博客3/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
         </div>
-      </section>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/tags/blog/" rel="nofollow"><i class="fas fa-hashtag fa-fw"></i>blog</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class="post-wrapper">
+            <article class="post reveal ">
+  
+
+
+  <section class="meta">
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/2019/01/21/优雅地使用Hexo搭建自己的静态博客2/">
+      优雅地使用Hexo搭建自己的静态博客2
+    </a>
+  </h2>
+
+
+      
+      <div class="new-meta-box">
+        
+          
+        
+          
+            
+  <div class="new-meta-item author">
+    <a href="http://yoursite.com" rel="nofollow">
+      
+        <img src="https://i.loli.net/2019/04/26/5cc2e79e0029e.jpg">
+      
+      <p>WPY</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2019-01-21</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  
+  <div class="new-meta-item category">
+    <a href="/categories/博客/" rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>博客</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <h1 id="继续！"><a href="#继续！" class="headerlink" title="继续！"></a>继续！</h1><p>既然我们已经完成了Hexo的安装，那么就是开始使用了。请确保以下步骤在你正确安装完Hexo之后进行。</p>
+      
+        <div class="readmore">
+          <a href="/2019/01/21/优雅地使用Hexo搭建自己的静态博客2/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/tags/blog/" rel="nofollow"><i class="fas fa-hashtag fa-fw"></i>blog</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class="post-wrapper">
+            <article class="post reveal ">
+  
+
+
+  <section class="meta">
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/2019/01/20/优雅地使用Hexo搭建自己的静态博客1/">
+      优雅地使用Hexo搭建自己的静态博客1
+    </a>
+  </h2>
+
+
+      
+      <div class="new-meta-box">
+        
+          
+        
+          
+            
+  <div class="new-meta-item author">
+    <a href="http://yoursite.com" rel="nofollow">
+      
+        <img src="https://i.loli.net/2019/04/26/5cc2e79e0029e.jpg">
+      
+      <p>WPY</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2019-01-20</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  
+  <div class="new-meta-item category">
+    <a href="/categories/博客/" rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>博客</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><p>如题，这个静态博客就是使用hexo制作的。如果你对此有兴趣，有探究精神（<del>又闲着没有事</del>），那么你可以来尝试制作一下你的blog！在这里，我会尽量用通俗一些的语言来阐述这一过程，那么我们开始吧！</p>
+<p>如果你是一个大佬，这一章的内容自行跳过。<del>是大佬也不会来看我的博客了233</del></p>
+      
+        <div class="readmore">
+          <a href="/2019/01/20/优雅地使用Hexo搭建自己的静态博客1/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/tags/blog/" rel="nofollow"><i class="fas fa-hashtag fa-fw"></i>blog</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+    
+  </section>
+  
+    
+    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
+    
+    
+
+  
+
+
     
   
 
