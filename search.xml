@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>R.I.P. Avicii ◢ ◤</title>
+      <link href="/2019/06/06/Avicii/"/>
+      <url>/2019/06/06/Avicii/</url>
+      
+        <content type="html"><![CDATA[<p>2019.6.6北京时间23:00:00(当地时间17:00:00)，Avicii的遗作专辑<code>&lt;Tim&gt;</code>发布。希望这永远不是鸽王的最后一张专辑。</p><a id="more"></a><p>曲目列表：(12 songs)</p><ul><li>Peace Of Mind</li><li>Heaven</li><li>SOS</li><li>Tough Love</li><li>Bad Reputation</li><li>Ain’t A Thing</li><li>Hold The Line</li><li>Freak</li><li>Excuse Me Mr Sir</li><li>Heart Upon My Sleeve</li><li>Never Leave Me</li><li>Fades Away</li></ul><p>Rest in Peace.</p><p><img src="https://i.loli.net/2019/04/28/5cc5a73b9898d.jpeg" alt></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 个人生活 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> personal,music </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>七下·生物复习1</title>
       <link href="/2019/04/04/%E4%B8%83%E4%B8%8B%C2%B7%E7%94%9F%E7%89%A9%E5%A4%8D%E4%B9%A0/"/>
       <url>/2019/04/04/%E4%B8%83%E4%B8%8B%C2%B7%E7%94%9F%E7%89%A9%E5%A4%8D%E4%B9%A0/</url>
@@ -183,7 +208,7 @@
       <link href="/2019/01/18/Welcome/"/>
       <url>/2019/01/18/Welcome/</url>
       
-        <content type="html"><![CDATA[<h1 id="Hello"><a href="#Hello" class="headerlink" title="Hello!"></a>Hello!</h1><p><strong>很高兴认识你！</strong></p><p>这里是<em>Residual Night</em>的个人博客，基于<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a>&amp;&amp;<a href="https://github.com/" target="_blank" rel="noopener">github</a>搭建的静态博客。也是我人生中第一个blog。以<a href="https://xaoxuu.com/wiki/material-x/" target="_blank" rel="noopener">Material X</a>为主题。</p><a id="more"></a><h1 id="这是什么？"><a href="#这是什么？" class="headerlink" title="这是什么？"></a>这是什么？</h1><p>在这个blog上，主要会发表一些我的一些idea和编程笔记。至于编程，我只是一个刚接触<strong>c++</strong>的普及组选手而已（初中苣蒻，勿喷）。但我坚信，我会在OI的道路上砥砺前行的。</p><h1 id="长风破浪会有时，直挂云帆济沧海。"><a href="#长风破浪会有时，直挂云帆济沧海。" class="headerlink" title="长风破浪会有时，直挂云帆济沧海。"></a>长风破浪会有时，直挂云帆济沧海。</h1><p>不管有没有人看得到，不管我会不会在这个博客上坚持下去，但这里总是一个梦想开始的地方，isn’t it?</p><h1 id="test"><a href="#test" class="headerlink" title="test"></a>test</h1><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"Hello World!"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>你好。</p><p>Hello.</p><p>こんにちは。</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="Hello"><a href="#Hello" class="headerlink" title="Hello!"></a>Hello!</h1><p><strong>很高兴认识你！</strong></p><p>这里是<em>Residual Night</em>的个人博客，基于<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a>&amp;&amp;<a href="https://github.com/" target="_blank" rel="noopener">github</a>搭建的静态博客。也是我人生中第一个blog。以<a href="https://xaoxuu.com/wiki/material-x/" target="_blank" rel="noopener">Material X</a>为主题。</p><a id="more"></a><h1 id="这是什么？"><a href="#这是什么？" class="headerlink" title="这是什么？"></a>这是什么？</h1><p>在这个blog上，主要会发表一些我的一些idea和编程笔记。至于编程，我只是一个刚接触<strong>c++</strong>的普及组+选手而已（初中苣蒻，勿喷）。但我坚信，我会在OI的道路上砥砺前行的。</p><h1 id="长风破浪会有时，直挂云帆济沧海。"><a href="#长风破浪会有时，直挂云帆济沧海。" class="headerlink" title="长风破浪会有时，直挂云帆济沧海。"></a>长风破浪会有时，直挂云帆济沧海。</h1><p>不管有没有人看得到，不管我会不会在这个博客上坚持下去，但这里总是一个梦想开始的地方，isn’t it?</p><h1 id="test"><a href="#test" class="headerlink" title="test"></a>test</h1><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"Hello World!"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>你好。</p><p>Hello.</p><p>こんにちは。</p>]]></content>
       
       
       <categories>
