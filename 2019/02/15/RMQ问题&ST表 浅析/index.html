@@ -264,7 +264,7 @@
 <a id="more"></a>
 <h1 id="ST算法"><a href="#ST算法" class="headerlink" title="ST算法"></a>ST算法</h1><p>令：<strong>f[i,j]</strong>代表从第i个数起连续2^j个数中的最大值（因此要用倍增）</p>
 <p>从下图可以看出：<code>f[0][1]=max(f[0][0],f[1][0]), …… f[[0][2]=max(f[0][1],f[2][1]) ……</code></p>
-<p><img src="http://t1.aixinxi.net/o_1d3omninkbgf1p8l17ek1hb41puia.png-w.jpg" alt="ST表原理"></p>
+<p><img src="https://i.loli.net/2019/08/11/JVOWeI9r6CXdEom.png" alt="st表"></p>
 <p> 采用动态规划的思想：显然<code>f[i,j]=max(f[i,j-1],f[i+2^(j-1),j-1])</code></p>
 <p>所以，我们需要建立ST表，也就是上文中的f数组。生成ST表是一次预处理，此后都是O(1)的查询了。</p>
 <h2 id="建立ST表"><a href="#建立ST表" class="headerlink" title="建立ST表"></a>建立ST表</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;=n; i++) f[i][<span class="number">0</span>]=a[i]; <span class="comment">//初始化，第0列(j=0)就是a[i]。</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;=<span class="number">20</span>; j++)  <span class="comment">//j&lt;20很大啦，够用！2^20=1048576</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i+(<span class="number">1</span>&lt;&lt;j)&lt;=n+<span class="number">1</span>; i++)</span><br><span class="line">		f[i][j]=max(f[i][j<span class="number">-1</span>],f[i+(<span class="number">1</span>&lt;&lt;(j<span class="number">-1</span>))][j<span class="number">-1</span>]);</span><br></pre></td></tr></table></figure>
@@ -293,10 +293,10 @@
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-04-27T17:19:25+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-08-11T10:05:31+08:00">
   <a class="notlink">
     <i class="fas fa-clock" aria-hidden="true"></i>
-    <p>最后更新于 2019年4月27日</p>
+    <p>最后更新于 2019年8月11日</p>
   </a>
 </div>
 
