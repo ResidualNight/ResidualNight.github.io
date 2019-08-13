@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>高精度运算</title>
+      <link href="/2019/08/13/%E9%AB%98%E7%B2%BE%E5%BA%A6%E8%BF%90%E7%AE%97/"/>
+      <url>/2019/08/13/%E9%AB%98%E7%B2%BE%E5%BA%A6%E8%BF%90%E7%AE%97/</url>
+      
+        <content type="html"><![CDATA[<p>。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> C++学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 高精 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>是基础算法！</title>
       <link href="/2019/08/11/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/"/>
       <url>/2019/08/11/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/</url>
@@ -208,7 +233,7 @@
       <link href="/2019/01/18/Welcome/"/>
       <url>/2019/01/18/Welcome/</url>
       
-        <content type="html"><![CDATA[<h1 id="Hello"><a href="#Hello" class="headerlink" title="Hello!"></a>Hello!</h1><p><strong>很高兴认识你！</strong></p><p>这里是<em>Residual Night</em>的个人博客，基于<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a>&amp;&amp;<a href="https://github.com/" target="_blank" rel="noopener">github</a>搭建的静态博客。也是我人生中第一个blog。以<a href="https://xaoxuu.com/wiki/material-x/" target="_blank" rel="noopener">Material X</a>为主题。</p><a id="more"></a><h1 id="这是什么？"><a href="#这是什么？" class="headerlink" title="这是什么？"></a>这是什么？</h1><p>在这个blog上，主要会发表一些我的一些idea和编程笔记。至于编程，我只是一个刚接触<strong>c++</strong>的普及组+选手而已（初中苣蒻，勿喷）。但我坚信，我会在OI的道路上砥砺前行的。</p><h1 id="长风破浪会有时，直挂云帆济沧海。"><a href="#长风破浪会有时，直挂云帆济沧海。" class="headerlink" title="长风破浪会有时，直挂云帆济沧海。"></a>长风破浪会有时，直挂云帆济沧海。</h1><p>不管有没有人看得到，不管我会不会在这个博客上坚持下去，但这里总是一个梦想开始的地方，isn’t it?</p><h1 id="test"><a href="#test" class="headerlink" title="test"></a>test</h1><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"Hello World!"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>你好。</p><p>Hello.</p><p>こんにちは。</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="Hello"><a href="#Hello" class="headerlink" title="Hello!"></a>Hello!</h1><p><strong>很高兴认识你！</strong></p><p>这里是<em>Residual Night</em>的第一个个人博客，基于<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a>&amp;&amp;<a href="https://github.com/" target="_blank" rel="noopener">github</a>搭建的静态博客。以<a href="https://xaoxuu.com/wiki/material-x/" target="_blank" rel="noopener">Material X</a>为主题。</p><a id="more"></a><h1 id="这是什么？"><a href="#这是什么？" class="headerlink" title="这是什么？"></a>这是什么？</h1><p>在这个blog上，主要会发表一些我的一些idea和编程笔记。至于编程，我只是一个刚接触<strong>c++</strong>的普及组+选手而已（初中苣蒻，勿喷）。但我坚信，我会在OI的道路上砥砺前行的。</p><h1 id="长风破浪会有时，直挂云帆济沧海。"><a href="#长风破浪会有时，直挂云帆济沧海。" class="headerlink" title="长风破浪会有时，直挂云帆济沧海。"></a>长风破浪会有时，直挂云帆济沧海。</h1><p>不管有没有人看得到，不管我会不会在这个博客上坚持下去，但这里总是一个梦想开始的地方。</p><h1 id="test"><a href="#test" class="headerlink" title="test"></a>test</h1><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  ios::sync_with_stdio();</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"Hello World!"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
