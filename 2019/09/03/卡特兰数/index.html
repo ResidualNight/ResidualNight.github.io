@@ -25,7 +25,7 @@
   
 
   
-  <link rel="shortcut icon" type="image/x-icon" href="https://img.vim-cn.com/e5/efb7a590cf8e8351a2ed11dcd24dca660fc182">
+  <link rel="shortcut icon" type="image/x-icon" href="https://img.vim-cn.com/d6/a6a4aac037a0f9301b30d8d9a15fa52c34d4f4">
   
 
   
@@ -262,6 +262,38 @@
 <p><strong>公式2</strong><br>$$<br>f(n)=\frac {f(n-1)\times(f\times n-2)}{n+1}<br>$$</p>
 <p><strong>公式3</strong><br>$$<br>f(n)=\frac{C_{2n}^{n}}{n+1}<br>$$</p>
 <p><strong>公式4</strong><br>$$<br>f(n)=C_{2n}^{n}-C_{2n}^{n-1}<br>$$</p>
+<h1 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h1><p>卡特兰数经常出现在OI以及ACM中，在生活中也有广泛的应用。</p>
+<h2 id="进出栈问题"><a href="#进出栈问题" class="headerlink" title="进出栈问题"></a>进出栈问题</h2><p><strong>栈是一种先进后出（FILO,First In Last Out）的数据结构</strong></p>
+<p>那么一个足够大的栈的进栈序列为1,2,3,⋯,n时有多少个不同的出栈序列？</p>
+<blockquote>
+<p>假设k为最后一个出栈的元素。比k早进栈且早出栈的有k-1个数，一共有<strong>f(k-1)</strong>种方案。比k晚进栈且早出栈的有n-k个数，一共有<strong>f(n-k)</strong>种方案。所以一共有<strong>f(k-1)*f(n-k)</strong>种方案。当k取不同值时，产生的出栈序列是互相独立的，因此可累加。因为k的取值范围是1~n，所以结果为<br>$$<br>f(n)=f(0)\times f(n-1)+f(1)\times f(n-2)+…+f(n-1)\times f(0)<br>$$<br>注意：n&gt;=2</p>
+</blockquote>
+<p>例题：<a href="https://www.luogu.org/problem/P1044" target="_blank" rel="noopener">P1044 栈</a></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> f[N];</span><br><span class="line">f[<span class="number">0</span>]=f[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line"><span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>; i&lt;=n; i++)</span><br><span class="line">  	<span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>; k&lt;i; k++)</span><br><span class="line">      	f[i]+=f[k]*f[i-k+<span class="number">1</span>];</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;f[n]&lt;&lt;<span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="二叉树的计数"><a href="#二叉树的计数" class="headerlink" title="二叉树的计数"></a>二叉树的计数</h2><p>已知一颗二叉树有n个结点，问：该二叉树能组成多少种不同的形态?</p>
+<blockquote>
+<p>假设如果采用中序遍历的话，根结点第k个被访问到，则根结点的左子树有<code>k-1</code>个点、根结点的右指数有<code>n-k</code>个点。k的取值范围为1到n。明显的卡特兰数。</p>
+</blockquote>
+<h2 id="AB排列问题"><a href="#AB排列问题" class="headerlink" title="AB排列问题"></a>AB排列问题</h2><p>有n个A和n个B排成一排，从第1个位置开始到任何位置，B的个数不能超过A的个数，这样的排列有多少种？</p>
+<p>如：</p>
+<p>n=1: AB</p>
+<p>n=2: AABB ABAB</p>
+<p>n=3: AAABBB AABABB AABBAB ABAABB ABABA</p>
+<blockquote>
+<p>在n*n的格子中，只在下三角行走，每次横或竖走一格，有多少种走法？</p>
+<p>向右走相当于进栈(A)，向左走相当于出栈(B)，本质就是n个数出栈次序的问题。</p>
+</blockquote>
+<p><img src="http://images.cppblog.com/cppblog_com/miyu/450px-Catalan_number_4x4_grid_example.svg.png" alt="AB排列问题"></p>
+<h2 id="乘法加括号"><a href="#乘法加括号" class="headerlink" title="乘法加括号"></a>乘法加括号</h2><p><strong>NOI 1988</strong></p>
+<p>对于连乘：<br>$$<br>a[0]\times a[1]\times a[2]\times …\times a[n]<br>$$<br>加了括号后可以改变它的运算顺序，问有多少种不同的运算顺序？</p>
+<blockquote>
+<p>将其表示成一颗二叉树，把<code>*</code>逐个作为根，得到卡特兰数。</p>
+</blockquote>
+<h1 id="参考文献-amp-网址"><a href="#参考文献-amp-网址" class="headerlink" title="参考文献&amp;网址"></a>参考文献&amp;网址</h1><ul>
+<li>&lt;信息学奥赛之数学一本通&gt;林厚从 主编, 东南大学出版社</li>
+<li><a href="https://blog.csdn.net/wookaikaiko/article/details/81105031" target="_blank" rel="noopener">https://blog.csdn.net/wookaikaiko/article/details/81105031</a></li>
+<li><a href="https://www.luogu.org/blog/Ning-H/solution-p1044" target="_blank" rel="noopener">https://www.luogu.org/blog/Ning-H/solution-p1044</a></li>
+</ul>
 
         </div>
         
@@ -273,10 +305,10 @@
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-09-05T23:21:55+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-09-06T23:27:00+08:00">
   <a class="notlink">
     <i class="fas fa-clock" aria-hidden="true"></i>
-    <p>最后更新于 2019年9月5日</p>
+    <p>最后更新于 2019年9月6日</p>
   </a>
 </div>
 
@@ -449,7 +481,7 @@
 </header>
 
     <div class="content pure">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#公式"><span class="toc-text">公式</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#公式"><span class="toc-text">公式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#应用"><span class="toc-text">应用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#进出栈问题"><span class="toc-text">进出栈问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉树的计数"><span class="toc-text">二叉树的计数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AB排列问题"><span class="toc-text">AB排列问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#乘法加括号"><span class="toc-text">乘法加括号</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文献-amp-网址"><span class="toc-text">参考文献&amp;网址</span></a></li></ol>
     </div>
   </section>
 
