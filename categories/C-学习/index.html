@@ -203,9 +203,160 @@
         
           
         
+          
+        
       
     
     
+      
+        
+          <div class="post-wrapper">
+            <article class="post reveal ">
+  
+
+
+  <section class="meta">
+    
+      
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.css">
+  <div class="aplayer" data-theme data-mini="true" data-mode="circulation" data-server="tencent" data-type="song" data-id="001an8ju3IkKLW" data-volume="0.7">
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/meting@1.1.0/dist/Meting.min.js"></script>
+
+
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/2019/10/01/2019CSP-S复赛tips/">
+      CSP-S第二轮tips
+    </a>
+  </h2>
+
+
+      
+      <div class="new-meta-box">
+        
+          
+        
+          
+            
+  <div class="new-meta-item author">
+    <a href="http://yoursite.com" rel="nofollow">
+      
+        <img src="https://i.loli.net/2019/04/26/5cc2e79e0029e.jpg">
+      
+      <p>WPY</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2019-10-01</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  
+  <div class="new-meta-item category">
+    <a href="/categories/C-学习/" rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>C++学习</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <a id="more"></a>
+<h1 id="动归"><a href="#动归" class="headerlink" title="动归"></a>动归</h1><h2 id="最长不降子序列"><a href="#最长不降子序列" class="headerlink" title="最长不降子序列"></a>最长不降子序列</h2><p><a href="https://www.luogu.org/problem/P1481" target="_blank" rel="noopener">P1481</a></p>
+<blockquote>
+<p><code>strstr(s1,s2)</code>判断<code>s2</code>是否<code>s1</code>的子串，没有找到返回<strong>NULL</strong>，找到则返回子串第一个字符的地址</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">2000</span>+<span class="number">100</span>;</span><br><span class="line"><span class="keyword">int</span> n,f[N],ans=<span class="number">-999</span>;</span><br><span class="line"><span class="keyword">char</span> s[N][N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++)&#123;</span><br><span class="line">		<span class="built_in">cin</span>&gt;&gt;s[i]; f[i]=<span class="number">1</span>; <span class="comment">//初始化</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> k=i<span class="number">-1</span>; k&gt;=<span class="number">1</span>; k--)</span><br><span class="line">			<span class="keyword">if</span>(<span class="built_in">strstr</span>(s[i],s[k])==s[i]) f[i]=max(f[k]+<span class="number">1</span>,f[i]); <span class="comment">//DP</span></span><br><span class="line">		ans=max(ans,f[i]); <span class="comment">//更新</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">cout</span>&lt;&lt;ans&lt;&lt;<span class="built_in">endl</span>,<span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="最长上升子序列-LIS"><a href="#最长上升子序列-LIS" class="headerlink" title="最长上升子序列(LIS)"></a>最长上升子序列(<em>LIS</em>)</h2><p>例子：</p>
+<p>有6个数，分别是： <code>1 7 6 2 3 4</code>求最长上升子序列。</p>
+<blockquote>
+<p>最长上升子序列的元素不一定相邻</p>
+<p>最长上升子序列一定是原序列的子集</p>
+</blockquote>
+<p>所以这个例子中的<em>LIS</em>就是：1 2 3 4，共4个<br>$$<br>n^2<br>$$</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!x) <span class="keyword">return</span>;</span><br><span class="line">    print(from[x]);</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;a[x]&lt;&lt;<span class="built_in">endl</span>; <span class="comment">//迭代输出</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++) <span class="built_in">cin</span>&gt;&gt;a[i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++)&#123;</span><br><span class="line">        dp[i]=<span class="number">1</span>; from[i]=<span class="number">0</span>; <span class="comment">//from:前驱记录</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>; k&lt;i; k++)</span><br><span class="line">            <span class="keyword">if</span>(a[k]&lt;d[i] &amp;&amp; dp[i]&lt;dp[k]+<span class="number">1</span>) dp[i]=dp[k]+<span class="number">1</span>,from[i]=k;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> ans=dp[<span class="number">1</span>],p=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n ;i++) <span class="keyword">if</span>(ans&lt;dp[i]) ans=dp[i],p=i;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;ans&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    print(p);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="最长公共子序列-LCS"><a href="#最长公共子序列-LCS" class="headerlink" title="最长公共子序列(LCS)"></a>最长公共子序列(<em>LCS</em>)</h2><p><a href="https://www.luogu.org/problem/P1439" target="_blank" rel="noopener">P1439</a></p>
+<p>使用<code>dp[i][j]</code>表示第一个串的前<code>i</code>位，第二个串的前<code>j</code>位的LCS长度</p>
+<p>则状态转移方程为：</p>
+<p><strong>1:</strong> 如果有新的公共元素(<code>A1[i]==A2[j]</code>)<br>$$<br>dp[i][j]=max(dp[i][j],dp[i-1][j-1]+1);<br>$$<br><strong>2:</strong> 如果无法更新公共元素<br>$$<br>dp[i][j]=max(dp[i-1][j],dp[i][j-1]);<br>$$</p>
+<h3 id="朴实做法-n-2"><a href="#朴实做法-n-2" class="headerlink" title="朴实做法 (n^2)"></a>朴实做法 (n^2)</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++) <span class="built_in">cin</span>&gt;&gt;a1[i];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=m; i++) <span class="built_in">cin</span>&gt;&gt;a2[i];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>; k&lt;=m; k++)&#123;</span><br><span class="line">        dp[i][k]=max(dp[i<span class="number">-1</span>][k],dp[i][k<span class="number">-1</span>]);</span><br><span class="line">        <span class="keyword">if</span>(a1[i]==a2[k]) dp[i][k]=max(dp[i][k],dp[i<span class="number">-1</span>][k<span class="number">-1</span>]+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">return</span> <span class="built_in">cout</span>&lt;&lt;dp[n][m]&lt;&lt;<span class="built_in">endl</span>,<span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<p><del>实则爆零</del></p>
+<h3 id="AC"><a href="#AC" class="headerlink" title="AC"></a>AC</h3><p> 以第一个串为标准，用第二个串来匹配第一个串，看能匹配多少 </p>
+<p> 把第一个串<strong>离散化</strong>后的数组是满足上升，反过来，满足上升的也就是满足原串的排列顺序的 </p>
+<p> 求一个<strong>最长不下降序列</strong></p>
+<blockquote>
+<p><code>lower_bound(begin,end,num)</code>：从数组的<code>begin</code>位置到<code>end-1</code>位置二分查找第一个大于或等于<code>num</code>的数字，找到返回该数字的地址，不存在则返回end。</p>
+<p>通过返回的地址减去起始地址begin,得到找到数字在数组中的下标。 </p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x7fffffff</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">100000</span>+<span class="number">1000</span>;</span><br><span class="line"><span class="keyword">int</span> a[N],b[N],ma[N],ans=<span class="number">0</span>,f[N],p[N],n;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++)&#123;</span><br><span class="line">		<span class="built_in">cin</span>&gt;&gt;a[i];</span><br><span class="line">		ma[a[i]]=i;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++) <span class="built_in">cin</span>&gt;&gt;b[i];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(ma[b[i]]&gt;p[ans])&#123;</span><br><span class="line">			p[++ans]=ma[b[i]];</span><br><span class="line">			f[i]=ans; <span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">int</span> k=lower_bound(p+<span class="number">1</span>,p+ans+<span class="number">1</span>,ma[b[i]])-p;</span><br><span class="line">		p[k]=ma[b[i]];</span><br><span class="line">		f[i]=k;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">cout</span>&lt;&lt;ans&lt;&lt;<span class="built_in">endl</span>,<span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="01背包"><a href="#01背包" class="headerlink" title="01背包"></a>01背包</h2><h3 id="P1417"><a href="#P1417" class="headerlink" title="P1417"></a><a href="https://www.luogu.org/problem/P1417" target="_blank" rel="noopener">P1417</a></h3><blockquote>
+<p>平常做01背包的题时，由于i的价值永远是不变的，所以i讨论的顺序对结果不影响</p>
+<p>但是这道题中，如果你先讨论了1号点，再讨论第二点，第二点的价值会减小，反之一号点会减小，这两个哪个更优是不确定的，所以如果你先讨论1号点就会错</p>
+<p>由此，需要按优先度对所有点进行排序</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">100000</span>+<span class="number">1000</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">data</span>&#123;</span></span><br><span class="line">	ll a,b,c;</span><br><span class="line">&#125;d[N];</span><br><span class="line">ll T,n,f[N],ans=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(data x,data y)</span></span>&#123;<span class="keyword">return</span> x.c*y.b&lt;y.c*x.b;&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;T&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(ll i=<span class="number">1</span>; i&lt;=n; i++) <span class="built_in">cin</span>&gt;&gt;d[i].a;</span><br><span class="line">	<span class="keyword">for</span>(ll i=<span class="number">1</span>; i&lt;=n; i++) <span class="built_in">cin</span>&gt;&gt;d[i].b;</span><br><span class="line">	<span class="keyword">for</span>(ll i=<span class="number">1</span>; i&lt;=n; i++) <span class="built_in">cin</span>&gt;&gt;d[i].c;</span><br><span class="line">	sort(d+<span class="number">1</span>,d+n+<span class="number">1</span>,cmp);</span><br><span class="line">	<span class="keyword">for</span>(ll i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">		<span class="keyword">for</span>(ll k=T; k-d[i].c&gt;=<span class="number">0</span>; k--)</span><br><span class="line">			f[k]=max(f[k],f[k-d[i].c]+d[i].a-k*d[i].b);</span><br><span class="line">	<span class="keyword">for</span>(ll i=<span class="number">1</span>; i&lt;=T; i++) ans=max(ans,f[i]);</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">cout</span>&lt;&lt;ans&lt;&lt;<span class="built_in">endl</span>,<span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="P1510"><a href="#P1510" class="headerlink" title="P1510"></a><a href="https://www.luogu.org/problem/P1510" target="_blank" rel="noopener">P1510</a></h3><h1 id="CSP-S-problem-plan"><a href="#CSP-S-problem-plan" class="headerlink" title="CSP-S problem plan"></a>CSP-S problem plan</h1><blockquote>
+<p>1.二分 (洛谷 1577)</p>
+<p>2.快速幂 （洛谷 1226）</p>
+<p>3.搜索<br>1&gt;.深搜  （洛谷2919）<br>2&gt;.广搜  （洛谷1506）<br>3&gt;.种子染色（洛谷1451）<br>3&gt;.记忆化搜索  （洛谷1434）</p>
+<p>4.动规<br>1&gt;.最长不降子序列：1481<br>2&gt;.最长公共子序列：1439<br>3&gt;.01背包：1417 1510 1855<br>4&gt;.完全背包：1616<br>5&gt;.多重背包：1776<br>6&gt;.区间动规：3146</p>
+<p>5.图论<br>1&gt;.最短路<br>dij  （堆优化）1629<br>floyed  1364<br>SPFA  1529<br>最短路计数 1144 </p>
+<p>2&gt;.最小生成树<br>prim：1194<br>克鲁斯卡尔：1195</p>
+<p>3&gt; targen强连通分量  1656</p>
+</blockquote>
+
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/tags/CSP/" rel="nofollow"><i class="fas fa-hashtag fa-fw"></i>CSP</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
       
         
           <div class="post-wrapper">
@@ -951,7 +1102,7 @@
     <div class="content pure">
       <ul class="entry">
         
-          <li><a class="flat-box" title="/categories/C-学习/" href="/categories/C-学习/"><div class="name">C++学习</div><div class="badge">(5)</div></a></li>
+          <li><a class="flat-box" title="/categories/C-学习/" href="/categories/C-学习/"><div class="name">C++学习</div><div class="badge">(6)</div></a></li>
         
           <li><a class="flat-box" title="/categories/个人生活/" href="/categories/个人生活/"><div class="name">个人生活</div><div class="badge">(1)</div></a></li>
         
@@ -981,7 +1132,7 @@
 </header>
 
     <div class="content pure">
-      <a href="/tags/RMQ问题/" style="font-size: 14px; color: #999">RMQ问题</a> <a href="/tags/blog/" style="font-size: 24px; color: #555">blog</a> <a href="/tags/music/" style="font-size: 14px; color: #999">music</a> <a href="/tags/personal/" style="font-size: 14px; color: #999">personal</a> <a href="/tags/数论/" style="font-size: 14px; color: #999">数论</a> <a href="/tags/栈/" style="font-size: 14px; color: #999">栈</a> <a href="/tags/简单算法/" style="font-size: 14px; color: #999">简单算法</a> <a href="/tags/线段树/" style="font-size: 14px; color: #999">线段树</a> <a href="/tags/高精/" style="font-size: 14px; color: #999">高精</a>
+      <a href="/tags/CSP/" style="font-size: 14px; color: #999">CSP</a> <a href="/tags/RMQ问题/" style="font-size: 14px; color: #999">RMQ问题</a> <a href="/tags/blog/" style="font-size: 24px; color: #555">blog</a> <a href="/tags/music/" style="font-size: 14px; color: #999">music</a> <a href="/tags/personal/" style="font-size: 14px; color: #999">personal</a> <a href="/tags/数论/" style="font-size: 14px; color: #999">数论</a> <a href="/tags/栈/" style="font-size: 14px; color: #999">栈</a> <a href="/tags/简单算法/" style="font-size: 14px; color: #999">简单算法</a> <a href="/tags/线段树/" style="font-size: 14px; color: #999">线段树</a> <a href="/tags/高精/" style="font-size: 14px; color: #999">高精</a>
     </div>
   </section>
 
