@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>优雅地使用Hexo搭建自己的静态博客1 | Residual Night</title>
+  <title>P3056 笨牛 Clumsy Cows [题解] | Residual Night</title>
   
   
 
@@ -86,6 +86,12 @@
 								</a>
 							</li>
       			
+  						<li>
+								<a class="nav flat-box" href="/pictures/" rel="nofollow" id="pictures">
+									<i class="fa fa-picture-o fa-fw"></i>&nbsp;画廊
+								</a>
+							</li>
+      			
       		
 				</ul>
 			</div>
@@ -161,14 +167,23 @@
 
   <section class="meta">
     
+      
+
+  
+    <meting-js mini="true" autoplay="false" volume="0.7" loop="all" order="list" server="tencent" type="song" id="0015sCDO47xKwc">
+    </meting-js>
+  
+
+
+    
     
     <div class="meta" id="header-meta">
       
         
   
     <h1 class="title">
-      <a href="/2019/01/优雅地使用Hexo搭建自己的静态博客1/">
-        优雅地使用Hexo搭建自己的静态博客1
+      <a href="/2019/03/P3056题解/">
+        P3056 笨牛 Clumsy Cows [题解]
       </a>
     </h1>
   
@@ -199,7 +214,7 @@
             <div class="new-meta-item date">
   <a class="notlink">
     <i class="fas fa-edit" aria-hidden="true"></i>
-    <p>发布于：2019年1月20日</p>
+    <p>发布于：2019年3月3日</p>
   </a>
 </div>
 
@@ -209,9 +224,9 @@
             
   
   <div class="new-meta-item category">
-    <a href="/categories/博客/" rel="nofollow">
+    <a href="/categories/题解/" rel="nofollow">
       <i class="fas fa-folder-open" aria-hidden="true"></i>
-      <p>博客</p>
+      <p>题解</p>
     </a>
   </div>
 
@@ -257,51 +272,21 @@
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
           
-          <h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><p>如题，这个静态博客就是使用hexo制作的。如果你对此有兴趣，有探究精神（<del>又闲着没有事</del>），那么你可以来尝试制作一下你的blog！在这里，我会尽量用通俗一些的语言来阐述这一过程，那么我们开始吧！</p>
-<p>如果你是一个大佬，这一章的内容自行跳过。<del>是大佬也不会来看我的博客了233</del></p>
+          <p><a href="https://www.luogu.org/problemnew/show/P3056" target="_blank" rel="noopener">题目传送门</a></p>
+<p>明显，这是一道用栈解决的<del>水</del>题。但是除了栈，还有另外一种简单一点的方法。</p>
 <a id="more"></a>
-<p>这里开始科普一下我们所需要的东西：</p>
-<h2 id="Hexo是个什么玩意儿？"><a href="#Hexo是个什么玩意儿？" class="headerlink" title="Hexo是个什么玩意儿？"></a>Hexo是个什么玩意儿？</h2><p>看到标题，你可能会有些蒙圈：hexo是个什么鬼？这个很简单，你可以请教一下baidu以及<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">官网</a>。稍稍引用一下：</p>
-<blockquote>
-<p>hexo 正常来说，不需要部署到我们的服务器上。我们的服务器上保存的，其实是基于在hexo通过<u>markdown</u>编写的文章，然后hexo帮我们生成静态的html页面，然后，将生成的html上传到我们的服务器，这样就有了我们所看到的博客界面。简而言之：hexo是个<em>静态页面生成、上传的工具</em>。</p>
-</blockquote>
-<p>简单来说，就是配置好了hexo后，你只用写出博客网站的<u>markdown</u>代码（保存在一定的地方），就可以让hexo帮助你制作出含有你的博文的网页。当然你也可以自己定制网页的自定义，比如说下载他人的主题，并按自己的想法进行改进。</p>
-<p>许多大佬、或是萌新们都会使用hexo搭建blog，毕竟人家简单、自由度还高嘛。</p>
-<h2 id="Markdown又是个什么玩意儿？"><a href="#Markdown又是个什么玩意儿？" class="headerlink" title="Markdown又是个什么玩意儿？"></a>Markdown又是个什么玩意儿？</h2><p>这个真的就只有baidu可以帮助你了：<a href="https://baike.baidu.com/item/markdown/3245829?fr=aladdin" target="_blank" rel="noopener">Markdown强行科普</a>。其实就是在正常打字时加上一些特殊的符号让文章能够层次分明，是一种在博客、OI（编程界）里十分流行的文本语言，hexo用的就是这种流行的语言。至于具体用法，在上文的链接中有说明，如果可以，我会放到“文章”那一部分那里写～</p>
-<p>这里比较推荐的markdown书写工具是这个：<a href="https://www.typora.io/" target="_blank" rel="noopener">typora</a>，简洁好用，支持hexo格式。</p>
-<h2 id="‘终端’科普"><a href="#‘终端’科普" class="headerlink" title="‘终端’科普"></a>‘终端’科普</h2><p>现在有两个主流电脑操作系统：</p>
-<ul>
-<li>mac</li>
-<li>windows</li>
-</ul>
-<p>Mac的终端名称是终端（Terminal），打开它很简单，进入启动台查找或是使用聚焦搜索查找；</p>
-<p>Windows的终端名称一般叫做cmd，在“开始”菜单栏里找到它或是使用“运行”这个应用输入cmd（实在不会的找baidu）</p>
-<p>打开了吗？就是你眼前这个黑黑的东西，最上方有一串白字，代表你当前的启动盘。具体怎么用等会说。</p>
-<h1 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h1><p>参考官网<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">文档</a>：</p>
-<h2 id="安装Hexo的支持"><a href="#安装Hexo的支持" class="headerlink" title="安装Hexo的支持"></a>安装Hexo的支持</h2><p>Hexo的安装需要两个软件的支持，它们分别是：</p>
-<ul>
-<li><a href="http://nodejs.org/" target="_blank" rel="noopener">Node.js</a></li>
-<li><a href="http://git-scm.com/" target="_blank" rel="noopener">Git</a></li>
-</ul>
-<h3 id="git安装"><a href="#git安装" class="headerlink" title="git安装"></a>git安装</h3><p>windows：下载并安装 <a href="https://git-scm.com/download/win" target="_blank" rel="noopener">git</a>（嫌下载速度慢的看这个<a href="https://github.com/waylau/git-for-win" target="_blank" rel="noopener">git国内下载站</a>注意看清楚版本号和windows版本，看不懂还是使用龟速下载比较好）</p>
-<p>mac：在终端输入<code>brew install git</code>或下载 <a href="http://sourceforge.net/projects/git-osx-installer/" target="_blank" rel="noopener">安装程序</a> 安装。</p>
-<h3 id="Node-js安装"><a href="#Node-js安装" class="headerlink" title="Node.js安装"></a>Node.js安装</h3><p>在这里用命令行安装可能讲的不太清楚。<a href="https://nodejs.org/en/" target="_blank" rel="noopener">下载地址</a>，下载安装。</p>
-<p>对于Windows用户的建议：可以使用<strong>Git Bash</strong>，这是git for windows自带的一组程序，提供了Linux风格的shell。打开它的方法很简单，在<strong>桌面任意位置单击右键</strong>，选择“Git Bash Here”即可。由于Hexo的<strong>很多操作都涉及到命令行</strong>，您可以考虑始终使用<strong>Git Bash</strong>来进行操作。</p>
-<h2 id="安装Hexo！"><a href="#安装Hexo！" class="headerlink" title="安装Hexo！"></a>安装Hexo！</h2><p>在完成上述安装后，安装hexo：</p>
-<p>在终端里输入：<code>npm install -g hexo-cli</code></p>
-<p>mac用户可能会报错。这里使用<code>sudo npm install -g hexo-cli</code>安装。</p>
-<h1 id="一些建议"><a href="#一些建议" class="headerlink" title="一些建议"></a>一些建议</h1><ul>
-<li>Windows中：终端中<code>Ctrl + C</code>是stop的快捷键，不要使用<code>Ctrl + C</code>或<code>Ctrl + V</code>的快捷键，用右键单击标题栏。</li>
-<li>出现问题找官网和百度</li>
-<li>也可以去找一些其他人写的教程，我写的是通俗版的，但归根到底都是根据别人的教程<del>不然我怎么搭建的博客233</del></li>
-<li>哦对官网上也有b站的视频可以学习：<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/</a></li>
-</ul>
-<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><ul>
-<li><a href="https://www.jianshu.com/p/77db3862595c" target="_blank" rel="noopener">https://www.jianshu.com/p/77db3862595c</a></li>
-<li><a href="https://www.jianshu.com/p/a2fe56d11c4f" target="_blank" rel="noopener">https://www.jianshu.com/p/a2fe56d11c4f</a></li>
-<li><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/</a></li>
-</ul>
-<p><em>欢迎提出意见！</em></p>
+<p>切入正题：</p>
+<h1 id="1-栈-stack"><a href="#1-栈-stack" class="headerlink" title="1.栈(stack)"></a>1.栈(stack)</h1><p>运用<strong>STL</strong>中的<code>#include&lt;stack&gt;</code></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">stack</span>&lt;类型&gt; st;</span><br><span class="line">压栈 st.push(元素);</span><br><span class="line">出栈 st.pop();</span><br><span class="line">获取栈顶元素 st.top();</span><br><span class="line">栈的大小(元素个数) st.size();</span><br><span class="line">判断栈是否为空(栈空输出<span class="literal">true</span>，反之亦然) st.empty();</span><br></pre></td></tr></table></figure>
+<h2 id="例：判断括号是否匹配"><a href="#例：判断括号是否匹配" class="headerlink" title="例：判断括号是否匹配"></a>例：判断括号是否匹配</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">check</span><span class="params">(<span class="built_in">string</span> s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">stack</span>&lt;<span class="keyword">char</span>&gt; st;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;s.size(); i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(s[i]==<span class="string">'('</span>) st.push(s[i]); <span class="comment">//左括号进栈</span></span><br><span class="line">        <span class="keyword">else</span>&#123; <span class="comment">//不是左括号就是右括号</span></span><br><span class="line">            <span class="keyword">if</span>(st.empty()) <span class="keyword">return</span> <span class="number">0</span>; <span class="comment">//如果当前栈空，莫名其妙来一个右括号即为不匹配</span></span><br><span class="line">            <span class="keyword">else</span> st.pop(); <span class="comment">//说明栈里有待匹配的左括号，弹出一个（配对成功）</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="上代码"><a href="#上代码" class="headerlink" title="上代码"></a>上代码</h2><p>真是喜闻乐见的一个环节呢</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line"><span class="built_in">string</span> s;</span><br><span class="line"><span class="built_in">stack</span>&lt;<span class="keyword">char</span>&gt; st;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;s;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;s.size(); i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(s[i]==<span class="string">'('</span>) st.push(s[i]); <span class="comment">//左括号进栈</span></span><br><span class="line">        <span class="keyword">else</span>&#123; <span class="comment">//不是左括号就是右括号</span></span><br><span class="line">            <span class="keyword">if</span>(st.empty())&#123;st.push(<span class="string">'('</span>); ans++;&#125; <span class="comment">//注意。如果不匹配就说明需要括号反转，因此反转括号，ans++</span></span><br><span class="line">            <span class="keyword">else</span> st.pop();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(!st.empty()) ans+=st.size()/<span class="number">2</span>; <span class="comment">//如果剩下一堆左括号，说明需要反转一半的才能配对成功</span></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;ans&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="2-加减计数法"><a href="#2-加减计数法" class="headerlink" title="2.加减计数法"></a>2.加减计数法</h1><p>和栈的原理差不多，只不过简单易懂，不用掌握栈。时间的话<del>让我们大声喊出：STL NB!</del></p>
+<p>左括号+1，右括号-1。如果匹配的话就是0了。</p>
+<p>当然也有反例：<code>())(</code>单纯判断最终结果是否为0会出错WA</p>
+<p>因此，我们可以发现：如果当前为0(栈空)再加入一个右括号那就需要反转了</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">string</span> s;</span><br><span class="line"><span class="keyword">int</span> ans=<span class="number">0</span>,p=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;s;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;s.size(); i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(s[i]==<span class="string">'('</span>) p++; <span class="comment">//类似进栈</span></span><br><span class="line">        <span class="keyword">else</span>&#123; <span class="comment">//不是左括号就是右括号</span></span><br><span class="line">            <span class="keyword">if</span>(p) p--; <span class="comment">//有一个左括号等待配对，那就配对</span></span><br><span class="line">            <span class="keyword">else</span> ans++,p++; <span class="comment">//反转</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ans+=p/<span class="number">2</span>; <span class="comment">//道理同栈</span></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;ans&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结尾小声bb：<del>感觉题目背景尽是扯淡2333</del></p>
 
           
             <br>
@@ -324,16 +309,8 @@
       <blockquote>
         
           
-            <p>这是文章页脚，可以放置版权说明以及打赏图片。<br>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
 
-          
-        
-          
-            
-          
-        
-          
-            <p>本文永久链接是：<a href="http://yoursite.com/2019/01/优雅地使用Hexo搭建自己的静态博客1/">http://yoursite.com/2019/01/优雅地使用Hexo搭建自己的静态博客1/</a></p>
           
         
       </blockquote>
@@ -343,50 +320,6 @@
 
                 
               
-                
-              
-                
-              
-                
-              
-                
-              
-            
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-                  <section class="widget  widget-blur donate">
-  <header>
-  <div><i class="fas fa-donate fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;打赏</div>
-  
-</header>
-
-  <div class="content">
-    
-      
-        <img src="https://img.vim-cn.com/4e/3c87a2fd28fd0b9c2f27ce3f83f1e9275d0488.png" height="64px">
-      
-        <img src="https://img.vim-cn.com/4e/3c87a2fd28fd0b9c2f27ce3f83f1e9275d0488.png" height="64px">
-      
-        <img src="https://img.vim-cn.com/4e/3c87a2fd28fd0b9c2f27ce3f83f1e9275d0488.png" height="64px">
-      
-        <img src="https://img.vim-cn.com/4e/3c87a2fd28fd0b9c2f27ce3f83f1e9275d0488.png" height="64px">
-      
-    
-  </div>
-</section>
-
                 
               
                 
@@ -409,13 +342,13 @@
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/blog/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>blog</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/栈/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>栈</p></a></div>
 
 
         
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-04-27T17:24:10+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-04-27T17:20:22+08:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
     <p>更新于：2019年4月27日</p>
@@ -430,8 +363,8 @@
   <div class="-mob-share-list share-body">
     
       
-        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/01/优雅地使用Hexo搭建自己的静态博客1/&title=优雅地使用Hexo搭建自己的静态博客1 | Residual Night&pics=https://i.loli.net/2019/04/26/5cc2e79e0029e.jpg&summary=开始如题，这个静态博客就是使用hexo制作的。如果你对此有兴趣，有探究精神（又闲着没有事），那么你可以来尝试制作一下你的blog！在这里，我会尽量用通俗一些的语言来阐述这一过程，那么我们开始吧！
-如果你是一个大佬，这一章的内容自行跳过。是大佬也不会来看我的博客了233">
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/03/P3056题解/&title=P3056 笨牛 Clumsy Cows [题解] | Residual Night&pics=https://i.loli.net/2019/04/26/5cc2e79e0029e.jpg&summary=题目传送门
+明显，这是一道用栈解决的水题。但是除了栈，还有另外一种简单一点的方法。">
           
             <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qq.png">
           
@@ -439,8 +372,8 @@
       
     
       
-        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2019/01/优雅地使用Hexo搭建自己的静态博客1/&title=优雅地使用Hexo搭建自己的静态博客1 | Residual Night&pics=https://i.loli.net/2019/04/26/5cc2e79e0029e.jpg&summary=开始如题，这个静态博客就是使用hexo制作的。如果你对此有兴趣，有探究精神（又闲着没有事），那么你可以来尝试制作一下你的blog！在这里，我会尽量用通俗一些的语言来阐述这一过程，那么我们开始吧！
-如果你是一个大佬，这一章的内容自行跳过。是大佬也不会来看我的博客了233">
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2019/03/P3056题解/&title=P3056 笨牛 Clumsy Cows [题解] | Residual Night&pics=https://i.loli.net/2019/04/26/5cc2e79e0029e.jpg&summary=题目传送门
+明显，这是一道用栈解决的水题。但是除了栈，还有另外一种简单一点的方法。">
           
             <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qzone.png">
           
@@ -448,8 +381,8 @@
       
     
       
-        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/01/优雅地使用Hexo搭建自己的静态博客1/&title=优雅地使用Hexo搭建自己的静态博客1 | Residual Night&pics=https://i.loli.net/2019/04/26/5cc2e79e0029e.jpg&summary=开始如题，这个静态博客就是使用hexo制作的。如果你对此有兴趣，有探究精神（又闲着没有事），那么你可以来尝试制作一下你的blog！在这里，我会尽量用通俗一些的语言来阐述这一过程，那么我们开始吧！
-如果你是一个大佬，这一章的内容自行跳过。是大佬也不会来看我的博客了233">
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/03/P3056题解/&title=P3056 笨牛 Clumsy Cows [题解] | Residual Night&pics=https://i.loli.net/2019/04/26/5cc2e79e0029e.jpg&summary=题目传送门
+明显，这是一道用栈解决的水题。但是除了栈，还有另外一种简单一点的方法。">
           
             <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/weibo.png">
           
@@ -475,16 +408,16 @@
                         <span class="art-item-left">
                             <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页</h6>
                             <h4>
-                                <a href="/2019/01/优雅地使用Hexo搭建自己的静态博客2/" rel="prev" title="优雅地使用Hexo搭建自己的静态博客2">
+                                <a href="/2019/06/Avicii/" rel="prev" title="R.I.P. Avicii ◢ ◤">
                                   
-                                      优雅地使用Hexo搭建自己的静态博客2
+                                      R.I.P. Avicii ◢ ◤
                                   
                                 </a>
                             </h4>
                             
                                 
                                 <h6 class="tags">
-                                    <a class="tag" href="/tags/blog/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> blog</a>
+                                    <a class="tag" href="/tags/music/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> music</a>
                                 </h6>
                             
                         </span>
@@ -495,16 +428,16 @@
                         <span class="art-item-right" aria-hidden="true">
                             <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
                             <h4>
-                                <a href="/2019/01/Welcome/" rel="prev" title="Welcome">
+                                <a href="/2019/02/线段树浅析/" rel="prev" title="线段树 浅析">
                                     
-                                        Welcome
+                                        线段树 浅析
                                     
                                 </a>
                             </h4>
                             
                                 
                                 <h6 class="tags">
-                                    <a class="tag" href="/tags/personal/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> personal</a>
+                                    <a class="tag" href="/tags/线段树/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> 线段树</a>
                                 </h6>
                             
                         </span>
@@ -535,7 +468,7 @@
 
   <script>
     window.subData = {
-      title: '优雅地使用Hexo搭建自己的静态博客1',
+      title: 'P3056 笨牛 Clumsy Cows [题解]',
       tools: true
     }
   </script>
@@ -559,7 +492,7 @@
 </header>
 
     <div class="content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#开始"><span class="toc-text">开始</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo是个什么玩意儿？"><span class="toc-text">Hexo是个什么玩意儿？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Markdown又是个什么玩意儿？"><span class="toc-text">Markdown又是个什么玩意儿？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#‘终端’科普"><span class="toc-text">‘终端’科普</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装Hexo"><span class="toc-text">安装Hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Hexo的支持"><span class="toc-text">安装Hexo的支持</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git安装"><span class="toc-text">git安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Node-js安装"><span class="toc-text">Node.js安装</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Hexo！"><span class="toc-text">安装Hexo！</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一些建议"><span class="toc-text">一些建议</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文献"><span class="toc-text">参考文献</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-栈-stack"><span class="toc-text">1.栈(stack)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#例：判断括号是否匹配"><span class="toc-text">例：判断括号是否匹配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#上代码"><span class="toc-text">上代码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-加减计数法"><span class="toc-text">2.加减计数法</span></a></li></ol>
     </div>
   </section>
 
@@ -890,5 +823,8 @@
 
 
   <script>setLoadingBarProgress(100);</script>
+  <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>    
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+<script type="text/javascript" src="/js/fireworks.js"></script>
 </body>
 </html>
