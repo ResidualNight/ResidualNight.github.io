@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head hexo-theme="Volantis" version="1.5.2" docs="https://xaoxuu.com/wiki/volantis/"><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
@@ -21,11 +21,15 @@
   
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
   
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.6.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.10.1/css/all.min.css">
   
 
   
   <link rel="shortcut icon" type="image/x-icon" href="https://img.vim-cn.com/d6/a6a4aac037a0f9301b30d8d9a15fa52c34d4f4">
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
   
 
   
@@ -42,8 +46,6 @@
   
 </head>
 
-<!-- 样式一（鼠标点击更换样式） -->
-<script src="https://g.joyinshare.com/hc/ribbon.min.js" type="text/javascript"></script>
 <body>
   
   
@@ -51,13 +53,13 @@
     <cover class="cover  half">
       
         
-  <h1 class="title">#  Residual Night  #</h1>
+  <p class="title ">_ResidualNight</p>
 
 
   <div class="m_search">
     <form name="searchform" class="form u-search-form">
-      <input type="text" class="input u-search-input" placeholder>
       <i class="icon fas fa-search fa-fw"></i>
+      <input type="text" class="input u-search-input" placeholder="for Hexo 4.2+">
     </form>
   </div>
 
@@ -66,13 +68,13 @@
     
       
         <li>
-          <a class="nav home" href="/" id="home">
+          <a class="nav home " href="/" id="home">
             <i class="fas fa-rss fa-fw"></i>&nbsp;Blog
           </a>
         </li>
       
         <li>
-          <a class="nav home" href="/about/" rel="nofollow" id="about">
+          <a class="nav home " href="/about/" rel="nofollow" id="about">
             <i class="fas fa-info-circle fa-fw"></i>&nbsp;About
           </a>
         </li>
@@ -83,16 +85,19 @@
 
       
     </cover>
-    <header class="l_header pure">
+    <header class="l_header nav-blur">
   <div id="loading-bar-wrapper">
-    <div id="loading-bar" class="pure"></div>
+    <div id="loading-bar"></div>
   </div>
 
 	<div class="wrapper">
 		<div class="nav-main container container--flex">
-      <a class="logo flat-box" href="/">
+      <a class="logo flat-box" target="_self" href="/">
         
-          Residual Night
+          
+          
+            _ResidualNight
+          
         
       </a>
 			<div class="menu navgation">
@@ -121,34 +126,33 @@
 				</ul>
 			</div>
 
-			
-				<div class="m_search">
-					<form name="searchform" class="form u-search-form">
-						<input type="text" class="input u-search-input" placeholder="搜索">
-						<i class="icon fas fa-search fa-fw"></i>
-					</form>
-				</div>
-			
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search">
+        </form>
+      </div>
+
 			<ul class="switcher h-list">
 				
-					<li class="s-search"><a class="fas fa-search fa-fw" href="javascript:void(0)"></a></li>
+					<li class="s-search"><a class="fas fa-search fa-fw" target="_self" href="javascript:void(0)"></a></li>
 				
-				<li class="s-menu"><a class="fas fa-bars fa-fw" href="javascript:void(0)"></a></li>
+				<li class="s-menu"><a class="fas fa-bars fa-fw" target="_self" href="javascript:void(0)"></a></li>
 			</ul>
 		</div>
 
 		<div class="nav-sub container container--flex">
 			<a class="logo flat-box"></a>
 			<ul class="switcher h-list">
-				<li class="s-comment"><a class="flat-btn fas fa-comments fa-fw" href="javascript:void(0)"></a></li>
+				<li class="s-comment"><a class="flat-btn fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
         
-          <li class="s-toc"><a class="flat-btn fas fa-list fa-fw" href="javascript:void(0)"></a></li>
+          <li class="s-toc"><a class="flat-btn fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
         
 			</ul>
 		</div>
 	</div>
 </header>
-	<aside class="menu-phone">
+	<aside class="menu-phone white-box">
     <header>
 		<nav class="menu navgation">
       <ul>
@@ -189,24 +193,24 @@
   
     
       
-  <section class="post-list">
+  <section class="post-list ">
     
       
         
           
             <div class="post-wrapper">
-              <article class="post reveal ">
+              <article class="post white-box  body-blur reveal ">
   
 
 
   <section class="meta">
     
       
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.css">
-  <div class="aplayer" data-theme data-mini="true" data-mode="circulation" data-server="tencent" data-type="song" data-id="002ikSmI2oEerD" data-volume="0.7">
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/meting@1.1.0/dist/Meting.min.js"></script>
+
+  
+    <meting-js mini="true" autoplay="false" volume="0.7" loop="all" order="list" server="tencent" type="song" id="002ikSmI2oEerD">
+    </meting-js>
+  
 
 
     
@@ -215,7 +219,7 @@
       
         
   <h2 class="title">
-    <a href="/2019/01/18/Welcome/">
+    <a href="/2019/01/Welcome/">
       Welcome
     </a>
   </h2>
@@ -229,12 +233,14 @@
           
             
   <div class="new-meta-item author">
-    <a href="http://yoursite.com" rel="nofollow">
-      
-        <img src="https://i.loli.net/2019/04/26/5cc2e79e0029e.jpg">
-      
-      <p>WPY</p>
-    </a>
+    
+      <a href="http://yoursite.com" rel="nofollow">
+        
+          <img src="https://i.loli.net/2019/04/26/5cc2e79e0029e.jpg">
+        
+        <p>WPY</p>
+      </a>
+    
   </div>
 
 
@@ -243,8 +249,8 @@
           
             <div class="new-meta-item date">
   <a class="notlink">
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-01-18</p>
+    <i class="fas fa-edit" aria-hidden="true"></i>
+    <p>发布于：2019年1月18日</p>
   </a>
 </div>
 
@@ -259,6 +265,14 @@
       <p>个人生活</p>
     </a>
   </div>
+
+
+          
+        
+          
+            
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/personal/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>personal</p></a></div>
 
 
           
@@ -293,21 +307,18 @@
       <h1 id="Hello"><a href="#Hello" class="headerlink" title="Hello!"></a>Hello!</h1><p><strong>很高兴认识你！</strong></p>
 <p>这里是<em>Residual Night</em>的第一个个人博客，基于<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a>&amp;&amp;<a href="https://github.com/" target="_blank" rel="noopener">github</a>搭建的静态博客。以<a href="https://xaoxuu.com/wiki/material-x/" target="_blank" rel="noopener">Material X</a>为主题。</p>
       
-        <div class="readmore">
-          <a href="/2019/01/18/Welcome/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
+        
+          
+        
       
     </div>
-    
+    <!-- 
       <div class="full-width auto-padding tags">
         
-          <a href="/tags/personal/" rel="nofollow"><i class="fas fa-hashtag fa-fw"></i>personal</a>
+          <a href="/tags/personal/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> personal</a>
         
       </div>
-    
+     -->
   </section>
 </article>
 
@@ -341,10 +352,8 @@
     
       
         
-          
-          
-            <section class="widget author">
-  <div class="content pure">
+          <section class="widget  widget-blur blogger">
+  <div class="content">
     
       <div class="avatar">
         <img class="avatar" src="https://i.loli.net/2019/04/26/5cc2ed121a5b8.jpg">
@@ -353,8 +362,11 @@
     
       <div class="text">
         
-          <h2>Residual Night</h2>
+          <h2>_ResidualNight</h2>
         
+        
+          <p>Enjoy Coding!</p>
+
         
         
           <p><span id="jinrishici-sentence">Residual Night</span></p>
@@ -375,55 +387,67 @@
             </a>
           
         
-          
-            <a href="https://y.qq.com/n/yqq/playlist/1472814532.html" class="social fas fa-music flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
       </div>
     
   </div>
 </section>
 
-          
         
       
         
-          
-          
-            
-
-          
+      
         
       
         
-          
-          
-            <section class="widget grid">
-  
-<header class="pure">
-  <div><i class="fas fa-map-signs fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;导航</div>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          <section class="widget  widget-blur grid">
+  <header>
+  <div><i class="fas fa-map-signs fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;站内导航</div>
   
 </header>
 
-  <div class="content pure">
+  <div class="content">
     <ul class="grid navgation">
       
-        <li><a class="flat-box" title="/" href="/" id="home">
-          
-            <i class="fas fa-crosshairs fa-fw" aria-hidden="true"></i>
-          
-          文章
-        </a></li>
-      
-        <li><a class="flat-box" title="/archives/" href="/archives/" rel="nofollow" id="archives">
+        <li><a class="flat-box" title="/blog/archives/" href="/blog/archives/" rel="external nofollow noopener noreferrer" target="_self" id="blogarchives">
           
             <i class="fas fa-archive fa-fw" aria-hidden="true"></i>
           
           归档
         </a></li>
       
-        <li><a class="flat-box" title="/about/" href="/about/" rel="nofollow" id="about">
+        <li><a class="flat-box" title="/about/" href="/about/" rel="external nofollow noopener noreferrer" target="_self" id="about">
           
             <i class="fas fa-info-circle fa-fw" aria-hidden="true"></i>
           
@@ -434,24 +458,28 @@
   </div>
 </section>
 
-          
+        
+      
+        
+      
+    
+      
+        
+      
         
       
         
           
-          
-            
-  <section class="widget category">
-    
-<header class="pure">
-  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;文章分类</div>
+  <section class="widget  widget-blur category">
+    <header>
+  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;分类</div>
   
-    <a class="rightBtn" rel="nofollow" href="/categories/" title="categories/">
+    <a class="rightBtn" rel="external nofollow noopener noreferrer" target="_self" href="/blog/categories/" title="blog/categories/">
     <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
   
 </header>
 
-    <div class="content pure">
+    <div class="content">
       <ul class="entry">
         
           <li><a class="flat-box" title="/categories/C-学习/" href="/categories/C-学习/"><div class="name">C++学习</div><div class="badge">(6)</div></a></li>
@@ -471,91 +499,67 @@
   </section>
 
 
-          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+      
+        
+      
+        
+      
         
       
         
           
-          
-            
-  <section class="widget tagcloud">
-    
-<header class="pure">
-  <div><i class="fas fa-fire fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;热门标签</div>
+  <section class="widget  widget-blur tagcloud">
+    <header>
+  <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;标签</div>
+  
+    <a class="rightBtn" rel="external nofollow noopener noreferrer" target="_self" href="/blog/tags/" title="blog/tags/">
+    <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
   
 </header>
 
-    <div class="content pure">
+    <div class="content">
       <a href="/tags/CSP/" style="font-size: 14px; color: #999">CSP</a> <a href="/tags/RMQ问题/" style="font-size: 14px; color: #999">RMQ问题</a> <a href="/tags/blog/" style="font-size: 24px; color: #555">blog</a> <a href="/tags/music/" style="font-size: 14px; color: #999">music</a> <a href="/tags/personal/" style="font-size: 14px; color: #999">personal</a> <a href="/tags/单机游戏/" style="font-size: 14px; color: #999">单机游戏</a> <a href="/tags/数论/" style="font-size: 14px; color: #999">数论</a> <a href="/tags/栈/" style="font-size: 14px; color: #999">栈</a> <a href="/tags/简单算法/" style="font-size: 14px; color: #999">简单算法</a> <a href="/tags/线段树/" style="font-size: 14px; color: #999">线段树</a> <a href="/tags/高精/" style="font-size: 14px; color: #999">高精</a>
     </div>
   </section>
 
 
-          
         
       
         
-          
-          
-            
-
-
-  <section class="widget music">
-    
-<header class="pure">
-  <div><i class="fas fa-compact-disc fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;我的歌单</div>
-  
-    <a class="rightBtn" rel="external nofollow noopener noreferrer" target="_blank" href="https://y.qq.com/n/yqq/playlist/1472814532.html" title="https://y.qq.com/n/yqq/playlist/1472814532.html">
-    <i class="fas fa-biohazard fa-fw"></i></a>
-  
-</header>
-
-    <div class="content pure">
       
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.css">
-  <div class="aplayer" data-theme="#4682b4" data-mode="circulation" data-server="tencent" data-type="playlist" data-id="1472814532" data-volume="0.7">
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/meting@1.1.0/dist/Meting.min.js"></script>
-
-
-    </div>
-  </section>
-
-
-          
+        
+      
+        
+      
+        
+      
+        
+      
         
       
     
-
   
 </aside>
 
-<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
-<script>
-    var now = new Date(); 
-    function createtime() { 
-        var grt= new Date("16/03/2019 00:00:00");//在此处修改你的建站时间
-        now.setTime(now.getTime()+250); 
-        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
-        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
-        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
-        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
-        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
-        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
-        document.getElementById("timeDate").innerHTML = "本站已运行 "+dnum+" 天 "; 
-        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
-    } 
-setInterval("createtime()",250);
-</script>
-<footer id="footer" class="clearfix">
-  
-    <div class="footer">
-      <p>长风破浪会有时,直挂云帆济沧海</p>
-
-    </div>
-    <br>
-  
+<footer class="clearfix ">
+  <br><br>
   
     <div class="social-wrapper">
       
@@ -569,11 +573,19 @@ setInterval("createtime()",250);
           </a>
         
       
-        
-          <a href="https://y.qq.com/n/yqq/playlist/1472814532.html" class="social fas fa-music flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
-          </a>
-        
+    </div>
+  
+  
+    <br>
+    <div class="aplayer-container">
       
+
+  
+    <meting-js theme="#1BCDFC" autoplay="false" volume="0.7" loop="all" order="list" fixed="false" list-max-height="340px" server="tencent" type="playlist" id="1472814532" list-folded="true">
+    </meting-js>
+  
+
+
     </div>
   
   <br>
@@ -581,7 +593,7 @@ setInterval("createtime()",250);
 </div>
   <div>
     本站使用
-    <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a>
+    <a href="https://xaoxuu.com/wiki/volantis/" target="_blank" class="codename">Volantis</a>
     作为主题
     
       ，
@@ -591,8 +603,10 @@ setInterval("createtime()",250);
     
     。
   </div>
+  
 </footer>
 <script>setLoadingBarProgress(80);</script>
+
 
       <script>setLoadingBarProgress(60);</script>
     </div>
@@ -601,24 +615,19 @@ setInterval("createtime()",250);
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
 
   <script>
-    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
-    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
-    var ALGOLIA_API_KEY = "";
-    var ALGOLIA_APP_ID = "";
-    var ALGOLIA_INDEX_NAME = "";
-    var AZURE_SERVICE_NAME = "";
-    var AZURE_INDEX_NAME = "";
-    var AZURE_QUERY_KEY = "";
-    var BAIDU_API_ID = "";
+    
     var SEARCH_SERVICE = "hexo" || "hexo";
-    var ROOT = "/"||"/";
-    if(!ROOT.endsWith('/'))ROOT += '/';
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
   </script>
 
-<script src="//instant.page/1.2.2" type="module" integrity="sha384-2xV8M5griQmzyiY3CDqh1dn4z3llDVqZDqzjzcY+jCBCk/a5fXJmuZ/40JJAPeoU"></script>
+<script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+  <script async src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+  <script async src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
 
 
-  <script async src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
   <script type="text/javascript">
     $(function() {
       const $reveal = $('.reveal');
@@ -651,19 +660,21 @@ setInterval("createtime()",250);
   
   
   
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+    
+      <script src="/js/backstretch.min.js"></script>
+    
     <script type="text/javascript">
       $(function(){
         if ('.cover') {
           $('.cover').backstretch(
-          ["https://img.vim-cn.com/d5/b004c81a13aea401375d03b1258ecadbfcbaa7.jpg", "https://img.vim-cn.com/4c/8e7294998989454b2dcd2624373d5a699c4414.jpg", "https://img.vim-cn.com/40/0d7c984530c7b4b25bacdb6d6cfece81873d60.jpg", "https://img.vim-cn.com/9d/4950b78c611b22dbaf5bc0f1543950277f08b8.jpg", "https://i.loli.net/2019/08/23/R1h2zavei8ngysD.jpg", "https://i.loli.net/2019/08/23/rVsuSN9lTGOmgHn.jpg", "https://i.loli.net/2019/08/23/BCX4TpP1DE9mgaq.jpg", "https://i.loli.net/2019/08/23/dQceozEL5qPsHJN.png", "https://img.vim-cn.com/be/99f688872827d0f968feb26697e015fdc7f76d.jpg", "https://img.vim-cn.com/6f/6871eae8b2c3fd3d5331874de893bcadf04dbd.jpg", "https://img.vim-cn.com/6b/de2a9e8390143a037ec15144a98659298b5e36.jpg", "https://img.vim-cn.com/ae/276574c7f2721f117d1e0ef52aca94cb57600b.jpg", "https://img.vim-cn.com/f3/72fc546c9bb9271626a5d6ceda7430e1898aa0.jpg", "https://img.vim-cn.com/35/32de0896752e9c517871e66b617a29f3568d28.jpg", "https://img.vim-cn.com/36/9aa1d29318227ad7f71dc9adcfb1ffc9df510d.jpg", "https://img.vim-cn.com/d9/4c4081a659d6fc68e23c9da835c2a00c30b53f.jpg", "https://img.vim-cn.com/9b/50abbb1869d2f4eff8a29083d61fa4582ef987.jpg", "https://img.vim-cn.com/06/fc66547e61badbd0d5af3672a40d3375493a04.jpg"],
+          ["https://i.loli.net/2020/02/08/HNuVoted2mUxILl.jpg", "https://i.loli.net/2020/02/08/dNJyR4LHtarTqPu.jpg", "https://i.loli.net/2020/02/08/yXx4GwgZYdi81Qs.jpg", "https://i.loli.net/2020/02/08/RP7JpGvWaCYfuB6.jpg"],
           {
             duration: "6000",
             fade: "2000"
           });
         } else {
           $.backstretch(
-          ["https://img.vim-cn.com/d5/b004c81a13aea401375d03b1258ecadbfcbaa7.jpg", "https://img.vim-cn.com/4c/8e7294998989454b2dcd2624373d5a699c4414.jpg", "https://img.vim-cn.com/40/0d7c984530c7b4b25bacdb6d6cfece81873d60.jpg", "https://img.vim-cn.com/9d/4950b78c611b22dbaf5bc0f1543950277f08b8.jpg", "https://i.loli.net/2019/08/23/R1h2zavei8ngysD.jpg", "https://i.loli.net/2019/08/23/rVsuSN9lTGOmgHn.jpg", "https://i.loli.net/2019/08/23/BCX4TpP1DE9mgaq.jpg", "https://i.loli.net/2019/08/23/dQceozEL5qPsHJN.png", "https://img.vim-cn.com/be/99f688872827d0f968feb26697e015fdc7f76d.jpg", "https://img.vim-cn.com/6f/6871eae8b2c3fd3d5331874de893bcadf04dbd.jpg", "https://img.vim-cn.com/6b/de2a9e8390143a037ec15144a98659298b5e36.jpg", "https://img.vim-cn.com/ae/276574c7f2721f117d1e0ef52aca94cb57600b.jpg", "https://img.vim-cn.com/f3/72fc546c9bb9271626a5d6ceda7430e1898aa0.jpg", "https://img.vim-cn.com/35/32de0896752e9c517871e66b617a29f3568d28.jpg", "https://img.vim-cn.com/36/9aa1d29318227ad7f71dc9adcfb1ffc9df510d.jpg", "https://img.vim-cn.com/d9/4c4081a659d6fc68e23c9da835c2a00c30b53f.jpg", "https://img.vim-cn.com/9b/50abbb1869d2f4eff8a29083d61fa4582ef987.jpg", "https://img.vim-cn.com/06/fc66547e61badbd0d5af3672a40d3375493a04.jpg"],
+          ["https://i.loli.net/2020/02/08/HNuVoted2mUxILl.jpg", "https://i.loli.net/2020/02/08/dNJyR4LHtarTqPu.jpg", "https://i.loli.net/2020/02/08/yXx4GwgZYdi81Qs.jpg", "https://i.loli.net/2020/02/08/RP7JpGvWaCYfuB6.jpg"],
           {
             duration: "6000",
             fade: "2000"
@@ -683,10 +694,16 @@ setInterval("createtime()",250);
 
 
 
-  <script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.4.19/js/app.js"></script>
+  <script src="/js/app.js"></script>
 
 
-  <script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.4.19/js/search.js"></script>
+  <script src="/js/search.js"></script>
+
+
+  
+    <script src="/js/commentTyping.js"></script>
+  
+
 
 
 
@@ -801,8 +818,5 @@ setInterval("createtime()",250);
 
 
   <script>setLoadingBarProgress(100);</script>
-  <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
-  <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
-  <script type="text/javascript" src="/js/fireworks.js"></script>
 </body>
 </html>
