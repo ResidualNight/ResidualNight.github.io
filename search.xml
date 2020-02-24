@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>2020冲刺CSP-S&lt;1&gt; P1311选择客栈</title>
+      <link href="/2020/02/2020Dash-1/"/>
+      <url>/2020/02/2020Dash-1/</url>
+      
+        <content type="html"><![CDATA[<center><br><p class="large" style="color:#666">Final Dash</p><br><b style="font-size:.9em;color:#666">信竞路上的重要节点</b><br></center><a id="more"></a><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今年的CSP-S就是初中生涯的最后一次竞赛了。初二成绩不理想（110左右，二等），希望初三拿个一等。而且，年段排名也掉到了70，副科炸开。所以，来个Ultra Dash吧。</p><h1 id="初审题"><a href="#初审题" class="headerlink" title="初审题"></a>初审题</h1><p>题目<btn class="regular"><a href="https://www.luogu.com.cn/problem/P1311" target="_blank" rel="noopener">传送门</a></btn></p><p>题目信息整理后如上图，要求求解的是同色调，且最低消费不超过他们支付能力的两两组合数目。</p><p>以上信息只要知道客栈编号，相应的色调，最低消费就都清楚了，可能很容易想到暴力搜索。</p><p><img src="https://cdn.luogu.com.cn/upload/pic/101.png" alt="数据整理"></p><h1 id="做法"><a href="#做法" class="headerlink" title="做法"></a>做法</h1><h2 id="法一：O-n-3"><a href="#法一：O-n-3" class="headerlink" title="法一：O(n^3)"></a>法一：O(n^3)</h2><p>直接进行暴力枚举，用<code>i,j</code>枚举两个人的客栈位置，判断区间是否合法，用<code>ans</code>统计并输出。</p><p>预估：过前两个测试点。约<red>20 pts</red></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> C++学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CSP , 奇怪的思路 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>&lt;蔚蓝Celeste&gt;失败和抑郁</title>
       <link href="/2019/11/Celeste/"/>
       <url>/2019/11/Celeste/</url>
