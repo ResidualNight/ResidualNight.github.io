@@ -282,7 +282,10 @@
 <p><img src="https://cdn.luogu.com.cn/upload/pic/101.png" alt="数据整理"></p>
 <h1 id="做法"><a href="#做法" class="headerlink" title="做法"></a>做法</h1><h2 id="法一：O-n-3"><a href="#法一：O-n-3" class="headerlink" title="法一：O(n^3)"></a>法一：O(n^3)</h2><p>直接进行暴力枚举，用<code>i,j</code>枚举两个人的客栈位置，判断区间是否合法，用<code>ans</code>统计并输出。</p>
 <p>预估：过前两个测试点。约<red>20 pts</red></p>
-
+<h2 id="法二：O-n-2"><a href="#法二：O-n-2" class="headerlink" title="法二：O(n^2)"></a>法二：O(n^2)</h2><p>在算法一大基础上进行优化。我们会发现算法一用了<strong>O(n)</strong>的时间来判断这个区间是否合法。如果我们做一些预处理，那么就可以节省这一部分的时间。</p>
+<p>很快，就想到了<u>前缀和</u>。即从第一家客栈到目前的客栈为止符合消费能力的客栈数。  </p>
+<p>预估：<red>50 pts</red></p>
+<h2 id="法三"><a href="#法三" class="headerlink" title="法三"></a>法三</h2><h2 id="法四：O-n"><a href="#法四：O-n" class="headerlink" title="法四：O(n)"></a>法四：O(n)</h2>
           
             <br>
             
@@ -337,16 +340,16 @@
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/CSP-奇怪的思路/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>CSP , 奇怪的思路</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/CSP/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>CSP</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/奇怪的思路/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>奇怪的思路</p></a></div>
 
 
         
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-02-24T23:39:34+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-02-25T23:32:23+08:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
-    <p>更新于：2020年2月24日</p>
+    <p>更新于：2020年2月25日</p>
   </a>
 </div>
 
@@ -465,7 +468,7 @@
 </header>
 
     <div class="content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#初审题"><span class="toc-text">初审题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#做法"><span class="toc-text">做法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#法一：O-n-3"><span class="toc-text">法一：O(n^3)</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#初审题"><span class="toc-text">初审题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#做法"><span class="toc-text">做法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#法一：O-n-3"><span class="toc-text">法一：O(n^3)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#法二：O-n-2"><span class="toc-text">法二：O(n^2)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#法三"><span class="toc-text">法三</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#法四：O-n"><span class="toc-text">法四：O(n)</span></a></li></ol></li></ol>
     </div>
   </section>
 
