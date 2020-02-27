@@ -124,7 +124,7 @@
       			
   						<li>
 								<a class="nav flat-box" href="/pictures/" rel="nofollow" id="pictures">
-									<i class="fas fa-picture-o fa-fw"></i>&nbsp;画廊
+									<i class="fas fa-expand-arrows-alt fa-fw"></i>&nbsp;画廊
 								</a>
 							</li>
       			
@@ -324,25 +324,10 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       <center><br><p class="large" style="color:#666">Final Dash</p><br><b style="font-size:.9em;color:#666">日常更新</b><br></center>
-
-<h1 id="审题"><a href="#审题" class="headerlink" title="审题"></a>审题</h1><btn class="regular"><a href="https://www.luogu.com.cn/problem/P5414" target="_blank" rel="noopener">传送门</a></btn>
-
-<p><green><strong>首先要明确，我们的最优解是不可能把同一个数字转换两次的</strong></green>（很好想）</p>
-<p>然后，奇怪的思路就来了：</p>
-<blockquote>
-<p>既然我们可以一次把它移到正确的位置上，那么这个数字就可以理解为直接被移走了。</p>
-</blockquote>
-<p>所以……</p>
-<h1 id="做法"><a href="#做法" class="headerlink" title="做法"></a>做法</h1><p>题目被我们转化成了：<u>删除几个数字，使得数列单调递增，所求的是移走数字的最小和。 使得删除的和最小，就意味着留下的和最大。</u></p>
-<p>那么问题就变成了：<strong>保留几个单调递增的数字，使得和最大。</strong></p>
-<p>那就简单很多了。</p>
-<h1 id="程序代码"><a href="#程序代码" class="headerlink" title="程序代码"></a>程序代码</h1><p><em>最长不降子序列变形</em></p>
-<p><code>F[i]=max(a[i], f[j]+a[i])</code>其中，<code>j&lt;i`</code>a[j]&lt;=a[i]`</p>
-<p><code>f[i]</code>表示以<code>a[i]</code>结尾的的不降序列的和的最大值；</p>
-<p>初始值：<code>f[i]=a[i]</code></p>
-<p>结果：<code>max(f[i])</code>即最优的序列以任意数结尾都有可能。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">int T,n,a[N],f[M];</span><br><span class="line">int sum,ans;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    ios::sync_with_stdio(false);</span><br><span class="line">    cin&gt;&gt;T;</span><br><span class="line">    while(T--)&#123;</span><br><span class="line">        cin&gt;&gt;n; sum=ans=0;</span><br><span class="line">        for(int i=1; i&lt;=n; i++)&#123;</span><br><span class="line">            cin&gt;&gt;a[i]; sum+=a[i]; //计算总和</span><br><span class="line">            f[i]=a[i]; //初始化</span><br><span class="line">        &#125;</span><br><span class="line">        for(int i=1; i&lt;=n; i++)</span><br><span class="line">            for(int k=1; k&lt;i; k++)</span><br><span class="line">                if(a[i]&gt;=a[k]) f[i]=max(f[i],f[k]+a[i]); //dp求和找最大的上升子序列</span><br><span class="line">        for(int i=1; i&lt;=n; i++) ans=max(ans,f[i]);</span><br><span class="line">        cout&lt;&lt;sum-ans&lt;&lt;endl; //最小代价</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+      
+        
+          
+        
       
     </div>
     <!-- 
@@ -1358,7 +1343,7 @@
   <div class="content">
     <ul class="grid navgation">
       
-        <li><a class="flat-box" title="/blog/archives/" href="/blog/archives/" rel="external nofollow noopener noreferrer" target="_self" id="blogarchives">
+        <li><a class="flat-box" title="/archives/" href="/archives/" rel="external nofollow noopener noreferrer" target="_self" id="archives">
           
             <i class="fas fa-archive fa-fw" aria-hidden="true"></i>
           
@@ -1392,7 +1377,7 @@
     <header>
   <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;分类</div>
   
-    <a class="rightBtn" rel="external nofollow noopener noreferrer" target="_self" href="/blog/categories/" title="blog/categories/">
+    <a class="rightBtn" rel="external nofollow noopener noreferrer" target="_self" href="/categories/" title="categories/">
     <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
   
 </header>
@@ -1447,7 +1432,7 @@
     <header>
   <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;标签</div>
   
-    <a class="rightBtn" rel="external nofollow noopener noreferrer" target="_self" href="/blog/tags/" title="blog/tags/">
+    <a class="rightBtn" rel="external nofollow noopener noreferrer" target="_self" href="/tags/" title="tags/">
     <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
   
 </header>
