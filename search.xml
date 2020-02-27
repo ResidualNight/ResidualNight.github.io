@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>2020Dash-3</title>
+      <link href="/2020/02/2020Dash-3/"/>
+      <url>/2020/02/2020Dash-3/</url>
+      
+        <content type="html"><![CDATA[<center><br><p class="large" style="color:#666">Final Dash</p><br><b style="font-size:.9em;color:#666">每日进步</b><br></center><a id="more"></a><h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><btn class="regular"><a href="https://www.luogu.com.cn/problem/P2744" target="_blank" rel="noopener">P2744[USACO5.3]量取牛奶</a></btn><p>知识点：<strong>迭代加深，完全背包</strong></p><h1 id="复习1-迭代加深"><a href="#复习1-迭代加深" class="headerlink" title="复习1:迭代加深"></a>复习1:迭代加深</h1><h2 id="深搜"><a href="#深搜" class="headerlink" title="深搜"></a>深搜</h2><blockquote><p>从根节点一直往下走，直到叶子搜索完再返回上一层。</p></blockquote><p><img src="https://i.loli.net/2020/02/27/nyg4sBI8S3DoUEJ.png" alt="image.png"></p><p>深搜的缺点很明显：如果答案状态所在的结点深度不大，那么搜到这个结点之前，对非常深的状态进行的搜索都是徒劳的。</p><p><img src="https://i.loli.net/2020/02/27/w9zyJB7oORWMfxj.png" alt="image.png"></p><h2 id="广搜"><a href="#广搜" class="headerlink" title="广搜"></a>广搜</h2><blockquote><p>从根节点开始，一层层往下搜索，直到最后才能走到叶子节点。</p></blockquote><p><img src="https://i.loli.net/2020/02/27/f7dgZp25hGaCVQY.png" alt="image.png"></p><p>广搜的问题也很明显。如果目标状态的深度稍微深一些，用于保存状态的队列所需的空间就会指数级增长。</p><h2 id="两者结合？"><a href="#两者结合？" class="headerlink" title="两者结合？"></a>两者结合？</h2><blockquote><p>深搜广搜都有自己的缺点。迭代加深(<strong>iterative deepening</strong>,简称ID)则结合两者的优点，用深搜模拟广搜。为了避免过大的空间需求，必须使用深搜。为了避免搜索无用且过深的搜索树，必须按广搜的模式控制搜索深度。</p></blockquote><h3 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h3><p>深搜之前，我们设定一个限定的深度，要求深搜不得超过这个深度。每一次深搜，我们检查当前所处的深度。如果达到限定的深度，立刻返回。一次完整的深搜完成，如果没有找到答案，增加限定的深度，继续ID。</p><p><img src="https://i.loli.net/2020/02/27/ZTJ1a4SxEpYGgbt.png" alt="image.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> C++学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CSP </tag>
+            
+            <tag> DP </tag>
+            
+            <tag> DFS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>2020冲刺CSP-S&lt;2&gt; P5414[YNOI2019]排序</title>
       <link href="/2020/02/2020Dash-2/"/>
       <url>/2020/02/2020Dash-2/</url>
