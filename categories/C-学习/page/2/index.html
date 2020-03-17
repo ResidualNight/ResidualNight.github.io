@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>Tag: 栈 | Residual Night</title>
+  <title>Category: C++学习 | Residual Night</title>
   
   
 
@@ -207,12 +207,6 @@
       
   <section class="post-list ">
     
-      
-        
-          
-        
-      
-    
     
       
         
@@ -226,7 +220,7 @@
       
 
   
-    <meting-js mini="true" autoplay="false" volume="0.7" loop="all" order="list" server="tencent" type="song" id="0015sCDO47xKwc">
+    <meting-js mini="true" autoplay="false" volume="0.7" loop="all" order="list" server="tencent" type="song" id="001bvyel2LqQoT">
     </meting-js>
   
 
@@ -237,8 +231,8 @@
       
         
   <h2 class="title">
-    <a href="/2019/03/P3056题解/">
-      P3056 笨牛 Clumsy Cows [题解]
+    <a href="/2019/02/RMQ问题&ST表 浅析/">
+      RMQ问题&ST表 浅析
     </a>
   </h2>
 
@@ -268,7 +262,7 @@
             <div class="new-meta-item date">
   <a class="notlink">
     <i class="fas fa-edit" aria-hidden="true"></i>
-    <p>发布于：2019年3月3日</p>
+    <p>发布于：2019年2月15日</p>
   </a>
 </div>
 
@@ -278,9 +272,9 @@
             
   
   <div class="new-meta-item category">
-    <a href="/categories/题解/" rel="nofollow">
+    <a href="/categories/C-学习/" rel="nofollow">
       <i class="fas fa-folder-open" aria-hidden="true"></i>
-      <p>题解</p>
+      <p>C++学习</p>
     </a>
   </div>
 
@@ -290,7 +284,7 @@
           
             
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/栈/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>栈</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/RMQ问题/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>RMQ问题</p></a></div>
 
 
           
@@ -315,8 +309,13 @@
 
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
-      <p><a href="https://www.luogu.org/problemnew/show/P3056" target="_blank" rel="noopener">题目传送门</a></p>
-<p>明显，这是一道用栈解决的<del>水</del>题。但是除了栈，还有另外一种简单一点的方法。</p>
+      <h1 id="什么是RMQ问题？"><a href="#什么是RMQ问题？" class="headerlink" title="什么是RMQ问题？"></a>什么是RMQ问题？</h1><p>RMQ(Range Min/Max Query):</p>
+<p>对于长度为n的数组A，回答若干询问<code>RMQ(A,i,j)(i,j&lt;=n-1)</code>返回数组A中下标在i,j范围内的最小（大）值，即<strong>RMQ问题是指求区间最值的问题</strong>。</p>
+<p>解决方式：</p>
+<ul>
+<li>朴素算法：每查询一次为O(n)</li>
+<li>ST算法：高效，以O(n log n)的预处理代价，换取O(1)的查询时性能</li>
+</ul>
       
         
           
@@ -326,7 +325,7 @@
     <!-- 
       <div class="full-width auto-padding tags">
         
-          <a href="/tags/栈/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 栈</a>
+          <a href="/tags/RMQ问题/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> RMQ问题</a>
         
       </div>
      -->
@@ -340,6 +339,21 @@
   </section>
   
     
+      <br>
+      <div class="prev-next">
+        
+          <a class="prev" rel="prev" href="/categories/C-学习/">
+            <section class="post prev white-box  widget-blur">
+              <i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页&nbsp;
+            </section>
+          </a>
+        
+        <p class="current">
+          2 / 2
+        </p>
+        
+      </div>
+    
     <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
     
     
@@ -349,6 +363,7 @@
 
     
   
+
 </div>
 <aside class="l_side">
   

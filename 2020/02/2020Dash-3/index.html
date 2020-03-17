@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>2020Dash-3 | Residual Night</title>
+  <title>2020冲刺CSP-S&lt;3&gt; P2744[USACO5.3]量取牛奶 | Residual Night</title>
   
   
 
@@ -183,8 +183,8 @@
   
     <h1 class="title">
       <a href="/2020/02/2020Dash-3/">
-        2020Dash-3
-      </a>
+        2020冲刺CSP-S<3> P2744[USACO5.3]量取牛奶
+      </3></a>
     </h1>
   
 
@@ -294,8 +294,19 @@
 </blockquote>
 <h3 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h3><p>深搜之前，我们设定一个限定的深度，要求深搜不得超过这个深度。每一次深搜，我们检查当前所处的深度。如果达到限定的深度，立刻返回。一次完整的深搜完成，如果没有找到答案，增加限定的深度，继续ID。</p>
 <p><img src="https://i.loli.net/2020/02/27/ZTJ1a4SxEpYGgbt.png" alt="image.png"></p>
-<h1 id="复习2-完全背包"><a href="#复习2-完全背包" class="headerlink" title="复习2:完全背包"></a>复习2:完全背包</h1><p>有N种物品和一个容量为V的背包，每种物品都有无限件可用。第i种物品的费用是c[i]，价值是w[i]。求解将哪些物品装入背包可使这些物品的费用总和不超过背包容量，且价值总和最大。  </p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//◢◤ Avicii</span></span><br><span class="line"><span class="comment">//🍁 Inubashiri Momiji</span></span><br><span class="line"><span class="comment">//wpy</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">2000</span>+<span class="number">500</span>;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> a[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;n)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++) <span class="built_in">cin</span>&gt;&gt;a[i];</span><br><span class="line">        <span class="keyword">int</span> l,r,sum=<span class="number">0</span>,maxn=<span class="number">-99</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>; i&lt;=n; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[i]&lt;a[i<span class="number">-1</span>])&#123;</span><br><span class="line">                <span class="keyword">if</span>(sum&gt;maxn) maxn=sum,r=i<span class="number">-1</span>,l=i-sum<span class="number">-1</span>;</span><br><span class="line">                sum=<span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> sum++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//cout&lt;&lt;l&lt;&lt;" "&lt;&lt;r&lt;&lt;endl;</span></span><br><span class="line">        <span class="keyword">int</span> lst,pd=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++) <span class="keyword">if</span>(!(i&gt;=l &amp;&amp; i&lt;=r)) &#123;lst=i; <span class="keyword">break</span>;&#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=lst+<span class="number">1</span>; i&lt;=n; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i&gt;=l &amp;&amp; i&lt;=r) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">if</span>(a[lst]&gt;a[i]) &#123;<span class="built_in">cout</span>&lt;&lt;<span class="string">"No!"</span>&lt;&lt;<span class="built_in">endl</span>; pd=<span class="number">0</span>; <span class="keyword">break</span>;&#125;</span><br><span class="line">            lst=i+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(!pd) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"Yes!"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<fancybox><br><img src="https://i.loli.net/2020/03/12/w23duJ4WYrNVn5t.png"><br></fancybox>
+
+<h1 id="复习2-完全背包"><a href="#复习2-完全背包" class="headerlink" title="复习2:完全背包"></a>复习2:完全背包</h1><p>有N种物品和一个容量为V的背包，每种物品都有<strong>无限件</strong>可用。第<code>i</code>种物品的费用是<code>c[i]</code>，价值是<code>w[i]</code>。求解将哪些物品装入背包可使这些物品的费用总和不超过背包容量，且价值总和最大。  </p>
+<p>因为同种物品可以多次选取，那么第i种物品最多可以选取<code>V/C[i]</code>件价值不变的物品，然后就转化为01背包问题。</p>
+<p>如果把第i种物品拆成体积为<code>C[i]×2k</code>价值<code>W[i]×2k</code>的物品，其中满足<code>C[i]×2k≤V</code>。即设<code>F[i][j]</code>表示出在前i种物品中选取若干件物品放入容量为j的背包所得的最大价值。那么对于第<code>i</code>种物品的出现，我们对第<code>i</code>种物品放不放入背包进行决策。</p>
+<p>如果不放那么<code>F[i][j]=F[i-1][j]</code>；如果确定放，背包中应该出现至少一件第<code>i</code>种物品，所以<code>F[i][j]</code>种至少应该出现一件第<code>i</code>种物品,即<code>F[i][j]=F[i][j-C[i]]+W[i]</code>。为什么会是<code>F[i][j-C[i]]+W[i]</code>？因为<code>F[i][j-C[i]]</code>里面可能有第<code>i</code>种物品，也可能没有第<code>i</code>种物品。我们要确保<code>F[i][j]</code>至少有一件第i件物品，所以要预留<code>C[i]</code>的空间来存放一件第<code>i</code>种物品。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p><strong>状态方程</strong>：$ F[i][j]= Max \begin{cases}<br>F[i-1][j]\<br>F[i][j-C[i]]+W[i] , j \ge C[i]<br>\end{cases}$</p>
+<p>一维数组上区别0-1背包和完全背包差别就在循环顺序上，0-1背包必须逆序，因为这样保证了不会重复选择已经选择的物品，而完全背包是顺序，顺序会覆盖以前的状态，所以存在选择多次的情况，也符合完全背包的题意。</p>
+<fancybox><br><img src="https://i.loli.net/2020/03/12/1HcAuj9pzXVKweG.png"><br></fancybox>
+
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>整体思路是先用迭代加深搜索求出瓶子规格的一种组合，例如1个瓶子的所有组合，2个瓶子的所有组合，3个瓶子时候的组合。由于要求选择较小“集合”，所以应当先将瓶子按规格排序。</p>
+<p>当得出某个组合后，瓶子可以无限量使用，所有转化为完全背包：用可以反复使用的数字拼出背包容量。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">10000</span>+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> p,q,a[N],k,use[N];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;k&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=k; i++) <span class="built_in">cout</span>&lt;&lt;a[use[i]]&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dp</span><span class="params">()</span></span>&#123; <span class="comment">//完全背包，判断取k个瓶子能否取到体积为q的情况</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> f[<span class="number">2</span>*N]; <span class="built_in">memset</span>(f,<span class="number">0</span>,<span class="keyword">sizeof</span>(f)); f[<span class="number">0</span>]=<span class="number">1</span>; <span class="comment">//f[i]:体积为i时能否取到</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=k; i++) <span class="comment">//初始化</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;=q/a[use[i]]; j++)</span><br><span class="line">            f[j*a[use[i]]]=<span class="number">1</span>; <span class="comment">//倍数都可取</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=k; i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=a[use[i]]; j&lt;=q; j++)</span><br><span class="line">            f[j]=f[j]||f[j-a[use[i]]]; <span class="comment">//或</span></span><br><span class="line">    <span class="keyword">if</span>(f[q]) print(); <span class="comment">//一取到就输出（字典序最小</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=use[x<span class="number">-1</span>]+<span class="number">1</span>; i&lt;=p-k+x; i++)&#123; <span class="comment">//下一次递归就是上次取到瓶子的下一个开始多取一次</span></span><br><span class="line">        use[x]=i; <span class="comment">//use[i]:记录第i个桶时桶的编号</span></span><br><span class="line">        <span class="keyword">if</span>(x==k) dp(); <span class="comment">//直到去到k个瓶子为止=&gt;完全背包</span></span><br><span class="line">        <span class="keyword">else</span> dfs(x+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;q&gt;&gt;p;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=p; i++) <span class="built_in">cin</span>&gt;&gt;a[i];</span><br><span class="line">    sort(a+<span class="number">1</span>,a+p+<span class="number">1</span>); <span class="comment">//保证最先找到的是最小组合</span></span><br><span class="line">    <span class="keyword">for</span>(k=<span class="number">1</span>; k&lt;=p; k++) dfs(<span class="number">1</span>); <span class="comment">//依次枚举k个瓶子的所有组合</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
           
             <br>
@@ -357,10 +368,10 @@
         
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-02-29T22:26:10+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-03-15T12:44:39+08:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
-    <p>更新于：2020年2月29日</p>
+    <p>更新于：2020年3月15日</p>
   </a>
 </div>
 
@@ -372,7 +383,7 @@
   <div class="-mob-share-list share-body">
     
       
-        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/02/2020Dash-3/&title=2020Dash-3 | Residual Night&pics=https://i.loli.net/2019/04/26/5cc2e79e0029e.jpg&summary=Final Dash每日进步">
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/02/2020Dash-3/&title=2020冲刺CSP-S<3> P2744[USACO5.3]量取牛奶 | Residual Night&pics=https://i.loli.net/2019/04/26/5cc2e79e0029e.jpg&summary=Final Dash每日进步">
           
             <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qq.png">
           
@@ -380,7 +391,7 @@
       
     
       
-        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2020/02/2020Dash-3/&title=2020Dash-3 | Residual Night&pics=https://i.loli.net/2019/04/26/5cc2e79e0029e.jpg&summary=Final Dash每日进步">
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2020/02/2020Dash-3/&title=2020冲刺CSP-S<3> P2744[USACO5.3]量取牛奶 | Residual Night&pics=https://i.loli.net/2019/04/26/5cc2e79e0029e.jpg&summary=Final Dash每日进步">
           
             <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qzone.png">
           
@@ -388,7 +399,7 @@
       
     
       
-        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/02/2020Dash-3/&title=2020Dash-3 | Residual Night&pics=https://i.loli.net/2019/04/26/5cc2e79e0029e.jpg&summary=Final Dash每日进步">
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/02/2020Dash-3/&title=2020冲刺CSP-S<3> P2744[USACO5.3]量取牛奶 | Residual Night&pics=https://i.loli.net/2019/04/26/5cc2e79e0029e.jpg&summary=Final Dash每日进步">
           
             <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/weibo.png">
           
@@ -409,6 +420,20 @@
         
         
             <div class="prev-next">
+                
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页</h6>
+                            <h4>
+                                <a href="/2020/03/2020Dash-4/" rel="prev" title="2020Dash-4">
+                                  
+                                      2020Dash-4
+                                  
+                                </a>
+                            </h4>
+                            
+                        </span>
+                    </section>
                 
                 
                     <section class="next">
@@ -455,7 +480,7 @@
 
   <script>
     window.subData = {
-      title: '2020Dash-3',
+      title: '2020冲刺CSP-S<3> P2744[USACO5.3]量取牛奶',
       tools: true
     }
   </script>
@@ -479,7 +504,7 @@
 </header>
 
     <div class="content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目"><span class="toc-text">题目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#复习1-迭代加深"><span class="toc-text">复习1:迭代加深</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#深搜"><span class="toc-text">深搜</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#广搜"><span class="toc-text">广搜</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#两者结合？"><span class="toc-text">两者结合？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#具体实现"><span class="toc-text">具体实现</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#复习2-完全背包"><span class="toc-text">复习2:完全背包</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目"><span class="toc-text">题目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#复习1-迭代加深"><span class="toc-text">复习1:迭代加深</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#深搜"><span class="toc-text">深搜</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#广搜"><span class="toc-text">广搜</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#两者结合？"><span class="toc-text">两者结合？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#具体实现"><span class="toc-text">具体实现</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#复习2-完全背包"><span class="toc-text">复习2:完全背包</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#实现"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#思路"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol>
     </div>
   </section>
 
