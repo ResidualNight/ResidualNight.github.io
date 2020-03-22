@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>2020Dash-8</title>
+      <link href="/2020/03/2020Dash-8/"/>
+      <url>/2020/03/2020Dash-8/</url>
+      
+        <content type="html"><![CDATA[<center><br><p class="large" style="color:#666">Final Dash</p><br><b style="font-size:.9em;color:#666">简单贪心</b><br></center><a id="more"></a><h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>传送门：<btn><a href="https://www.luogu.com.cn/problem/T124656" target="_blank" rel="noopener">购物娱乐</a></btn></p><p>考察要点：贪心思想</p><p>有N种物品，每种初始价格是<code>cost[i]</code>，每种物品每被买走一个，价格上升<code>up[i]</code>，求买走<code>m</code>个物品的最小花费。</p><p><code>1&lt;=n,m&lt;=1000</code>，<code>1&lt;=cost[i]</code>，<code>up[i]&lt;=500</code>   <del>（水</del></p><p>#　做法</p><p>贪心。</p><p>策略：显然每次我们购买价格最小的物品，然后这个物品的价格就变成了｀nowcost[i]+up[i]｀，但是下次我们依然是买价格最小的物品，这样买M个就是最优的。</p><p>时间复杂度： <code>O(N*M)</code></p><h2 id="正确性证明"><a href="#正确性证明" class="headerlink" title="正确性证明"></a>正确性证明</h2><blockquote><p> 我们把<code>N</code>个物品拆成<code>N*M</code>个物品，相当于我们把买走一些物品以后的某个物品价格直接拿出来变成新物品。那么问题转化为：<code>N*M</code>个物品中买走<code>M</code>个，使总价格最小，那么问题就一目了然了。</p></blockquote><h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>数据小，直接暴力。</p><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1000000</span>+<span class="number">1000</span>; </span><br><span class="line"><span class="keyword">int</span> n,m,a[N],ans=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line"><span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m; <span class="keyword">int</span> p=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++)&#123;</span><br><span class="line"><span class="keyword">int</span> x,y; <span class="built_in">cin</span>&gt;&gt;x&gt;&gt;y;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>; k&lt;=m; k++)&#123;</span><br><span class="line">a[p]=x; x+=y; p++;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">sort(a+<span class="number">1</span>,a+n*m+<span class="number">1</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=m; i++) ans+=a[i];</span><br><span class="line"><span class="keyword">return</span> <span class="built_in">cout</span>&lt;&lt;ans&lt;&lt;<span class="built_in">endl</span>,<span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="Plus"><a href="#Plus" class="headerlink" title="Plus"></a>Plus</h2><p>如果数据更大，那么就加入<strong>最小堆</strong>维护</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> C++学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CSP </tag>
+            
+            <tag> 贪心 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>2020Dash-7</title>
       <link href="/2020/03/2020Dash-7/"/>
       <url>/2020/03/2020Dash-7/</url>
