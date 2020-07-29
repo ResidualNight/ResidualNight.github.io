@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>2020Dash-8 | Residual Night</title>
+  <title>2020冲刺CSP-S&lt;9&gt; T125092最小连接 | Residual Night</title>
   
   
 
@@ -170,7 +170,7 @@
       
 
   
-    <meting-js mini="true" autoplay="false" volume="0.7" loop="all" order="list" server="netease" type="song" id="1370108695">
+    <meting-js mini="true" autoplay="false" volume="0.7" loop="all" order="list" server="netease" type="song" id="1334780717">
     </meting-js>
   
 
@@ -182,9 +182,9 @@
         
   
     <h1 class="title">
-      <a href="/2020/03/2020Dash-8/">
-        2020Dash-8
-      </a>
+      <a href="/2020/03/2020Dash-9/">
+        2020冲刺CSP-S<9> T125092最小连接
+      </9></a>
     </h1>
   
 
@@ -214,7 +214,7 @@
             <div class="new-meta-item date">
   <a class="notlink">
     <i class="fas fa-edit" aria-hidden="true"></i>
-    <p>发布于：2020年3月19日</p>
+    <p>发布于：2020年3月23日</p>
   </a>
 </div>
 
@@ -272,22 +272,30 @@
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
           
-          <center><br><p class="large" style="color:#666">Final Dash</p><br><b style="font-size:.9em;color:#666">简单贪心</b><br></center>
+          <center><br><p class="large" style="color:#666">Final Dash</p><br><b style="font-size:.9em;color:#666">分而治之</b><br></center>
 
 <a id="more"></a>
-<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>传送门：<btn><a href="https://www.luogu.com.cn/problem/T124656" target="_blank" rel="noopener">购物娱乐</a></btn></p>
-<p>考察要点：贪心思想</p>
-<p>有N种物品，每种初始价格是<code>cost[i]</code>，每种物品每被买走一个，价格上升<code>up[i]</code>，求买走<code>m</code>个物品的最小花费。</p>
-<p><code>1&lt;=n,m&lt;=1000</code>，<code>1&lt;=cost[i]</code>，<code>up[i]&lt;=500</code>   <del>（水</del></p>
-<h1 id="做法"><a href="#做法" class="headerlink" title="做法"></a>做法</h1><p>贪心。</p>
-<p>策略：显然每次我们购买价格最小的物品，然后这个物品的价格就变成了｀nowcost[i]+up[i]｀，但是下次我们依然是买价格最小的物品，这样买M个就是最优的。</p>
-<p>时间复杂度： <code>O(N*M)</code></p>
-<h2 id="正确性证明"><a href="#正确性证明" class="headerlink" title="正确性证明"></a>正确性证明</h2><blockquote>
-<p> 我们把<code>N</code>个物品拆成<code>N*M</code>个物品，相当于我们把买走一些物品以后的某个物品价格直接拿出来变成新物品。那么问题转化为：<code>N*M</code>个物品中买走<code>M</code>个，使总价格最小，那么问题就一目了然了。</p>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>传送门：<btn><a href="https://www.luogu.com.cn/problem/T125092" target="_blank" rel="noopener">最小连接</a></btn></p>
+<p>题目大意：</p>
+<blockquote>
+<p>给出二维平面上的N个点，求最近点对的距离。<br>数据范围：N&lt;=10^5,坐标范围在maxlongint以内。</p>
 </blockquote>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>数据小，直接暴力。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1000000</span>+<span class="number">1000</span>; </span><br><span class="line"><span class="keyword">int</span> n,m,a[N],ans=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m; <span class="keyword">int</span> p=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++)&#123;</span><br><span class="line">		<span class="keyword">int</span> x,y; <span class="built_in">cin</span>&gt;&gt;x&gt;&gt;y;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>; k&lt;=m; k++)&#123;</span><br><span class="line">			a[p]=x; x+=y; p++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	sort(a+<span class="number">1</span>,a+n*m+<span class="number">1</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=m; i++) ans+=a[i];</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">cout</span>&lt;&lt;ans&lt;&lt;<span class="built_in">endl</span>,<span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Plus"><a href="#Plus" class="headerlink" title="Plus"></a>Plus</h2><p>如果数据更大，那么就加入<strong>最小堆</strong>维护</p>
+<p>考察要点：分治</p>
+<blockquote>
+<p>1.把它分成两个或多个更小的问题<br>2.分别解决每个小问题<br>3.把各小问题的解答组合起来，即可得到原问题的解答。小问题通常与原问题相似，可以递归地使用分而治之策略来解决</p>
+</blockquote>
+<h1 id="做法"><a href="#做法" class="headerlink" title="做法"></a>做法</h1><p>我们考虑把N个点按照x坐标进行排序，然后选择位置在中间的点，以它的x坐标作为分界线，也就是把数组中在它前面的点分到S1集合，其他的分到S2集合中，也就是划分成两个子问题。</p>
+<p>然后我们先采用递归的方法先解决S1和S2内部点集的最小距离，然后我们考虑合并S1，S2得到整段的最小距离。</p>
+<p>既然S1,S2集合已经被分治解决了，那么我们假设mindist为这两个集合的最小距离中更小的那个，那么S1和S2合并的时候，我们只要考虑会不会有两边的点跨过中间的分界线，它们之间的距离小于mindist就好了。</p>
+<p>我们以中间的分界线X为标准，把x坐标在[X-mindist,X+mindist]这个区间的点取出来，因为只有这些点在跨过分界线时可能产生比mindist更小的距离。</p>
+<p><img src="https://i.loli.net/2020/03/23/zhWoTnSDp8rkcj4.png" alt="image.png"></p>
+<p>接下来我们这么做，把这些点按照y坐标为关键字，从小到大排序，然后我们开始暴力枚举（两重循环）。</p>
+<p>但是有一点要注意，我们在第二重的时候判断一下，如果j点和i点的y坐标差距&gt;mindist，直接跳出回到第一重循环。</p>
+<p>虽然这看似暴力，但是复杂度是可以保证的。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>伪代码：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">getmindist</span><span class="params">(<span class="keyword">int</span> l,<span class="keyword">int</span> r)</span></span></span><br><span class="line"><span class="function">    <span class="title">if</span><span class="params">(l&gt;r || l==r)</span>  <span class="keyword">return</span> INF</span>;</span><br><span class="line">    <span class="keyword">if</span>(l+<span class="number">1</span>==r)  <span class="keyword">return</span> dist(p[l],p[r]);</span><br><span class="line">    <span class="keyword">int</span> mid=(l+r)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">double</span> mindist=min(getmindist(l,mid),getmindist(mid,r));</span><br><span class="line">    <span class="keyword">for</span>(i=l;i&lt;=r;i++)  <span class="keyword">if</span>(<span class="built_in">fabs</span>(p[i].x-p[mid].x)&lt;mindist)  np[++top]=p[i];</span><br><span class="line">    sort(np+<span class="number">1</span>,np+<span class="number">1</span>+top,cmp);<span class="comment">//按y坐标排序</span></span><br><span class="line">    <span class="keyword">for</span>(i <span class="number">1</span> to top)  <span class="keyword">for</span>(j i+<span class="number">1</span> to top)   <span class="keyword">if</span>(np[j].y-np[i].y&gt;mindist)  <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">else</span> mindist=min(mindist,dist(np[i],np[j]));</span><br><span class="line">    <span class="keyword">return</span> mindist;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>本题代码：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">1000001</span> ;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF=<span class="number">2</span>&lt;&lt;<span class="number">20</span>;</span><br><span class="line"><span class="keyword">int</span> n,temp[maxn];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">double</span> x,y;</span><br><span class="line">&#125;S[maxn];</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">const</span> Point &amp;a,<span class="keyword">const</span> Point &amp;b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a.x==b.x) <span class="keyword">return</span> a.y&lt;b.y;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> a.x&lt;b.x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmps</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> &amp;a,<span class="keyword">const</span> <span class="keyword">int</span>&amp;b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> S[a].y&lt;S[b].y ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">min</span><span class="params">(<span class="keyword">double</span> a,<span class="keyword">double</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a&lt;b?a:b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">dist</span><span class="params">(<span class="keyword">int</span> i,<span class="keyword">int</span> j)</span></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> x=(S[i].x-S[j].x)*(S[i].x-S[j].x);</span><br><span class="line">    <span class="keyword">double</span> y=(S[i].y-S[j].y)*(S[i].y-S[j].y);</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sqrt</span>(x+y);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> d=INF;</span><br><span class="line">    <span class="keyword">if</span>(left==right)</span><br><span class="line">        <span class="keyword">return</span> d ;</span><br><span class="line">    <span class="keyword">if</span>(left+<span class="number">1</span>==right)</span><br><span class="line">        <span class="keyword">return</span> dist(left,right);</span><br><span class="line">    <span class="keyword">int</span> mid=(left+right)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">double</span> d1=merge(left,mid);</span><br><span class="line">    <span class="keyword">double</span> d2=merge(mid+<span class="number">1</span>,right);</span><br><span class="line">    d=min(d1,d2);</span><br><span class="line">    <span class="keyword">int</span> k=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=left; i&lt;=right; i++)</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">fabs</span>(S[mid].x-S[i].x)&lt;=d) temp[k++]=i;</span><br><span class="line">    sort(temp,temp+k,cmps);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;k;i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;k&amp;&amp;S[temp[j]].y-S[temp[i]].y&lt;d;j++)&#123;</span><br><span class="line">            <span class="keyword">double</span> d3=dist(temp[i],temp[j]);</span><br><span class="line">            <span class="keyword">if</span>(d&gt;d3) d=d3;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++) <span class="built_in">cin</span>&gt;&gt;S[i].x&gt;&gt;S[i].y;</span><br><span class="line">    sort(S,S+n,cmp);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%.3lf\n"</span>,merge(<span class="number">0</span>,n<span class="number">-1</span>));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
           
             <br>
@@ -343,16 +351,16 @@
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/CSP/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>CSP</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/贪心/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>贪心</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/CSP/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>CSP</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/图论/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>图论</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/分治/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>分治</p></a></div>
 
 
         
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-03-23T18:19:48+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-03-24T13:14:20+08:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
-    <p>更新于：2020年3月23日</p>
+    <p>更新于：2020年3月24日</p>
   </a>
 </div>
 
@@ -364,7 +372,7 @@
   <div class="-mob-share-list share-body">
     
       
-        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/03/2020Dash-8/&title=2020Dash-8 | Residual Night&pics=https://i.loli.net/2019/04/26/5cc2e79e0029e.jpg&summary=Final Dash简单贪心">
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/03/2020Dash-9/&title=2020冲刺CSP-S<9> T125092最小连接 | Residual Night&pics=https://i.loli.net/2019/04/26/5cc2e79e0029e.jpg&summary=Final Dash分而治之">
           
             <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qq.png">
           
@@ -372,7 +380,7 @@
       
     
       
-        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2020/03/2020Dash-8/&title=2020Dash-8 | Residual Night&pics=https://i.loli.net/2019/04/26/5cc2e79e0029e.jpg&summary=Final Dash简单贪心">
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2020/03/2020Dash-9/&title=2020冲刺CSP-S<9> T125092最小连接 | Residual Night&pics=https://i.loli.net/2019/04/26/5cc2e79e0029e.jpg&summary=Final Dash分而治之">
           
             <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qzone.png">
           
@@ -380,7 +388,7 @@
       
     
       
-        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/03/2020Dash-8/&title=2020Dash-8 | Residual Night&pics=https://i.loli.net/2019/04/26/5cc2e79e0029e.jpg&summary=Final Dash简单贪心">
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/03/2020Dash-9/&title=2020冲刺CSP-S<9> T125092最小连接 | Residual Night&pics=https://i.loli.net/2019/04/26/5cc2e79e0029e.jpg&summary=Final Dash分而治之">
           
             <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/weibo.png">
           
@@ -406,16 +414,16 @@
                         <span class="art-item-left">
                             <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页</h6>
                             <h4>
-                                <a href="/2020/03/2020Dash-9/" rel="prev" title="2020冲刺CSP-S&lt;9&gt; T125092最小连接">
+                                <a href="/2020/03/2020Dash-10/" rel="prev" title="2020冲刺CSP-S&lt;10&gt; P2170选学霸">
                                   
-                                      2020冲刺CSP-S&lt;9&gt; T125092最小连接
+                                      2020冲刺CSP-S&lt;10&gt; P2170选学霸
                                   
                                 </a>
                             </h4>
                             
                                 
                                 <h6 class="tags">
-                                    <a class="tag" href="/tags/CSP/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> CSP</a> <a class="tag" href="/tags/图论/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> 图论</a> <a class="tag" href="/tags/分治/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> 分治</a>
+                                    <a class="tag" href="/tags/CSP/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> CSP</a> <a class="tag" href="/tags/01背包/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> 01背包</a> <a class="tag" href="/tags/并查集/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> 并查集</a>
                                 </h6>
                             
                         </span>
@@ -426,16 +434,16 @@
                         <span class="art-item-right" aria-hidden="true">
                             <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
                             <h4>
-                                <a href="/2020/03/2020Dash-7/" rel="prev" title="2020Dash-7">
+                                <a href="/2020/03/2020Dash-8/" rel="prev" title="2020Dash-8">
                                     
-                                        2020Dash-7
+                                        2020Dash-8
                                     
                                 </a>
                             </h4>
                             
                                 
                                 <h6 class="tags">
-                                    <a class="tag" href="/tags/CSP/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> CSP</a> <a class="tag" href="/tags/图论/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> 图论</a> <a class="tag" href="/tags/分层图/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> 分层图</a>
+                                    <a class="tag" href="/tags/CSP/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> CSP</a> <a class="tag" href="/tags/贪心/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> 贪心</a>
                                 </h6>
                             
                         </span>
@@ -466,7 +474,7 @@
 
   <script>
     window.subData = {
-      title: '2020Dash-8',
+      title: '2020冲刺CSP-S<9> T125092最小连接',
       tools: true
     }
   </script>
@@ -490,7 +498,7 @@
 </header>
 
     <div class="content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目"><span class="toc-text">题目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#做法"><span class="toc-text">做法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#正确性证明"><span class="toc-text">正确性证明</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Plus"><span class="toc-text">Plus</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目"><span class="toc-text">题目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#做法"><span class="toc-text">做法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol>
     </div>
   </section>
 
