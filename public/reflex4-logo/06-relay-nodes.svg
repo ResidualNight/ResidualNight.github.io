@@ -1,0 +1,20 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" style="color:#0b1f4d">
+  <title id="title">Relay Nodes</title>
+  <desc id="desc">A node path traces r and f, reflects at the center, and completes a geometric 4.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M0 0 10 5 0 10Z" fill="currentColor"/>
+    </marker>
+  </defs>
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M24 76V43c0-12 8-19 19-19 10 0 17 6 17 15 0 9-7 14-17 14H24" stroke-width="4"/>
+    <path d="M47 20v56M35 43h24" stroke-width="4"/>
+    <path d="M76 24 55 61h26M73 50v26" stroke-width="4"/>
+    <path d="M22 84c15 8 40 8 56 0" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <path d="M78 16c-15-8-40-8-56 0" stroke-width="2.5" marker-end="url(#arrow)"/>
+  </g>
+  <g fill="currentColor">
+    <circle cx="24" cy="76" r="4.5"/><circle cx="47" cy="20" r="4.5"/>
+    <circle cx="76" cy="24" r="4.5"/><circle cx="73" cy="76" r="4.5"/>
+  </g>
+</svg>

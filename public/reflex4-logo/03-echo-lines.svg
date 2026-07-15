@@ -1,0 +1,10 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" style="color:#0b1f4d">
+  <title id="title">Echo Lines</title>
+  <desc id="desc">Parallel signal lines bounce and fold into an abstract r, f and 4.</desc>
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M23 75V43c0-12 8-19 19-19 10 0 17 6 17 15 0 9-7 14-17 14H23M46 20v56M34 43h29M76 24 54 61h27M73 50v26" stroke-width="3.6"/>
+    <path d="M28 75V46c0-10 6-16 15-16 7 0 12 4 12 10 0 6-5 9-13 9H28M51 20v56M39 47h24M80 26 60 60h21M78 52v24" stroke-width="1.8" opacity=".36"/>
+    <path d="M18 84h55" stroke-width="3"/>
+  </g>
+  <path d="m71 78 11 6-11 6Z" fill="currentColor"/>
+</svg>

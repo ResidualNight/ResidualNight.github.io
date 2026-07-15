@@ -1,0 +1,5 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" style="color:#0a0a0a">
+  <title id="title">reflex4 solid block v1</title>
+  <desc id="desc">The earlier manually approximated solid block version.</desc>
+  <path fill="currentColor" d="M16 10h12v82H16ZM19 10h12l57 82H76ZM16 92h12l59-82H75ZM61 6h28v12H61ZM77 6h12v28H77Z"/>
+</svg>

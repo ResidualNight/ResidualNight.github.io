@@ -1,0 +1,9 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" style="color:#0b1f4d">
+  <title id="title">Counterflow</title>
+  <desc id="desc">Opposing arrow strokes cross as x and lock into the structure of 4.</desc>
+  <g fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M26 70 68 22M29 62h47M67 49v30"/>
+    <path d="M70 73 33 31"/>
+  </g>
+  <path d="m71 17-1 16-12-9ZM28 25l15 2-9 11Z" fill="currentColor"/>
+</svg>

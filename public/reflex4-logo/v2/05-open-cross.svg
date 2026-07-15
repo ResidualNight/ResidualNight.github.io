@@ -1,0 +1,9 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" style="color:#0b1f4d">
+  <title id="title">Open Cross</title>
+  <desc id="desc">An open x shares its upper stroke and pivot with a minimal 4.</desc>
+  <g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M24 67 64 24M36 30l38 43"/>
+    <path d="M31 61h45M65 49v29"/>
+  </g>
+  <path d="m66 18 1 15-12-9ZM80 78l-15-2 9-11Z" fill="currentColor"/>
+</svg>

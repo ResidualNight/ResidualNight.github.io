@@ -1,0 +1,9 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" style="color:#0b1f4d">
+  <title id="title">One Pivot</title>
+  <desc id="desc">The simplest fusion: x pivots at the crossbar of a 4 and exits as one arrow.</desc>
+  <g fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M28 67 66 23M31 62h44M66 50v29"/>
+    <path d="M35 32 69 70"/>
+  </g>
+  <path d="m75 76-15-2 10-11Z" fill="currentColor"/>
+</svg>

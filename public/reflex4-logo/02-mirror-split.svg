@@ -1,0 +1,12 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" style="color:#0b1f4d">
+  <title id="title">Mirror Split</title>
+  <desc id="desc">A mirrored r and f structure facing a geometric 4 across a reflection axis.</desc>
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M19 76V42c0-10 7-17 17-17 8 0 14 5 14 13 0 8-6 13-15 13H19" stroke-width="7"/>
+    <path d="M39 20v56M30 43h18" stroke-width="7"/>
+    <path d="M77 23 58 60h25M75 48v28" stroke-width="7"/>
+    <path d="M50 17v66" stroke-width="2.5" stroke-dasharray="2 6" opacity=".42"/>
+    <path d="M31 84h14M69 84H55" stroke-width="3"/>
+  </g>
+  <path d="m47 84-7-4v8Zm6 0 7-4v8Z" fill="currentColor"/>
+</svg>

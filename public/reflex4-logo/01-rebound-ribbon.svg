@@ -1,0 +1,11 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" style="color:#0b1f4d">
+  <title id="title">Rebound Ribbon</title>
+  <desc id="desc">An abstract r, f and 4 monogram with a returning arrow.</desc>
+  <g fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M26 76V43c0-11 8-19 19-19 9 0 16 6 16 14 0 9-7 14-17 14H26"/>
+    <path d="M48 20v56M37 43h28"/>
+    <path d="M73 26 53 61h26M72 52v24"/>
+    <path d="M80 29c10 13 8 31-4 41" stroke-width="4"/>
+  </g>
+  <path d="m72 64 4 10 7-8Z" fill="currentColor"/>
+</svg>

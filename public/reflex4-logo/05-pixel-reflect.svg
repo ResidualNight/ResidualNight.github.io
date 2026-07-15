@@ -1,0 +1,21 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" style="color:#0b1f4d">
+  <title id="title">Pixel Reflect</title>
+  <desc id="desc">A modular capsule matrix suggests r, f and 4 around a reflection axis.</desc>
+  <defs>
+    <rect id="cell" width="10" height="8" rx="4" fill="currentColor"/>
+  </defs>
+  <g>
+    <use href="#cell" x="18" y="22"/><use href="#cell" x="31" y="22"/><use href="#cell" x="44" y="22"/>
+    <use href="#cell" x="18" y="35"/><use href="#cell" x="44" y="35"/>
+    <use href="#cell" x="18" y="48"/><use href="#cell" x="31" y="48"/><use href="#cell" x="44" y="48"/>
+    <use href="#cell" x="18" y="61"/><use href="#cell" x="44" y="61"/>
+    <use href="#cell" x="18" y="74"/>
+    <use href="#cell" x="59" y="22"/><use href="#cell" x="72" y="22"/>
+    <use href="#cell" x="59" y="35"/><use href="#cell" x="72" y="35"/>
+    <use href="#cell" x="59" y="48"/><use href="#cell" x="72" y="48"/>
+    <use href="#cell" x="46" y="61"/><use href="#cell" x="59" y="61"/><use href="#cell" x="72" y="61"/>
+    <use href="#cell" x="72" y="74"/>
+  </g>
+  <path d="M45 90H25" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+  <path d="m27 84-10 6 10 6ZM55 90h20l-2-6 10 6-10 6 2-6Z" fill="currentColor"/>
+</svg>

@@ -1,0 +1,8 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" style="color:#0b1f4d">
+  <title id="title">Negative Return</title>
+  <desc id="desc">A compact avatar mark cut by a mirrored arrow and an abstract r, f and 4.</desc>
+  <path fill="currentColor" fill-rule="evenodd" d="
+    M38 14h24c15 0 24 9 24 24v24c0 15-9 24-24 24H38c-15 0-24-9-24-24V38c0-15 9-24 24-24Z
+    M27 31v38h7V52h8c9 0 15-5 15-12 0-6-5-9-13-9Zm7 7h9c4 0 6 1 6 4s-2 4-6 4h-9Zm12-12v43h7V49h9v-7h-9V26Zm27 4L55 58v6h16v7h7v-7h6v-7h-6V30Zm-2 12v15h-9Z
+    M26 76h48v-5l11 8-11 8v-5H26v5l-11-8 11-8Z"/>
+</svg>

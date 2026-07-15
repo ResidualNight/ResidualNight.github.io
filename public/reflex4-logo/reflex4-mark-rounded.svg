@@ -1,0 +1,8 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" style="color:#111827">
+  <title id="title">reflex4 rounded mark</title>
+  <desc id="desc">The earlier rounded monoline version of the reflex4 mark.</desc>
+  <g fill="none" stroke="currentColor" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M26 77V23l50 54"/>
+    <path d="M26 77 76 23H61M76 23v15"/>
+  </g>
+</svg>

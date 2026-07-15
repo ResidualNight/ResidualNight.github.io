@@ -1,0 +1,9 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" style="color:#0b1f4d">
+  <title id="title">Shared Diagonal</title>
+  <desc id="desc">The diagonal of 4 is shared with x and ends as an arrow.</desc>
+  <g fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M29 66 66 23M30 62h47M67 50v29"/>
+    <path d="M31 27 72 75"/>
+  </g>
+  <path d="m67 17 1 15-12-9Z" fill="currentColor"/>
+</svg>

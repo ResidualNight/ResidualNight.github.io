@@ -1,0 +1,8 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" style="color:#0a0a0a">
+  <title id="title">reflex4 industrial line mark</title>
+  <desc id="desc">The earlier heavy monoline version of the reflex4 mark.</desc>
+  <g fill="none" stroke="currentColor" stroke-width="8.5" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="3">
+    <path d="M26 23v54l50-54H61M76 23v15"/>
+    <path d="M26 23 76 77"/>
+  </g>
+</svg>

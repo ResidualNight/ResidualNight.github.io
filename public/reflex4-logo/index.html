@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>reflex4 — Refined Mark</title>
+  <style>
+    *{box-sizing:border-box}html{color-scheme:light}
+    :root{--bg:#f1f1ed;--panel:#fff;--ink:#0a0a0a;--muted:#646464;--line:rgba(10,10,10,.18);--accent:#7E2736;--size:280px}
+    body.dark{--bg:#080b12;--panel:#111722;--ink:#f4f7ff;--muted:#9ca6b7;--line:rgba(255,255,255,.12);color-scheme:dark}
+    body{margin:0;min-height:100vh;background:var(--bg);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;transition:background .3s,color .3s}
+    .shell{width:min(1100px,calc(100% - 32px));margin:auto;padding:54px 0 80px}
+    header{text-align:center;margin-bottom:38px}.eyebrow{font:700 10px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+    h1{font-size:clamp(46px,7vw,74px);font-weight:780;letter-spacing:-.035em;margin:12px 0 9px}.lead{max-width:640px;margin:auto;color:var(--muted);font-size:14px;line-height:1.8}
+    .toolbar{display:flex;justify-content:center;gap:7px;margin:27px auto 34px;flex-wrap:wrap}button{border:1px solid var(--line);border-radius:0;padding:9px 13px;background:var(--panel);color:var(--muted);font:700 10px/1 ui-monospace,SFMono-Regular,Menlo,monospace;cursor:pointer;transition:.2s}button:hover,button.active{background:var(--ink);color:var(--bg)}
+    .stage{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);gap:18px}.hero,.details{background:var(--panel);border:1px solid var(--line);border-radius:0}
+    .hero{min-height:570px;display:grid;place-items:center;position:relative;overflow:hidden}.hero::before{content:"";position:absolute;inset:24px;border:1px solid var(--line);border-radius:0;background-image:linear-gradient(135deg,transparent 48%,rgba(10,10,10,.035) 48%,rgba(10,10,10,.035) 52%,transparent 52%);background-size:28px 28px;background-position:center}
+    .mark{position:relative;z-index:1;width:var(--size);height:var(--size);transition:width .35s cubic-bezier(.16,1,.3,1),height .35s cubic-bezier(.16,1,.3,1);filter:none}
+    .details{padding:32px;display:flex;flex-direction:column;justify-content:space-between}.number{font:700 10px/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent);letter-spacing:.14em}.details h2{font-size:27px;font-weight:780;margin:10px 0 14px;text-transform:uppercase}.details p{font-size:13px;line-height:1.8;color:var(--muted);margin:0}
+    .specs{margin:32px 0 0;padding:0;list-style:none;border-top:1px solid var(--line)}.specs li{display:flex;justify-content:space-between;gap:18px;padding:13px 0;border-bottom:1px solid var(--line);font:500 10px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted)}.specs strong{color:var(--ink);font-weight:600}
+    .downloads{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:26px}.download{display:block;padding:13px 12px;border:1px solid var(--ink);border-radius:0;background:var(--ink);color:var(--bg);text-decoration:none;text-align:center;font:700 10px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.06em}.download.secondary{background:transparent;color:var(--ink)}
+    footer{display:flex;justify-content:space-between;gap:20px;margin-top:20px;padding:20px 5px;color:var(--muted);font-size:11px;line-height:1.7}
+    @media(max-width:760px){.shell{padding-top:40px}.stage{grid-template-columns:1fr}.hero{min-height:430px}.details{padding:26px}.mark{max-width:70vw;max-height:70vw}footer{display:block}}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header><div class="eyebrow">Image cleanup → contour trace → square ratio</div><h1>reflex4</h1><p class="lead">保留正方形清稿轮廓，并应用网站设计规范中的编辑酒红 <strong>#7E2736</strong>，同步用于网站标签页图标。</p></header>
+    <nav class="toolbar" aria-label="预览控制"><button data-size="16">16px</button><button data-size="32">32px</button><button data-size="64">64px</button><button data-size="280" class="active">280px</button><button id="theme">深色背景</button></nav>
+    <section class="stage">
+      <div class="hero"><img class="mark" src="reflex4-mark.svg" alt="reflex4 优化图标"></div>
+      <aside class="details">
+        <div><div class="number">SQUARE TRACE 01</div><h2>Square 4 × Arrow</h2><p>保留清稿 SVG 的全部拐点，图形边界为严格的 900 × 900。主版使用编辑酒红，favicon 版缩小画布留白，提高浏览器标签中的识别度。</p><ul class="specs"><li><span>VIEWBOX</span><strong>1329 × 1329</strong></li><li><span>MARK BOUNDS</span><strong>900 × 900</strong></li><li><span>COLOR</span><strong>#7E2736</strong></li><li><span>PATHS</span><strong>1 CLOSED PATH</strong></li><li><span>STROKE</span><strong>NONE</strong></li><li><span>BACKGROUND</span><strong>TRANSPARENT</strong></li></ul></div>
+        <div class="downloads"><a class="download" href="reflex4-mark.svg" download>下载 SVG</a><a class="download secondary" href="exports/reflex4-mark-1024.png" download>透明 PNG</a><a class="download secondary" href="cleaned-reference.png" download>生图清稿</a></div>
+      </aside>
+    </section>
+    <footer><div>建议先观察 16px 与 32px：交叉点和箭头仍然分明，才适合作为 favicon。</div><div>reflex4 · personal mark · 2026</div></footer>
+  </main>
+  <script>
+    const root=document.documentElement;const buttons=[...document.querySelectorAll('[data-size]')];
+    buttons.forEach(button=>button.addEventListener('click',()=>{buttons.forEach(item=>item.classList.remove('active'));button.classList.add('active');root.style.setProperty('--size',button.dataset.size+'px')}));
+    document.querySelector('#theme').addEventListener('click',event=>{document.body.classList.toggle('dark');event.currentTarget.textContent=document.body.classList.contains('dark')?'浅色背景':'深色背景'});
+  </script>
+</body>
+</html>

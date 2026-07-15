@@ -1,0 +1,9 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" style="color:#0b1f4d">
+  <title id="title">Twin Vectors</title>
+  <desc id="desc">Two crossing vectors form x while one vector continues into 4.</desc>
+  <g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M27 70 66 24"/>
+    <path d="M28 26 71 74M30 61h45M66 50v29"/>
+  </g>
+  <path d="m68 18 1 15-12-9Zm7 61-13-8 11-7Z" fill="currentColor"/>
+</svg>

@@ -1,0 +1,10 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" style="color:#0a0a0a">
+  <title id="title">reflex4 manual reconstruction v2</title>
+  <desc id="desc">The manual reconstruction before image-generation cleanup and contour tracing.</desc>
+  <g fill="currentColor">
+    <rect x="12.5" y="10" width="10.8" height="82"/>
+    <path d="M17.5 15.8 82.5 86M17.5 86 82.5 14.5" fill="none" stroke="currentColor" stroke-width="10.8" stroke-linecap="butt"/>
+    <rect x="63" y="10" width="25" height="11"/>
+    <rect x="77" y="10" width="11" height="25"/>
+  </g>
+</svg>

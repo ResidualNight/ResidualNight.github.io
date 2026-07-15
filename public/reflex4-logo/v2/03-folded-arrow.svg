@@ -1,0 +1,6 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" style="color:#0b1f4d">
+  <title id="title">Folded Arrow</title>
+  <desc id="desc">One angular arrow folds into a 4, crossed by a single x stroke.</desc>
+  <path d="M25 64 61 20l13 11-8 1-23 28h25V49l11 13-11 13v-7H25Z" fill="currentColor"/>
+  <path d="M28 25 76 77" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+</svg>
