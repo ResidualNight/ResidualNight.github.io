@@ -198,8 +198,11 @@ GitHub 预览配置（2026-07-15）：
 - 默认预览地址：`https://residualnight.github.io/`。
 - 当前网站源码使用 `main` 分支，推送后由 `.github/workflows/deploy-pages.yml` 自动执行
   lint、静态构建测试并发布 `out/`。
+- 初始源码提交为 `f8fab38`；GitHub Actions 首次部署已成功，Pages 状态为 `built`，
+  公开地址已核对为新站内容。
 - 被替换的旧 Pages 网站已完整镜像到私有仓库
   `ResidualNight/ResidualNight.github.io-archive-2026-07-15`；不要将该备份改为公开仓库。
+- 公开仓库的旧 `master` 分支已在部署成功后删除，旧站只保留在私有归档中。
 - 预览阶段不绑定 `reflex4.top`，域名保留给后续阿里云正式环境。
 
 未来阿里云生产方向：
@@ -240,6 +243,7 @@ Next.js 构建
   `ResidualNight/ResidualNight.github.io-archive-2026-07-15`，镜像提交与原 `master` 一致。
 - 当前源码隐私扫描未发现密钥、私人邮箱、电话号码、私钥或超大文件；提交身份使用公开昵称
   `reflex4` 和 GitHub noreply 邮箱。
+- Git 初始基线、远程 `main`、Pages Actions 发布源和首次线上部署均已完成。
 
 以下信息尚未确认：
 
@@ -255,9 +259,10 @@ Next.js 构建
 1. 已完成源码隐私与大文件扫描。
 2. 已完整备份旧 Pages 仓库到私有归档仓库。
 3. 已确定公开源码仓库、默认预览地址与 Actions 发布方式。
-4. 将当前源码建立 Git 初始基线并推送到 `main`。
-5. 将 Pages 发布源切换到 GitHub Actions，确认部署成功后删除旧 `master` 分支。
-6. 用户手动检查首页吸附与音频、博客搜索/返回、摄影大图与质量切换，以及中国内地实际访问情况。
+4. 已将当前源码建立 Git 初始基线并推送到 `main`。
+5. 已将 Pages 发布源切换到 GitHub Actions，确认部署成功并删除旧 `master` 分支。
+6. 下一步由用户手动检查首页吸附与音频、博客搜索/返回、摄影大图与质量切换，
+   并请中国内地朋友反馈首次打开速度与资源加载情况。
 
 ### 阶段 B：正式上线前生产配置
 
