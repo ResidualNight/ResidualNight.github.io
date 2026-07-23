@@ -3,162 +3,21 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import {
+  archiveEntries,
+  type PhotographyAsset,
+} from "./archive-data";
 
 gsap.registerPlugin(useGSAP);
 
-type PhotoFormat = "landscape" | "portrait" | "square";
-type PlaceholderTone = "forest" | "wine" | "rust";
 type ImageQuality = "compressed" | "original";
 
 const IMAGE_QUALITY_STORAGE_KEY = "reflex4:photography:image-quality";
-
-export interface PhotographyExif {
-  camera: string | null;
-  lens: string | null;
-  aperture: string | null;
-  shutterSpeed: string | null;
-  iso: string | null;
-  focalLength: string | null;
-}
-
-export interface PhotographyAsset {
-  id: string;
-  thumbnailSrc: string | null;
-  originalSrc: string | null;
-  alt: string;
-  format: PhotoFormat;
-  placeholderTone: PlaceholderTone;
-  exif: PhotographyExif;
-}
-
-export interface PhotographyArchiveEntry {
-  id: string;
-  capturedOn: string;
-  title: string;
-  location: string;
-  photos: PhotographyAsset[];
-}
 
 type ViewerState = {
   groupIndex: number;
   photoIndex: number;
 };
-
-function placeholderSet(
-  frame: string,
-  formats: PhotoFormat[],
-  tones: PlaceholderTone[],
-): PhotographyAsset[] {
-  return formats.map((format, index) => ({
-    id: `${frame}-photo-${index + 1}`,
-    thumbnailSrc: null,
-    originalSrc: null,
-    alt: `摄影作品组 ${frame} 的第 ${index + 1} 张图片占位`,
-    format,
-    placeholderTone: tones[index % tones.length],
-    exif: {
-      camera: null,
-      lens: null,
-      aperture: null,
-      shutterSpeed: null,
-      iso: null,
-      focalLength: null,
-    },
-  }));
-}
-
-// Later, replace this collection with the photography API response.
-// Each group loads thumbnailSrc on the timeline and requests originalSrc only in the viewer.
-const archiveEntries: PhotographyArchiveEntry[] = [
-  {
-    id: "frame-08",
-    capturedOn: "2026-06-21",
-    title: "光线样本 / 08",
-    location: "位置待录入",
-    photos: placeholderSet(
-      "08",
-      ["landscape", "portrait", "square"],
-      ["forest", "rust", "wine"],
-    ),
-  },
-  {
-    id: "frame-07",
-    capturedOn: "2026-05-04",
-    title: "光线样本 / 07",
-    location: "位置待录入",
-    photos: placeholderSet(
-      "07",
-      ["portrait", "landscape", "square"],
-      ["rust", "forest", "wine"],
-    ),
-  },
-  {
-    id: "frame-06",
-    capturedOn: "2026-02-16",
-    title: "光线样本 / 06",
-    location: "位置待录入",
-    photos: placeholderSet(
-      "06",
-      ["square", "landscape", "portrait"],
-      ["wine", "forest", "rust"],
-    ),
-  },
-  {
-    id: "frame-05",
-    capturedOn: "2025-11-29",
-    title: "光线样本 / 05",
-    location: "位置待录入",
-    photos: placeholderSet(
-      "05",
-      ["landscape", "square", "portrait"],
-      ["rust", "wine", "forest"],
-    ),
-  },
-  {
-    id: "frame-04",
-    capturedOn: "2025-08-12",
-    title: "光线样本 / 04",
-    location: "位置待录入",
-    photos: placeholderSet(
-      "04",
-      ["portrait", "square", "landscape"],
-      ["forest", "rust", "wine"],
-    ),
-  },
-  {
-    id: "frame-03",
-    capturedOn: "2025-03-07",
-    title: "光线样本 / 03",
-    location: "位置待录入",
-    photos: placeholderSet(
-      "03",
-      ["landscape", "portrait", "square"],
-      ["wine", "forest", "rust"],
-    ),
-  },
-  {
-    id: "frame-02",
-    capturedOn: "2024-09-18",
-    title: "光线样本 / 02",
-    location: "位置待录入",
-    photos: placeholderSet(
-      "02",
-      ["square", "portrait", "landscape"],
-      ["forest", "wine", "rust"],
-    ),
-  },
-  {
-    id: "frame-01",
-    capturedOn: "2024-01-03",
-    title: "光线样本 / 01",
-    location: "位置待录入",
-    photos: placeholderSet(
-      "01",
-      ["landscape", "square", "portrait"],
-      ["rust", "forest", "wine"],
-    ),
-  },
-];
 
 function formatDate(capturedOn: string) {
   return capturedOn.replaceAll("-", ".");

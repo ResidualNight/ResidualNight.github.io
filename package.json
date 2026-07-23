@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build --webpack",
+    "photos:build": "node scripts/process-photography.mjs",
     "start": "python3 -m http.server 3000 --directory out",
     "test": "npm run build && node --test tests/static-export.test.mjs",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next"
@@ -31,6 +32,8 @@
     "@types/react-dom": "19.2.3",
     "eslint": "9.39.4",
     "eslint-config-next": "16.2.6",
+    "exifr": "^7.1.3",
+    "sharp": "^0.34.5",
     "tailwindcss": "4.2.1",
     "typescript": "5.9.3"
   },

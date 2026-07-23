@@ -43,5 +43,6 @@ Motion Lab 的源码保留在 `app/motion-lab/`，但入口特意命名为
 
 - `npm run dev`：本地开发
 - `npm run build`：生成纯静态 `out/`
+- `npm run photos:build`：压缩本地摄影源图并生成摄影页数据（见 `app/photography/IMPORTING.md`）
 - `npm start`：预览静态目录
 - `npm test`：重新构建并检查所有核心静态路由

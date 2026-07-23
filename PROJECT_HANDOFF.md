@@ -1,6 +1,6 @@
 # reflex4 个人网站：项目交接与续接上下文
 
-> 最后核对日期：2026-07-15  
+> 最后核对日期：2026-07-23  
 > 项目目录：`/Users/reflex4/Documents/个人网站`  
 > 用途：在新建 Codex 对话后快速恢复项目目标、已确认决策、当前实现和上线进度。
 
@@ -146,21 +146,27 @@ Motion Lab 若需临时运行，可将 `page.experimental.tsx` 改名为 `page.t
 
 ### 摄影
 
-- 当前使用照片组占位数据。
+- 页面优先使用 `archive.generated.json` 的真实照片组，数据为空时回退到照片组占位。
 - 时间轴仅加载 `thumbnailSrc`，大图查看时才使用 `originalSrc`。
 - 有相机、镜头、光圈、快门、ISO、焦距六项 EXIF 预留。
 - 质量偏好保存在浏览器本机，默认使用压缩图。
-- 真实照片、年份索引和年度照片功能尚未接入。
+- Lightroom JPG 本地压缩与导入脚本已通过首个三图真实照片组验证并接入页面；年份索引和年度照片功能尚未接入。
 
 ## 9. 已确认的照片处理方案
 
-用户会先在 Lightroom 中完成风格化处理并导出 JPG，再交给未来的本地管理软件处理。
+用户会先在 Lightroom 中完成风格化处理并导出 JPG，再交给当前脚本或未来的本地管理软件处理。
 这样比让软件直接解析和渲染 Sony RAW 简单、稳定，也更容易保证 Lightroom 调色结果一致。
 
 计划输出两级图片：
 
 - 高清展示图：目标控制在 5 MB 以内，作为 `originalSrc`。
 - 时间轴缩略图：目标控制在 1 MB 以内，作为 `thumbnailSrc`。
+
+当前过渡工作流已实现为 `npm run photos:build`：读取本机 `photography-source/` 中按组整理的
+Lightroom JPG，自动校正方向、生成 1600px 缩略图与 3840px 高清图、提取六项 EXIF，输出到
+`public/photography/` 并更新 `app/photography/archive.generated.json`。源图目录被 Git 忽略；详细规则见
+`app/photography/IMPORTING.md`。脚本生成的网页图片在 GitHub Pages 预览阶段仍会进入公开仓库，
+作品数量明显增加前应迁往 OSS，避免 Git 历史持续膨胀。
 
 未来本地管理软件可负责：
 
@@ -343,6 +349,8 @@ npm run lint
 | `app/blog/posts/` | Markdown 内容源 |
 | `app/blog/AUTHORING.md` | Markdown 作者规范 |
 | `app/photography/` | 摄影页结构与交互 |
+| `app/photography/IMPORTING.md` | Lightroom JPG 分组、压缩、检查与发布规则 |
+| `scripts/process-photography.mjs` | 双规格图片压缩、EXIF 提取和摄影页数据生成 |
 | `app/motion-lab/` | 不发布的实验源码 |
 | `tests/static-export.test.mjs` | 静态发布防回归测试 |
 | `out/` | 构建产物；上传源，通常不提交 Git |
@@ -352,8 +360,8 @@ npm run lint
 - 最近一次 `npm install` 的依赖审计曾报告 1 个低危和 3 个中危问题；构建不受影响，
   上线前应查看具体依赖链，不要直接执行破坏性 `audit fix --force`。
 - `out/` 当前约十几 MB，音乐文件是较大的现有资源之一；真实摄影接入后，照片应迁往 OSS。
-- Git 仓库当前没有正常的已跟踪基线，`git status` 显示项目文件整体为未跟踪状态。
-  未经用户明确要求，不要擅自把全部文件提交或重写历史；正式上线前可单独安排初始化基线提交。
+- Git 已建立正常基线并关联公开仓库 `ResidualNight/ResidualNight.github.io` 的 `main` 分支；
+  推送后由 GitHub Actions 自动构建与发布。
 - Git 是长期源码管理工具，与 GitHub Pages、阿里云 ECS、OSS 或其他托管平台相互独立。
   即使未来关闭 GitHub Pages，仍应继续用 Git 管理分支、提交、回滚和发布版本。
 - GitHub Pages 当前只作为效果预览目标；阿里云生产环境确定后可以保留、停用或改为预览分支。
@@ -367,7 +375,7 @@ npm run lint
 ```text
 请先完整阅读项目根目录的 AGENTS.md、PROJECT_HANDOFF.md 和 DESIGN_SYSTEM.md。
 这是 reflex4 个人网站从开发到上线的延续任务。当前三个核心页面已经完成第一版并改造成
-Next.js 纯静态导出，motion-lab 不参与发布。当前先建立 Git 基线并用 GitHub Pages 进行效果预览；
+Next.js 纯静态导出，motion-lab 不参与发布。Git 基线与 GitHub Pages 效果预览已经建立；
 未来阿里云路线为 ECS + Nginx，媒体增多后再接入 OSS/CDN，有明确需求后才增加动态服务。
 请根据 PROJECT_HANDOFF.md 的“当前上线阻塞信息”与“推荐的后续执行顺序”继续，不要重复已完成的
 静态改造。涉及页面修改时，还要完整阅读对应的 design-logs 页面日志并同步更新。小型视觉细节

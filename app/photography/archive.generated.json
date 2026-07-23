@@ -1,0 +1,58 @@
+[
+  {
+    "id": "2026-07-23-test",
+    "capturedOn": "2026-07-23",
+    "title": "夏夜散步",
+    "location": "北京",
+    "photos": [
+      {
+        "id": "2026-07-23-test-photo-1",
+        "thumbnailSrc": "/photography/2026-07-23-test/thumbnail/01.jpg",
+        "originalSrc": "/photography/2026-07-23-test/original/01.jpg",
+        "alt": "路灯下经过树影的行人",
+        "format": "landscape",
+        "placeholderTone": "forest",
+        "exif": {
+          "camera": "SONY ILCE-7M3",
+          "lens": "E 28-200mm F2.8-5.6 A071",
+          "aperture": "f/4",
+          "shutterSpeed": "1/320 s",
+          "iso": "100",
+          "focalLength": "44 mm"
+        }
+      },
+      {
+        "id": "2026-07-23-test-photo-2",
+        "thumbnailSrc": "/photography/2026-07-23-test/thumbnail/02.jpg",
+        "originalSrc": "/photography/2026-07-23-test/original/02.jpg",
+        "alt": "雨后路面映出的暖色灯光",
+        "format": "landscape",
+        "placeholderTone": "rust",
+        "exif": {
+          "camera": "SONY ILCE-7M3",
+          "lens": "E 28-200mm F2.8-5.6 A071",
+          "aperture": "f/5.6",
+          "shutterSpeed": "1/160 s",
+          "iso": "800",
+          "focalLength": "149 mm"
+        }
+      },
+      {
+        "id": "2026-07-23-test-photo-3",
+        "thumbnailSrc": "/photography/2026-07-23-test/thumbnail/03.jpg",
+        "originalSrc": "/photography/2026-07-23-test/original/03.jpg",
+        "alt": "夜色中的街道尽头",
+        "format": "landscape",
+        "placeholderTone": "wine",
+        "exif": {
+          "camera": "SONY ILCE-7M3",
+          "lens": "E 28-200mm F2.8-5.6 A071",
+          "aperture": "f/4",
+          "shutterSpeed": "1/50 s",
+          "iso": "100",
+          "focalLength": "46 mm"
+        }
+      }
+    ]
+  }
+]

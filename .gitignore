@@ -18,6 +18,9 @@
 /.vinext/
 /out/
 
+# local Lightroom exports; generated web assets live in public/photography
+/photography-source/
+
 # misc
 .DS_Store
 *.pem
