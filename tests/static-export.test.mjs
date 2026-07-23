@@ -24,6 +24,8 @@ test("exports the three core pages and a static error page", async () => {
   ]);
 
   assert.match(home, /reflex4/);
+  assert.match(home, /MacOS 硬盘照片管理软件/);
+  assert.match(home, /RSS Reader for M5Papercolor/);
   assert.match(blog, /Writing Archive/);
   assert.match(photography, /Light \/ Time \/ Observation/);
   assert.doesNotMatch(blog, /\/api\/blog\/search/);

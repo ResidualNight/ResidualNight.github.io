@@ -36,17 +36,51 @@ function PhotoVisual({
   label: string;
   preferOriginal?: boolean;
 }) {
-  const source = preferOriginal
-    ? photo.originalSrc ?? photo.thumbnailSrc
-    : photo.thumbnailSrc;
+  const [loadedOriginalSource, setLoadedOriginalSource] = useState<string | null>(
+    null,
+  );
+  const originalSource = preferOriginal ? photo.originalSrc : null;
+  const source = originalSource ?? photo.thumbnailSrc;
 
   if (source) {
+    if (originalSource && photo.thumbnailSrc) {
+      const originalLoaded = loadedOriginalSource === originalSource;
+
+      return (
+        <span
+          className="photo-progressive-image"
+          data-original-loaded={originalLoaded}
+          aria-busy={!originalLoaded}
+        >
+          <img
+            className="photo-progressive-thumbnail"
+            src={photo.thumbnailSrc}
+            alt=""
+            aria-hidden="true"
+            decoding="async"
+            key={`thumbnail-${photo.thumbnailSrc}`}
+          />
+          <img
+            className="photo-progressive-original"
+            src={originalSource}
+            alt={photo.alt}
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
+            onLoad={() => setLoadedOriginalSource(originalSource)}
+            key={`original-${originalSource}`}
+          />
+        </span>
+      );
+    }
+
     return (
       <img
         src={source}
         alt={photo.alt}
         loading={preferOriginal ? "eager" : "lazy"}
         decoding="async"
+        key={source}
       />
     );
   }
@@ -445,6 +479,7 @@ export function PhotographyArchive() {
                 className={`photo-viewer-media photo-viewer-media--${activePhoto.format}`}
               >
                 <PhotoVisual
+                  key={`${activePhoto.id}:${imageQuality}`}
                   photo={activePhoto}
                   frame={(archiveEntries.length - viewer.groupIndex)
                     .toString()
@@ -534,7 +569,7 @@ export function PhotographyArchive() {
               <span>
                 {imageQuality === "original"
                   ? activePhoto.originalSrc
-                    ? "Original loaded"
+                    ? "Original requested"
                     : "Original source pending"
                   : "Compressed preview active"}
               </span>
