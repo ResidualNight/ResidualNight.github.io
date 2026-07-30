@@ -9,18 +9,22 @@ async function readOutput(path) {
   return readFile(new URL(path, outRoot), "utf8");
 }
 
-test("exports the three core pages and a static error page", async () => {
+test("exports the core pages, project placeholders, and a static error page", async () => {
   await Promise.all([
     access(new URL("index.html", outRoot)),
     access(new URL("blog/index.html", outRoot)),
     access(new URL("photography/index.html", outRoot)),
+    access(new URL("projects/macos-photo-manager/index.html", outRoot)),
+    access(new URL("projects/rss-reader-m5papercolor/index.html", outRoot)),
     access(new URL("404.html", outRoot)),
   ]);
 
-  const [home, blog, photography] = await Promise.all([
+  const [home, blog, photography, photoManager, rssReader] = await Promise.all([
     readOutput("index.html"),
     readOutput("blog/index.html"),
     readOutput("photography/index.html"),
+    readOutput("projects/macos-photo-manager/index.html"),
+    readOutput("projects/rss-reader-m5papercolor/index.html"),
   ]);
 
   assert.match(home, /reflex4/);
@@ -28,6 +32,10 @@ test("exports the three core pages and a static error page", async () => {
   assert.match(home, /RSS Reader for M5Papercolor/);
   assert.match(blog, /Writing Archive/);
   assert.match(photography, /Light \/ Time \/ Observation/);
+  assert.match(photoManager, /MacOS 硬盘照片管理软件/);
+  assert.match(photoManager, /内容整理中/);
+  assert.match(rssReader, /RSS Reader for M5Papercolor/);
+  assert.match(rssReader, /内容整理中/);
   assert.doesNotMatch(blog, /\/api\/blog\/search/);
 });
 

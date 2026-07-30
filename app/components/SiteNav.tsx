@@ -1,3 +1,8 @@
+"use client";
+
+import { useState } from "react";
+import { projects, type ProjectSlug } from "../projects/project-data";
+
 type Section = "home" | "blog" | "photography";
 
 const items: Array<{ id: Section; href: string; label: string; number: string }> = [
@@ -6,18 +11,14 @@ const items: Array<{ id: Section; href: string; label: string; number: string }>
   { id: "photography", href: "/photography", label: "摄影", number: "03" },
 ];
 
-const projects = [
-  {
-    name: "MacOS 硬盘照片管理软件",
-    code: "PHOTO DESK",
-  },
-  {
-    name: "RSS Reader for M5Papercolor",
-    code: "E-INK RSS",
-  },
-] as const;
+type SiteNavProps = {
+  active: Section | "projects" | "motion" | "not-found";
+  activeProject?: ProjectSlug;
+};
 
-export function SiteNav({ active }: { active: Section | "motion" | "not-found" }) {
+export function SiteNav({ active, activeProject }: SiteNavProps) {
+  const [projectsOpen, setProjectsOpen] = useState(false);
+
   return (
     <nav className="site-nav" aria-label="主导航">
       {items.map((item) => (
@@ -32,22 +33,46 @@ export function SiteNav({ active }: { active: Section | "motion" | "not-found" }
         </a>
       ))}
 
-      <details className="nav-projects">
-        <summary className="nav-link">
+      <details
+        className="nav-projects"
+        open={projectsOpen}
+        onPointerEnter={(event) => {
+          if (event.pointerType === "mouse") setProjectsOpen(true);
+        }}
+        onPointerLeave={(event) => {
+          if (event.pointerType === "mouse") setProjectsOpen(false);
+        }}
+        onToggle={(event) => setProjectsOpen(event.currentTarget.open)}
+      >
+        <summary
+          className={`nav-link${active === "projects" ? " is-active" : ""}`}
+          aria-current={active === "projects" ? "page" : undefined}
+          onClick={(event) => {
+            const isMouseClick =
+              event.detail > 0 &&
+              window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+            if (isMouseClick) event.preventDefault();
+          }}
+        >
           <span className="nav-number">04</span>
           <span>项目</span>
         </summary>
         <div className="project-menu" aria-label="项目入口">
           <header>
             <span>04 / Selected Projects</span>
-            <b>入口预留</b>
+            <b>项目目录</b>
           </header>
           {projects.map((project, index) => (
-            <span className="project-menu-item" aria-disabled="true" key={project.code}>
+            <a
+              className={`project-menu-item${activeProject === project.slug ? " is-active" : ""}`}
+              href={`/projects/${project.slug}`}
+              aria-current={activeProject === project.slug ? "page" : undefined}
+              key={project.code}
+            >
               <span>{String(index + 1).padStart(2, "0")}</span>
               <strong>{project.name}</strong>
               <small>{project.code} · Coming soon</small>
-            </span>
+            </a>
           ))}
         </div>
       </details>
