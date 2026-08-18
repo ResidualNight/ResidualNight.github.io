@@ -8,6 +8,7 @@
 | 博客 | `/blog` 与 `/blog/[slug]` | [blog.md](./blog.md) |
 | 摄影 | `/photography` | [photography.md](./photography.md) |
 | 项目 | `/projects/[slug]` | [projects.md](./projects.md) |
+| 旅行计划 | `/trips/beijing-qinhuangdao-chengde-2026/` | [trip-beijing-qinhuangdao-chengde-2026.md](./trip-beijing-qinhuangdao-chengde-2026.md) |
 | 404 | 所有未匹配路由 | [not-found.md](./not-found.md) |
 
 ## 使用流程
