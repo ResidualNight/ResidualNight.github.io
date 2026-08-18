@@ -138,7 +138,7 @@ export default function TripPage() {
       <section className="trip-days" id="days">
         <div className="trip-section trip-heading"><p>02</p><h2>每日行程</h2><span>点击日期可以收起或展开。未购票与未预约内容均保留“暂定”状态。</span></div>
         <div className="trip-day-list">
-          {days.map((day, index) => <details key={day.date} open={index === 1 || index === 4}>
+          {days.map((day) => <details key={day.date} open>
             <summary><time>{day.date}<small>{day.weekday}</small></time><div><span>{day.city}</span><h3>{day.title}</h3></div><em>{day.status}</em><i>＋</i></summary>
             <div className="trip-timeline">
               {day.items.map(([time,title,detail]) => <div key={`${time}-${title}`}><time>{time}</time><i /><p><b>{title}</b><span>{detail}</span></p></div>)}
