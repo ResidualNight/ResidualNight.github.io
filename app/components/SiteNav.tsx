@@ -71,7 +71,7 @@ export function SiteNav({ active, activeProject }: SiteNavProps) {
             >
               <span>{String(index + 1).padStart(2, "0")}</span>
               <strong>{project.name}</strong>
-              <small>{project.code} · Coming soon</small>
+              <small>{project.code} · {project.status}</small>
             </a>
           ))}
         </div>

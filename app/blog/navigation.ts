@@ -11,7 +11,11 @@ function readStack(): string[] {
 }
 
 function writeStack(stack: string[]) {
-  window.sessionStorage.setItem(NAVIGATION_STACK_KEY, JSON.stringify(stack.slice(-20)));
+  try {
+    window.sessionStorage.setItem(NAVIGATION_STACK_KEY, JSON.stringify(stack.slice(-20)));
+  } catch {
+    // Navigation must still work when storage is blocked or its quota is full.
+  }
 }
 
 export function currentBlogLocation(): string {
@@ -37,5 +41,9 @@ export function replaceWithBlogParent() {
 }
 
 export function clearBlogNavigationStack() {
-  window.sessionStorage.removeItem(NAVIGATION_STACK_KEY);
+  try {
+    window.sessionStorage.removeItem(NAVIGATION_STACK_KEY);
+  } catch {
+    // Treat an unavailable store as an already-empty navigation stack.
+  }
 }

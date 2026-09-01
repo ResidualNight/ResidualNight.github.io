@@ -39,8 +39,42 @@ function assertSafeGroupId(id, folderName) {
 }
 
 function assertDate(value, folderName) {
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) {
+  const match = value.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!match) {
     throw new Error(`${folderName}/group.json 的 capturedOn 必须是 YYYY-MM-DD`);
+  }
+
+  const [, yearText, monthText, dayText] = match;
+  const date = new Date(Date.UTC(Number(yearText), Number(monthText) - 1, Number(dayText)));
+  if (
+    date.getUTCFullYear() !== Number(yearText)
+    || date.getUTCMonth() !== Number(monthText) - 1
+    || date.getUTCDate() !== Number(dayText)
+  ) {
+    throw new Error(`${folderName}/group.json 的 capturedOn 不是有效日期`);
+  }
+}
+
+function isSameOrInside(parent, candidate) {
+  const relative = path.relative(parent, candidate);
+  return relative === "" || (!relative.startsWith("..") && !path.isAbsolute(relative));
+}
+
+function assertSafePaths(options) {
+  const filesystemRoot = path.parse(options.output).root;
+  const projectRoot = process.cwd();
+
+  if (options.output === filesystemRoot || options.output === projectRoot) {
+    throw new Error("--output 不能指向文件系统根目录或项目根目录");
+  }
+  if (options.data === filesystemRoot || options.data === projectRoot) {
+    throw new Error("--data 不能指向文件系统根目录或项目根目录");
+  }
+  if (isSameOrInside(options.input, options.output) || isSameOrInside(options.output, options.input)) {
+    throw new Error("--input 与 --output 不能相同或互相包含");
+  }
+  if (isSameOrInside(options.output, options.data) || isSameOrInside(options.data, options.output)) {
+    throw new Error("--output 与 --data 不能相同或互相包含");
   }
 }
 
@@ -184,8 +218,53 @@ async function loadGroup(folderPath, folderName) {
   return { config, photoConfigs };
 }
 
+async function publishGeneratedAssets(options, tempOutput, dataContents) {
+  const backupOutput = `${options.output}.backup-${process.pid}`;
+  const tempData = `${options.data}.tmp-${process.pid}`;
+  let movedExistingOutput = false;
+  let installedNewOutput = false;
+
+  await mkdir(path.dirname(options.data), { recursive: true });
+  await writeFile(tempData, dataContents);
+  await rm(backupOutput, { recursive: true, force: true });
+
+  try {
+    const outputInfo = await stat(options.output).catch(() => null);
+    if (outputInfo) {
+      await rename(options.output, backupOutput);
+      movedExistingOutput = true;
+    }
+
+    await rename(tempOutput, options.output);
+    installedNewOutput = true;
+    await rename(tempData, options.data);
+  } catch (error) {
+    await rm(tempData, { force: true }).catch(() => undefined);
+    if (installedNewOutput) {
+      await rm(options.output, { recursive: true, force: true }).catch(() => undefined);
+    }
+    if (movedExistingOutput) {
+      try {
+        await rename(backupOutput, options.output);
+      } catch (restoreError) {
+        throw new Error(
+          `${error.message}\n旧图片自动恢复失败；备份仍保留在 ${backupOutput}：${restoreError.message}`,
+        );
+      }
+    }
+    throw error;
+  }
+
+  if (movedExistingOutput) {
+    await rm(backupOutput, { recursive: true, force: true }).catch((error) => {
+      console.warn(`旧图片备份未能清理：${backupOutput} (${error.message})`);
+    });
+  }
+}
+
 async function main() {
   const options = parseArguments(process.argv.slice(2));
+  assertSafePaths(options);
   const inputInfo = await stat(options.input).catch(() => null);
   if (!inputInfo?.isDirectory()) {
     throw new Error(`源目录不存在：${options.input}`);
@@ -202,6 +281,7 @@ async function main() {
   await mkdir(tempOutput, { recursive: true });
 
   const entries = [];
+  const groupIds = new Set();
   let totalInputBytes = 0;
   let totalOutputBytes = 0;
 
@@ -209,6 +289,10 @@ async function main() {
     for (const folderName of folders) {
       const folderPath = path.join(options.input, folderName);
       const { config, photoConfigs } = await loadGroup(folderPath, folderName);
+      if (groupIds.has(config.id)) {
+        throw new Error(`${folderName}/group.json 的 id ${config.id} 与另一照片组重复`);
+      }
+      groupIds.add(config.id);
       const photos = [];
       console.log(`\n${config.capturedOn} · ${config.title}`);
 
@@ -274,10 +358,11 @@ async function main() {
     }
 
     entries.sort((a, b) => b.capturedOn.localeCompare(a.capturedOn));
-    await mkdir(path.dirname(options.data), { recursive: true });
-    await writeFile(options.data, `${JSON.stringify(entries, null, 2)}\n`);
-    await rm(options.output, { recursive: true, force: true });
-    await rename(tempOutput, options.output);
+    await publishGeneratedAssets(
+      options,
+      tempOutput,
+      `${JSON.stringify(entries, null, 2)}\n`,
+    );
   } catch (error) {
     await rm(tempOutput, { recursive: true, force: true });
     throw error;

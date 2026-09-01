@@ -10,7 +10,7 @@
     "build": "next build --webpack",
     "photos:build": "node scripts/process-photography.mjs",
     "start": "python3 -m http.server 3000 --directory out",
-    "test": "npm run build && node --test tests/static-export.test.mjs",
+    "test": "npm run build && node --test tests/*.test.mjs",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next"
   },
   "dependencies": {
