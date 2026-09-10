@@ -1,5 +1,6 @@
 import { SiteNav } from "../components/SiteNav";
 import { PetAnimationPreview } from "./PetAnimationPreview";
+import { PetProjectMotion } from "./PetProjectMotion";
 
 type ArknightsPetProjectPageProps = {
   projectIndex: number;
@@ -26,7 +27,7 @@ function PetMediaFigure({ code, src, alt, note, width, height, className = "" }:
 
 export function ArknightsPetProjectPage({ projectIndex, projectCount }: ArknightsPetProjectPageProps) {
   return (
-    <main className="portfolio pet-project-page">
+    <PetProjectMotion>
       <div className="paper-frame" aria-hidden="true" />
       <div className="film-strip" aria-hidden="true" />
 
@@ -44,8 +45,8 @@ export function ArknightsPetProjectPage({ projectIndex, projectCount }: Arknight
           <div className="pet-hero-copy">
             <p className="pet-kicker">04.03 / CODEX SKILL / LITE V1</p>
             <h1 id="pet-project-title">把 PRTS 基建动画<br />变成 Codex 桌面宠物</h1>
-            <p className="pet-hero-lead">从皮肤确认、透明帧处理，到九状态预览与验收安装。</p>
-            <p className="pet-hero-summary">用户只需提供干员名与皮肤，Skill 即可把已有 PRTS 基建动画整理为符合 Codex Lite/v1 规格的透明精灵图宠物。</p>
+            <p className="pet-hero-lead">让基建里的小人，也能出现在桌面上。</p>
+            <p className="pet-hero-summary">这是一个给 Codex 用的 Skill。指定干员和皮肤后，它会从 PRTS 导出基建动画，处理透明背景，整理成 Lite/v1 桌宠。安装前可以先预览动作，看看大小和节奏是否合适。</p>
             <nav className="pet-hero-actions" aria-label="项目内容导航">
               <a href="#workflow">查看工作流 <span>↓</span></a>
               <a href="https://github.com/ResidualNight/ark-codex-pet-lite" target="_blank" rel="noreferrer">查看 GitHub <span>↗</span></a>
@@ -57,12 +58,12 @@ export function ArknightsPetProjectPage({ projectIndex, projectCount }: Arknight
             <div className="pet-preview-toolbar"><span>NINE-STATE PREVIEW</span><span>CEOBE / DEFAULT</span></div>
             <img className="pet-preview-main" src="/projects/arknights-prts-codex-pet/nine-state-preview.png" alt="刻俄柏默认皮肤的九状态离线验收页，包含方向提醒、播放速度和状态来源标识" width="1800" height="1530" />
             <img className="pet-preview-controls-image" src="/projects/arknights-prts-codex-pet/preview-controls.png" alt="九状态预览页的播放暂停与速度控制局部" width="1120" height="71" />
-            <figcaption><b>MEDIA 01 / ANIMATION REVIEW</b><span>九状态同时预览；方向、来源与降级状态保持可见。</span></figcaption>
+            <figcaption><b>MEDIA 01 / ANIMATION REVIEW</b><span>刻俄柏的九种状态。每个动作下方都注明了来源，方便逐一检查。</span></figcaption>
           </figure>
         </section>
 
         <section className="pet-slice-workflow" id="workflow">
-          <header><span>01</span><div><p>REPRODUCIBLE PIPELINE</p><h2>把易出错的手工步骤，<br />整理成一条可复现工作流</h2></div></header>
+          <header><span>01</span><div><p>HOW IT WORKS</p><h2>从一段基建动画，<br />到可以安装的桌宠</h2></div></header>
           <div className="pet-flowline" aria-label="PRTS 宠物生成流程">
             {[
               ["PRTS", "皮肤确认"], ["WebM", "动画导出"], ["Frames", "透明帧"],
@@ -74,32 +75,32 @@ export function ArknightsPetProjectPage({ projectIndex, projectCount }: Arknight
         <section className="pet-section pet-core" id="why">
           <PetChapter
             number="02–04"
-            eyebrow="THREE ENGINEERING GATES"
-            title={<>每一次自动处理，<br />都必须通过一道门</>}
+            eyebrow="PROCESS NOTES"
+            title={<>动画导出之后，<br />还要处理哪些事？</>}
           >
-            <p>这条管线不把“问题、步骤、功能”分开陈列。它把风险放回发生的位置：先确认来源，再建立可靠图集，最后把安装权交还给用户。</p>
+            <p>不同皮肤的动作不一定齐全，导出的动画也不能直接交给 Codex 使用。这里主要处理三件事：确认素材、整理画面，再检查实际播放效果。</p>
           </PetChapter>
 
           <div className="pet-gate-grid" id="features">
             <article>
-              <header><span>GATE 01 / CONFIRM</span><b>来源确认</b></header>
-              <h3>先确认处理的是谁</h3>
-              <p className="pet-gate-risk">风险：动作集合不统一，页面还可能静默回退到默认皮肤。</p>
+              <header><span>01 / SOURCE</span><b>确认皮肤</b></header>
+              <h3>选中的皮肤，真的加载了吗？</h3>
+              <p className="pet-gate-risk">PRTS 有时会退回默认皮肤，页面却没有明显提示。下载前需要再次核对，避免做完才发现选错了。</p>
               <ol><li><b>01</b><span>接收干员名与可选皮肤</span></li><li><b>02</b><span>两次独立探测并确认结果一致</span></li><li><b>03</b><span>只重试缺失或损坏的来源动作</span></li></ol>
               <footer><span>STABLE PROBE</span><span>PARTIAL RETRY</span></footer>
             </article>
             <article>
-              <header><span>GATE 02 / BUILD</span><b>图集建立</b></header>
-              <h3>让每一帧进入正确位置</h3>
-              <p className="pet-gate-risk">风险：透明噪声、基线抖动、裁切和错误方向都会在运行时被放大。</p>
-              <ol><li><b>04</b><span>解码透明帧并清理低 Alpha 噪声</span></li><li><b>05</b><span>共享缩放、脚底基线与防裁切</span></li><li><b>06</b><span>抽帧并映射到九种 Codex 状态</span></li></ol>
+              <header><span>02 / FRAMES</span><b>整理动画</b></header>
+              <h3>别让角色忽大忽小、上下跳动</h3>
+              <p className="pet-gate-risk">每段动画的画面范围不同。分别缩放会让角色在切换动作时突然变大或变小，脚底的位置也可能跟着跳动。</p>
+              <ol><li><b>04</b><span>拆出透明帧，清理边缘杂点</span></li><li><b>05</b><span>统一缩放和脚底位置，留足动作空间</span></li><li><b>06</b><span>抽取帧，分配给九种 Codex 状态</span></li></ol>
               <footer><span>ALPHA CLEANUP</span><span>STATE MAPPING</span></footer>
             </article>
             <article>
-              <header><span>GATE 03 / APPROVE</span><b>验收安装</b></header>
-              <h3>把最后决定留给用户</h3>
-              <p className="pet-gate-risk">风险：结构校验通过，不代表角色大小、节奏和降级状态已经合格。</p>
-              <ol><li><b>07</b><span>组装 1536 × 1872 的 PNG / WebP</span></li><li><b>08</b><span>独立验证透明格、裁切与移动方向</span></li><li><b>09</b><span>九状态预览；明确批准后原子安装</span></li></ol>
+              <header><span>03 / PREVIEW</span><b>预览与安装</b></header>
+              <h3>先看它动起来，再决定安装</h3>
+              <p className="pet-gate-risk">尺寸和格式可以用脚本检查，动作是否自然还得看一遍。预览页能同时播放九种状态，也会标出借用了其他动作的状态。</p>
+              <ol><li><b>07</b><span>生成 1536 × 1872 的 PNG / WebP</span></li><li><b>08</b><span>检查透明空格、画面裁切和行走方向</span></li><li><b>09</b><span>打开预览，确认后备份并安装</span></li></ol>
               <footer><span>OFFLINE PREVIEW</span><span>APPROVAL GATE</span></footer>
             </article>
           </div>
@@ -107,9 +108,9 @@ export function ArknightsPetProjectPage({ projectIndex, projectCount }: Arknight
         </section>
 
         <section className="pet-section pet-technical" id="technical">
-          <PetChapter number="05" eyebrow="TECHNICAL DEEP DIVE" title="一个固定图集，九种运行状态，多份可追溯报告" />
+          <PetChapter number="05" eyebrow="FILES & TOOLS" title={<>九种状态，<br />装进一张精灵图</>} />
           <div className="pet-technical-layout">
-            <PetMediaFigure code="MEDIA 02 / VALIDATED ATLAS" src="/projects/arknights-prts-codex-pet/final-atlas-checkerboard.jpg" alt="刻俄柏最终 8 列乘 9 行精灵图的棋盘格展示版本" width={1800} height={2250} note="棋盘格只帮助阅读透明区域；网页不提供运行时透明原图下载。" className="pet-atlas-figure" />
+            <PetMediaFigure code="MEDIA 02 / VALIDATED ATLAS" src="/projects/arknights-prts-codex-pet/final-atlas-checkerboard.jpg" alt="刻俄柏最终 8 列乘 9 行精灵图的棋盘格展示版本" width={1800} height={2250} note="每一行对应一种状态，每一格是一帧。棋盘格是展示用的背景，实际文件保留透明通道。" className="pet-atlas-figure" />
             <div className="pet-specs">
               <dl>
                 <div><dt>输出</dt><dd>RGBA PNG / WebP</dd></div><div><dt>画布</dt><dd>1536 × 1872 px</dd></div>
@@ -125,14 +126,14 @@ export function ArknightsPetProjectPage({ projectIndex, projectCount }: Arknight
               ["prts_skin_probe.py", "干员与皮肤探测"], ["prts_export.py", "动画导出与局部重试"],
               ["decode_webm.py", "透明帧解码与标准化"], ["build_lite_atlas.py", "状态映射与图集生成"],
               ["validate_lite_atlas.py", "独立图集校验"], ["build_preview_page.py", "离线动态验收页"],
-              ["install_local_pet.py", "带门控与备份的安装器"],
+              ["install_local_pet.py", "确认安装并备份旧版本"],
             ].map(([name, role]) => <div key={name}><code>{name}</code><span>{role}</span></div>)}
           </div>
         </section>
 
         <section className="pet-section pet-case" id="case-study">
-          <PetChapter number="06" eyebrow="CASE STUDY / CEOBE" title="刻俄柏：从默认皮肤到九状态宠物">
-            <p>此案例记录现有产物报告，而不是实时 CI 状态。历史离线回归数据截至 2026-08-12。</p>
+          <PetChapter number="06" eyebrow="CASE STUDY / CEOBE" title="刻俄柏做出来是什么样？">
+            <p>下面用默认皮肤展示行走方向和几次调校的差别。数字来自这份成品的检查报告，其中 30 项离线回归测试记录于 2026-08-12。</p>
           </PetChapter>
           <div className="pet-case-metrics">
             <article><strong>57</strong><span>必需非空单元</span></article><article><strong>15</strong><span>未使用透明单元</span></article>
@@ -147,24 +148,24 @@ export function ArknightsPetProjectPage({ projectIndex, projectCount }: Arknight
         </section>
 
         <section className="pet-section pet-decisions" id="decisions">
-          <PetChapter number="07" eyebrow="ENGINEERING DECISIONS" title="可靠性来自明确的边界" />
+          <PetChapter number="07" eyebrow="PROJECT NOTES" title="这一版的几个取舍" />
           <div className="pet-decision-grid">
-            <article><span>LITE / V1</span><h3>先把固定规格做扎实</h3><p>首版不冒充完整 v2 宠物格式；九状态足以验证这条资产处理管线。</p></article>
-            <article><span>HUMAN APPROVAL</span><h3>自动化不替用户验收</h3><p>角色观感和安装决定都保留给用户；没有明确批准，工具不会写入本地宠物目录。</p></article>
-            <article><span>CODE ONLY</span><h3>仓库不分发游戏资产</h3><p>公开仓库只包含原创代码与文档，不提交 WebM、Spine、解码帧、图集或成品宠物包。</p></article>
+            <article><span>LITE / V1</span><h3>先支持 Lite/v1</h3><p>当前按八列九行的固定规格生成桌宠。更高阶的 v2 格式还没有实现，需要另行适配。</p></article>
+            <article><span>INSTALLATION</span><h3>安装前停下来确认</h3><p>大小和动作节奏各有偏好，所以生成后先给出预览。用户明确同意后，才会写入本地宠物目录。</p></article>
+            <article><span>CODE ONLY</span><h3>开源处理工具</h3><p>仓库提供代码和使用说明。游戏动画、模型文件和生成的宠物包不随代码一起分发。</p></article>
           </div>
         </section>
 
         <section className="pet-section pet-boundaries" id="limitations">
-          <PetChapter number="08" eyebrow="LIMITATIONS / NEXT" title={<>它是一条个人工具管线，<br />不是角色素材库</>} />
+          <PetChapter number="08" eyebrow="LIMITATIONS / NEXT" title={<>目前的限制，<br />和后面想补的东西</>} />
           <div className="pet-boundary-columns">
-            <div><h3>当前边界</h3><ul><li>不是独立 Windows / macOS 桌宠应用。</li><li>不补绘、不重画、不生成新的角色动作。</li><li>缺失动作会降级复用，并在报告与预览中标出。</li><li>PRTS 页面结构变化时，导出选择器可能需要更新。</li></ul></div>
-            <div><h3>继续完善</h3><ul><li>增加更多干员与皮肤的兼容性案例。</li><li>建立实时 CI 与选择器诊断。</li><li>丰富状态、缩放与映射对比体验。</li><li>在规格允许时单独评估更高阶格式。</li></ul></div>
+            <div><h3>使用前要知道</h3><ul><li>生成的宠物需要在 Codex 中使用，不能作为独立桌宠应用运行。</li><li>动作来自已有基建动画，工具不会补画新动作。</li><li>某个动作缺失时会借用其他动作，预览页会注明。</li><li>PRTS 改版后，下载脚本可能需要跟着调整。</li></ul></div>
+            <div><h3>后续计划</h3><ul><li>用更多干员和皮肤测试兼容性。</li><li>把现有回归测试接入持续集成，方便及时发现下载问题。</li><li>让不同尺寸和动作配置的效果更容易比较。</li><li>研究其他宠物格式的适配方式。</li></ul></div>
           </div>
         </section>
 
         <section className="pet-section pet-links" id="links">
-          <PetChapter number="09" eyebrow="LINKS / DISCLAIMER" title={<>代码开放，<br />第三方资产权利不随之转移</>} />
+          <PetChapter number="09" eyebrow="SOURCE & CREDITS" title={<>源码与使用说明，<br />以及素材出处</>} />
           <div className="pet-links-layout">
             <div className="pet-link-card"><span>GITHUB / MIT</span><h3>ark-codex-pet-lite</h3><p>MIT License 仅覆盖项目原创代码与文档。</p><a href="https://github.com/ResidualNight/ark-codex-pet-lite" target="_blank" rel="noreferrer">查看 GitHub 仓库 ↗</a></div>
             <div className="pet-disclaimer"><p>本项目为非官方个人项目，与鹰角网络、PRTS 或 OpenAI 均无隶属、合作或背书关系。</p><p>《明日方舟》及相关角色、图像、动画和商标归各自权利人所有。项目只应在用户有权访问和处理源素材时使用，生成宠物以个人使用为主。</p></div>
@@ -177,6 +178,6 @@ export function ArknightsPetProjectPage({ projectIndex, projectCount }: Arknight
       </div>
 
       <footer className="pet-footer"><div><span>reflex4 / Project Archive</span><strong>Arknights PRTS Pet Builder for Codex</strong></div><nav aria-label="项目页底部导航"><a href="/">返回首页</a><a href="/blog">查看开发记录</a><a href="#pet-project-title">回到顶部 ↑</a></nav></footer>
-    </main>
+    </PetProjectMotion>
   );
 }
