@@ -76,7 +76,9 @@ test("exports the core pages, project pages, and a static error page", async () 
   assert.match(rssReader, /RSS Reader for M5Papercolor/);
   assert.match(rssReader, /五条新闻，一次完整的停留/);
   assert.match(rssReader, /PHOTO SLOT 01/);
-  assert.match(arknightsPet, /把 PRTS 基建动画/);
+  const petHeading = arknightsPet.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/u)?.[1];
+  assert.ok(petHeading, "pet project must have a main heading");
+  assert.match(petHeading.replace(/<[^>]*>/gu, ""), /把 PRTS 基建动画/);
   assert.match(arknightsPet, /1536 × 1872/);
   assert.match(arknightsPet, /非官方个人项目/);
   assert.match(arknightsPet, /nine-state-preview\.png/);

@@ -19,14 +19,15 @@ export function PetProjectMotion({ children }: { children: ReactNode }) {
       const targets = scroller.querySelectorAll<HTMLElement>([
         ".pet-hero-copy > p", ".pet-hero-copy > h1", ".pet-preview-figure",
         ".pet-slice-workflow > header", ".pet-chapter-heading",
-        ".pet-flowline > div", ".pet-gate-grid > article",
+        ".pet-flow-content", ".pet-gate-grid > article > :not(header)",
         ".pet-media-figure", ".pet-specs", ".pet-case-metrics > article",
         ".pet-decision-grid > article", ".pet-boundary-columns > div",
         ".pet-link-card", ".pet-disclaimer",
       ].join(","));
       const reveals = Array.from(targets, (target) => {
-        const stepped = target.matches(".pet-flowline > div, .pet-case-metrics > article");
-        const index = stepped ? Array.from(target.parentElement!.children).indexOf(target) : 0;
+        const flowCell = target.matches(".pet-flow-content") ? target.parentElement : null;
+        const stepped = target.matches(".pet-case-metrics > article");
+        const index = flowCell ? Array.from(flowCell.parentElement!.children).indexOf(flowCell) : stepped ? Array.from(target.parentElement!.children).indexOf(target) : 0;
         const tween = gsap.fromTo(target,
           { opacity: 0.25, y: compact ? 12 : 24 },
           {

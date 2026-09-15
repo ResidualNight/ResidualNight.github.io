@@ -44,7 +44,7 @@ export function ArknightsPetProjectPage({ projectIndex, projectCount }: Arknight
         <section className="pet-hero" aria-labelledby="pet-project-title">
           <div className="pet-hero-copy">
             <p className="pet-kicker">04.03 / CODEX SKILL / LITE V1</p>
-            <h1 id="pet-project-title">把 PRTS 基建动画<br />变成 Codex 桌面宠物</h1>
+            <h1 id="pet-project-title">把 PRTS <span className="pet-phrase">基建动画</span><br />变成 Codex <span className="pet-phrase">桌面宠物</span></h1>
             <p className="pet-hero-lead">让基建里的小人，也能出现在桌面上。</p>
             <p className="pet-hero-summary">这是一个给 Codex 用的 Skill。指定干员和皮肤后，它会从 PRTS 导出基建动画，处理透明背景，整理成 Lite/v1 桌宠。安装前可以先预览动作，看看大小和节奏是否合适。</p>
             <nav className="pet-hero-actions" aria-label="项目内容导航">
@@ -57,8 +57,7 @@ export function ArknightsPetProjectPage({ projectIndex, projectCount }: Arknight
           <figure className="pet-preview-figure">
             <div className="pet-preview-toolbar"><span>NINE-STATE PREVIEW</span><span>CEOBE / DEFAULT</span></div>
             <img className="pet-preview-main" src="/projects/arknights-prts-codex-pet/nine-state-preview.png" alt="刻俄柏默认皮肤的九状态离线验收页，包含方向提醒、播放速度和状态来源标识" width="1800" height="1530" />
-            <img className="pet-preview-controls-image" src="/projects/arknights-prts-codex-pet/preview-controls.png" alt="九状态预览页的播放暂停与速度控制局部" width="1120" height="71" />
-            <figcaption><b>MEDIA 01 / ANIMATION REVIEW</b><span>刻俄柏的九种状态。每个动作下方都注明了来源，方便逐一检查。</span></figcaption>
+            <figcaption><b>MEDIA 01 / ANIMATION REVIEW</b><span>九状态预览页截图。每个动作下方都注明了来源。</span></figcaption>
           </figure>
         </section>
 
@@ -68,7 +67,7 @@ export function ArknightsPetProjectPage({ projectIndex, projectCount }: Arknight
             {[
               ["PRTS", "皮肤确认"], ["WebM", "动画导出"], ["Frames", "透明帧"],
               ["Atlas", "8 × 9 图集"], ["Preview", "九状态预览"], ["Approval", "验收安装"],
-            ].map(([label, note], index) => <div key={label}><i>{String(index + 1).padStart(2, "0")}</i><strong>{label}</strong><small>{note}</small></div>)}
+            ].map(([label, note], index) => <div key={label}><div className="pet-flow-content"><i>{String(index + 1).padStart(2, "0")}</i><strong>{label}</strong><small>{note}</small></div></div>)}
           </div>
         </section>
 
@@ -76,7 +75,7 @@ export function ArknightsPetProjectPage({ projectIndex, projectCount }: Arknight
           <PetChapter
             number="02–04"
             eyebrow="PROCESS NOTES"
-            title={<>动画导出之后，<br />还要处理哪些事？</>}
+            title={<>制作桌宠时，<br />有哪些细节要处理？</>}
           >
             <p>不同皮肤的动作不一定齐全，导出的动画也不能直接交给 Codex 使用。这里主要处理三件事：确认素材、整理画面，再检查实际播放效果。</p>
           </PetChapter>
@@ -84,23 +83,23 @@ export function ArknightsPetProjectPage({ projectIndex, projectCount }: Arknight
           <div className="pet-gate-grid" id="features">
             <article>
               <header><span>01 / SOURCE</span><b>确认皮肤</b></header>
-              <h3>选中的皮肤，真的加载了吗？</h3>
+              <h3>选中的皮肤，<br />真的加载了吗？</h3>
               <p className="pet-gate-risk">PRTS 有时会退回默认皮肤，页面却没有明显提示。下载前需要再次核对，避免做完才发现选错了。</p>
               <ol><li><b>01</b><span>接收干员名与可选皮肤</span></li><li><b>02</b><span>两次独立探测并确认结果一致</span></li><li><b>03</b><span>只重试缺失或损坏的来源动作</span></li></ol>
               <footer><span>STABLE PROBE</span><span>PARTIAL RETRY</span></footer>
             </article>
             <article>
               <header><span>02 / FRAMES</span><b>整理动画</b></header>
-              <h3>别让角色忽大忽小、上下跳动</h3>
+              <h3>统一大小，<br />对齐脚底位置</h3>
               <p className="pet-gate-risk">每段动画的画面范围不同。分别缩放会让角色在切换动作时突然变大或变小，脚底的位置也可能跟着跳动。</p>
               <ol><li><b>04</b><span>拆出透明帧，清理边缘杂点</span></li><li><b>05</b><span>统一缩放和脚底位置，留足动作空间</span></li><li><b>06</b><span>抽取帧，分配给九种 Codex 状态</span></li></ol>
               <footer><span>ALPHA CLEANUP</span><span>STATE MAPPING</span></footer>
             </article>
             <article>
               <header><span>03 / PREVIEW</span><b>预览与安装</b></header>
-              <h3>先看它动起来，再决定安装</h3>
+              <h3>先看它动起来，<br />再决定安装</h3>
               <p className="pet-gate-risk">尺寸和格式可以用脚本检查，动作是否自然还得看一遍。预览页能同时播放九种状态，也会标出借用了其他动作的状态。</p>
-              <ol><li><b>07</b><span>生成 1536 × 1872 的 PNG / WebP</span></li><li><b>08</b><span>检查透明空格、画面裁切和行走方向</span></li><li><b>09</b><span>打开预览，确认后备份并安装</span></li></ol>
+              <ol><li><b>07</b><span>生成 1536 × 1872 的 PNG / WebP</span></li><li><b>08</b><span>检查空白帧、画面裁切和行走方向</span></li><li><b>09</b><span>打开预览，确认后备份并安装</span></li></ol>
               <footer><span>OFFLINE PREVIEW</span><span>APPROVAL GATE</span></footer>
             </article>
           </div>
@@ -136,8 +135,8 @@ export function ArknightsPetProjectPage({ projectIndex, projectCount }: Arknight
             <p>下面用默认皮肤展示行走方向和几次调校的差别。数字来自这份成品的检查报告，其中 30 项离线回归测试记录于 2026-08-12。</p>
           </PetChapter>
           <div className="pet-case-metrics">
-            <article><strong>57</strong><span>必需非空单元</span></article><article><strong>15</strong><span>未使用透明单元</span></article>
-            <article><strong>0</strong><span>边缘接触单元</span></article><article><strong>2.09</strong><span>MiB WebP 示例</span></article>
+            <article><strong>57</strong><span>有画面的帧格</span></article><article><strong>15</strong><span>留空的透明帧格</span></article>
+            <article><strong>0</strong><span>角色触碰边缘的帧格</span></article><article><strong>2.09</strong><span>MiB WebP 文件大小</span></article>
             <article><strong>30/30</strong><span>历史离线回归通过</span></article>
           </div>
           <div className="pet-case-media">
@@ -165,7 +164,7 @@ export function ArknightsPetProjectPage({ projectIndex, projectCount }: Arknight
         </section>
 
         <section className="pet-section pet-links" id="links">
-          <PetChapter number="09" eyebrow="SOURCE & CREDITS" title={<>源码与使用说明，<br />以及素材出处</>} />
+          <PetChapter number="09" eyebrow="SOURCE & CREDITS" title={<>源码与<span className="pet-phrase">使用说明，</span><br />以及<span className="pet-phrase">素材出处</span></>} />
           <div className="pet-links-layout">
             <div className="pet-link-card"><span>GITHUB / MIT</span><h3>ark-codex-pet-lite</h3><p>MIT License 仅覆盖项目原创代码与文档。</p><a href="https://github.com/ResidualNight/ark-codex-pet-lite" target="_blank" rel="noreferrer">查看 GitHub 仓库 ↗</a></div>
             <div className="pet-disclaimer"><p>本项目为非官方个人项目，与鹰角网络、PRTS 或 OpenAI 均无隶属、合作或背书关系。</p><p>《明日方舟》及相关角色、图像、动画和商标归各自权利人所有。项目只应在用户有权访问和处理源素材时使用，生成宠物以个人使用为主。</p></div>
