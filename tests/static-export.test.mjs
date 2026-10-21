@@ -53,6 +53,7 @@ test("exports the core pages, project pages, and a static error page", async () 
     access(new URL("projects/macos-photo-manager/index.html", outRoot)),
     access(new URL("projects/rss-reader-m5papercolor/index.html", outRoot)),
     access(new URL("projects/arknights-prts-codex-pet/index.html", outRoot)),
+    access(new URL("projects/quadruped-inspection/index.html", outRoot)),
     access(new URL("projects/arknights-prts-codex-pet/ceobe-walk-right-strip.png", outRoot)),
     access(new URL("404.html", outRoot)),
   ]);
@@ -74,8 +75,15 @@ test("exports the core pages, project pages, and a static error page", async () 
   assert.match(photoManager, /MacOS 硬盘照片管理软件/);
   assert.match(photoManager, /内容整理中/);
   assert.match(rssReader, /RSS Reader for M5Papercolor/);
-  assert.match(rssReader, /五条新闻，一次完整的停留/);
-  assert.match(rssReader, /PHOTO SLOT 01/);
+  assert.match(rssReader, /先从五条新闻看起/);
+  for (const name of ["desktop", "list", "buttons"]) {
+    assert.match(rssReader, new RegExp(`/projects/rss-reader/${name}-1600\\.webp`));
+    await access(new URL(`projects/rss-reader/${name}-800.webp`, outRoot));
+    await access(new URL(`projects/rss-reader/${name}-1600.webp`, outRoot));
+  }
+  assert.doesNotMatch(rssReader, /PHOTO SLOT 0[123]/);
+  assert.match(rssReader, /背面视角/);
+  assert.match(rssReader, /PHOTO SLOT 04/);
   const petHeading = arknightsPet.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/u)?.[1];
   assert.ok(petHeading, "pet project must have a main heading");
   assert.match(petHeading.replace(/<[^>]*>/gu, ""), /把 PRTS 基建动画/);
@@ -145,4 +153,42 @@ test("contains browser assets but no deployable server runtime", async () => {
   const nextConfig = await readFile(new URL("next.config.ts", projectRoot), "utf8");
   assert.match(nextConfig, /output:\s*["']export["']/);
   assert.match(nextConfig, /trailingSlash:\s*true/);
+});
+
+test("utility projects are reached through the tools directory instead of the main menu", async () => {
+  const utilitySlugs = ["arknights-prts-codex-pet", "quotadock"];
+  const tools = await readOutput("tools/index.html");
+  for (const slug of utilitySlugs) {
+    assert.match(tools, new RegExp(`href="/projects/${slug}"`));
+    const detail = await readOutput(`projects/${slug}/index.html`);
+    assert.match(detail, /href="\/tools">返回实用工具<\/a>/);
+    assert.match(detail, /href="\/tools" aria-current="location"/);
+  }
+  for (const page of ["index.html", "blog/index.html", "photography/index.html", "tools/index.html", ...utilitySlugs.map((slug) => `projects/${slug}/index.html`)]) {
+    const html = await readOutput(page);
+    const menus = [...html.matchAll(/<nav\b[^>]*aria-label="主导航"[\s\S]*?<\/nav>/gu)];
+    assert.ok(menus.length, `missing main navigation: ${page}`);
+    for (const [menu] of menus) {
+      const destinations = [...menu.matchAll(/href="([^"]+)"/gu)].map((match) => match[1]);
+      assert.equal(destinations.at(-1), "/tools");
+      for (const slug of utilitySlugs) assert.ok(!destinations.includes(`/projects/${slug}`));
+    }
+  }
+});
+
+test("inspection archive has working chapter anchors and no unapproved source assets", async () => {
+  const html = await readOutput("projects/quadruped-inspection/index.html");
+  const ids = new Set([...html.matchAll(/\bid="([^"]+)"/gu)].map((match) => match[1]));
+  for (const [, target] of html.matchAll(/\bhref="#([^"]+)"/gu)) {
+    assert.ok(ids.has(target), `missing inspection anchor: ${target}`);
+  }
+  assert.match(html, /reflex4 · 硬件搭建/);
+  assert.match(html, /完整任务链路仍需联调验证/);
+  assert.match(html, /非设备实拍/);
+  assert.match(html, /不是实测轨迹/);
+  assert.doesNotMatch(html, /(?:href|src)="[^"]*\.(?:pdf|bag|pcd)(?:[?#"][^"]*)?/iu);
+  assert.doesNotMatch(html, /\/Users\/|mailto:|tel:/u);
+  const nav = html.match(/<nav\b[^>]*aria-label="主导航"[\s\S]*?<\/nav>/u)?.[0];
+  assert.ok(nav);
+  assert.match(nav, /href="\/projects\/quadruped-inspection" aria-current="page"/u);
 });

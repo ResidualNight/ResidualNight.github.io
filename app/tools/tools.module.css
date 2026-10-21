@@ -1,0 +1,48 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100svh;
+  height: 100dvh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 22px clamp(22px, 4vw, 64px) 26px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--green) var(--paper-deep);
+}
+.page::before, .page::after, .page > :global(.paper-frame), .page > :global(.film-strip) { position: fixed; }
+.page > :global(.masthead) { z-index: 20; flex-shrink: 0; min-height: 64px; }
+.page a:focus-visible, .page summary:focus-visible { outline: 2px solid var(--wine); outline-offset: 4px; }
+.directory, .footer { position: relative; z-index: 2; width: 100%; max-width: 1100px; margin-inline: auto; }
+.directory { padding-top: clamp(30px, 4vw, 58px); }
+.heading { margin-bottom: 34px; }
+.eyebrow, .number, .action, .footer { font-family: "SFMono-Regular", Menlo, Consolas, monospace; }
+.eyebrow { color: var(--green); font-size: 11px; letter-spacing: .08em; margin: 0; }
+.heading h1 { font-size: clamp(40px, 5.6vw, 72px); font-weight: 500; line-height: 1.2; margin: 14px 0; letter-spacing: -.04em; }
+.intro { font-size: 18px; line-height: 1.8; margin: 0; }
+.list { border-top: 3px solid var(--ink); }
+.tool { display: grid; grid-template-columns: 45px minmax(0, 1fr) auto; align-items: center; gap: 26px; padding: 28px 18px; border-bottom: 1px solid var(--ink); text-decoration: none; }
+.number { color: var(--rust); font-size: 18px; align-self: start; padding-top: 3px; }
+.copy h2 { font-size: clamp(25px, 2.6vw, 34px); font-weight: 500; line-height: 1.4; margin: 10px 0; text-wrap: balance; }
+.phrase { display: inline-block; }
+.description { max-width: 620px; font-size: 16px; line-height: 1.8; margin: 0; }
+.action { color: var(--green); display: flex; gap: 20px; align-items: center; font-size: 13px; }
+.action > span { font-size: 23px; }
+.tool:hover, .tool:focus-visible { background: var(--green); color: var(--paper); }
+.tool:hover .eyebrow, .tool:hover .number, .tool:hover .action,
+.tool:focus-visible .eyebrow, .tool:focus-visible .number, .tool:focus-visible .action { color: var(--paper); }
+.footer { display: flex; justify-content: space-between; gap: 18px; font-size: 11px; letter-spacing: .05em; margin-top: auto; padding-top: 28px; }
+.footer a { min-height: 44px; display: inline-flex; align-items: center; text-underline-offset: 4px; }
+.footer > span { align-self: center; color: var(--green); }
+@media (max-width: 700px) {
+  .page { padding: 16px 22px 22px; }
+  .heading { margin-bottom: 26px; }
+  .tool { grid-template-columns: 25px minmax(0, 1fr); gap: 12px; padding: 24px 8px; }
+  .copy h2 { font-size: 25px; }
+  .action { grid-column: 2; justify-content: space-between; padding-top: 4px; }
+  .number { font-size: 15px; }
+  .eyebrow { font-size: 10px; }
+  .intro { font-size: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page::before, .page::after, .page > :global(.film-strip) { animation: none; }
+}

@@ -176,7 +176,7 @@ export function ArknightsPetProjectPage({ projectIndex, projectCount }: Arknight
         <span className="ceobe-deskpet-sprite" />
       </div>
 
-      <footer className="pet-footer"><div><span>reflex4 / Project Archive</span><strong>Arknights PRTS Pet Builder for Codex</strong></div><nav aria-label="项目页底部导航"><a href="/">返回首页</a><a href="/blog">查看开发记录</a><a href="#pet-project-title">回到顶部 ↑</a></nav></footer>
+      <footer className="pet-footer"><div><span>reflex4 / Project Archive</span><strong>Arknights PRTS Pet Builder for Codex</strong></div><nav aria-label="项目页底部导航"><a href="/tools">返回实用工具</a><a href="/blog">查看开发记录</a><a href="#pet-project-title">回到顶部 ↑</a></nav></footer>
     </PetProjectMotion>
   );
 }

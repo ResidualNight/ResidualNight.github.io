@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { projects, type ProjectSlug } from "../projects/project-data";
+import { menuProjects, utilityProjects, type ProjectSlug } from "../projects/project-data";
 
 type Section = "home" | "blog" | "photography";
 
@@ -12,12 +12,14 @@ const items: Array<{ id: Section; href: string; label: string; number: string }>
 ];
 
 type SiteNavProps = {
-  active: Section | "projects" | "motion" | "not-found";
+  active: Section | "projects" | "tools" | "motion" | "not-found";
   activeProject?: ProjectSlug;
 };
 
 export function SiteNav({ active, activeProject }: SiteNavProps) {
   const [projectsOpen, setProjectsOpen] = useState(false);
+  const toolsActive = active === "tools" || utilityProjects.some((project) => project.slug === activeProject);
+  const projectsActive = active === "projects" || active === "tools";
 
   return (
     <nav className="site-nav" aria-label="主导航">
@@ -45,8 +47,8 @@ export function SiteNav({ active, activeProject }: SiteNavProps) {
         onToggle={(event) => setProjectsOpen(event.currentTarget.open)}
       >
         <summary
-          className={`nav-link${active === "projects" ? " is-active" : ""}`}
-          aria-current={active === "projects" ? "page" : undefined}
+          className={`nav-link${projectsActive ? " is-active" : ""}`}
+          aria-current={projectsActive ? "page" : undefined}
           onClick={(event) => {
             const isMouseClick =
               event.detail > 0 &&
@@ -62,7 +64,7 @@ export function SiteNav({ active, activeProject }: SiteNavProps) {
             <span>04 / Selected Projects</span>
             <b>项目目录</b>
           </header>
-          {projects.map((project, index) => (
+          {menuProjects.map((project, index) => (
             <a
               className={`project-menu-item${activeProject === project.slug ? " is-active" : ""}`}
               href={`/projects/${project.slug}`}
@@ -74,6 +76,15 @@ export function SiteNav({ active, activeProject }: SiteNavProps) {
               <small>{project.code} · {project.status}</small>
             </a>
           ))}
+          <a
+            className={`project-menu-item${toolsActive ? " is-active" : ""}`}
+            href="/tools"
+            aria-current={active === "tools" ? "page" : toolsActive ? "location" : undefined}
+          >
+            <span>{String(menuProjects.length + 1).padStart(2, "0")}</span>
+            <strong>实用工具</strong>
+            <small>UTILITIES</small>
+          </a>
         </div>
       </details>
     </nav>
